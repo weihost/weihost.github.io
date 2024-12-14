@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name="msvalidate.01" content="AE8B53CE2030963F6CDABD8D64747041" /><meta name='description' content="前言 此篇介紹如何使用windows環境架設官方minecraft伺服器。 安裝JAVA 下載並安裝 👆JAVA👆 點網址開始下載 下一步 下一步 按close即可 到官網下載伺服器檔案 到👆minecraft官網👆下載伺服器檔案 下載的檔案放到單獨的資料夾 將下載的 server.jar 放到單獨的資料夾中(名字不能是中文) 建立啟動檔案 建立啟動檔案 打開 Windows 的記事本，先貼上下面這串指令，將存檔類型改成所有檔案，並將檔案名稱命名為 run.bat，儲存到有 server.jar 的資料夾中，最後點擊存檔 1 java -Xmx1024M -Xms1024M -jar server.jar nogui 啟動伺服器 雙點擊 run.bat 來啟動伺服器，初次啟動時會先初始化，也會產生一些檔案。伺服器在 eula.txt 檔案出現後會自動關閉，這時我們可以用文字編輯器來打開 eula.txt 完成 我們先等待所有的 Preparing spawn area 都跑完後，會出現 Done! For help, type “help” 訊息，這代表伺服器已經準備好，我們可以連線進去玩了 ! 開啟minecraft 選擇多人遊戲 選擇新增伺服器 伺服器位址中輸入 127.0.0.1(本地電腦ip)，再點擊完成 選取你的伺服器並點擊加入伺服器，即可進入伺服器 補充 如果想要開放給不是正版的人遊玩的話就需要做此步驟 到伺服器檔案中找到server.properties的檔案，右鍵點擊開啟檔案(使用自己喜歡的文字編輯器) 找到online-mode這行，把它改成false，並重新啟動伺服器就可開心地遊玩拉~">
+<title>如何在windows架設minecraft伺服器</title>
+
+<link rel='canonical' href='https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/'>
+
+<link rel="stylesheet" href="/scss/style.min.f116c57ca916675ff1f8441af9fea8eac04af3c755c1da2a26a73b8bbeda7ee1.css"><script defer src="https://cloud.umami.is/script.js" data-website-id="503f2c42-47bf-4084-8316-d0fa71c5a881"></script><meta property='og:title' content="如何在windows架設minecraft伺服器">
+<meta property='og:description' content="前言 此篇介紹如何使用windows環境架設官方minecraft伺服器。 安裝JAVA 下載並安裝 👆JAVA👆 點網址開始下載 下一步 下一步 按close即可 到官網下載伺服器檔案 到👆minecraft官網👆下載伺服器檔案 下載的檔案放到單獨的資料夾 將下載的 server.jar 放到單獨的資料夾中(名字不能是中文) 建立啟動檔案 建立啟動檔案 打開 Windows 的記事本，先貼上下面這串指令，將存檔類型改成所有檔案，並將檔案名稱命名為 run.bat，儲存到有 server.jar 的資料夾中，最後點擊存檔 1 java -Xmx1024M -Xms1024M -jar server.jar nogui 啟動伺服器 雙點擊 run.bat 來啟動伺服器，初次啟動時會先初始化，也會產生一些檔案。伺服器在 eula.txt 檔案出現後會自動關閉，這時我們可以用文字編輯器來打開 eula.txt 完成 我們先等待所有的 Preparing spawn area 都跑完後，會出現 Done! For help, type “help” 訊息，這代表伺服器已經準備好，我們可以連線進去玩了 ! 開啟minecraft 選擇多人遊戲 選擇新增伺服器 伺服器位址中輸入 127.0.0.1(本地電腦ip)，再點擊完成 選取你的伺服器並點擊加入伺服器，即可進入伺服器 補充 如果想要開放給不是正版的人遊玩的話就需要做此步驟 到伺服器檔案中找到server.properties的檔案，右鍵點擊開啟檔案(使用自己喜歡的文字編輯器) 找到online-mode這行，把它改成false，並重新啟動伺服器就可開心地遊玩拉~">
+<meta property='og:url' content='https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/'>
+<meta property='og:site_name' content='wei&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-08-15T03:32:37&#43;08:00'/><meta property='article:modified_time' content='2024-08-15T03:32:37&#43;08:00'/><meta property='og:image' content='https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/minecraft.jpg' />
+<meta name="twitter:title" content="如何在windows架設minecraft伺服器">
+<meta name="twitter:description" content="前言 此篇介紹如何使用windows環境架設官方minecraft伺服器。 安裝JAVA 下載並安裝 👆JAVA👆 點網址開始下載 下一步 下一步 按close即可 到官網下載伺服器檔案 到👆minecraft官網👆下載伺服器檔案 下載的檔案放到單獨的資料夾 將下載的 server.jar 放到單獨的資料夾中(名字不能是中文) 建立啟動檔案 建立啟動檔案 打開 Windows 的記事本，先貼上下面這串指令，將存檔類型改成所有檔案，並將檔案名稱命名為 run.bat，儲存到有 server.jar 的資料夾中，最後點擊存檔 1 java -Xmx1024M -Xms1024M -jar server.jar nogui 啟動伺服器 雙點擊 run.bat 來啟動伺服器，初次啟動時會先初始化，也會產生一些檔案。伺服器在 eula.txt 檔案出現後會自動關閉，這時我們可以用文字編輯器來打開 eula.txt 完成 我們先等待所有的 Preparing spawn area 都跑完後，會出現 Done! For help, type “help” 訊息，這代表伺服器已經準備好，我們可以連線進去玩了 ! 開啟minecraft 選擇多人遊戲 選擇新增伺服器 伺服器位址中輸入 127.0.0.1(本地電腦ip)，再點擊完成 選取你的伺服器並點擊加入伺服器，即可進入伺服器 補充 如果想要開放給不是正版的人遊玩的話就需要做此步驟 到伺服器檔案中找到server.properties的檔案，右鍵點擊開啟檔案(使用自己喜歡的文字編輯器) 找到online-mode這行，把它改成false，並重新啟動伺服器就可開心地遊玩拉~"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/minecraft.jpg' />
+    <link rel="shortcut icon" href="/img/logo.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#安裝java">安裝JAVA</a>
+      <ol>
+        <li><a href="#下一步">下一步</a></li>
+        <li><a href="#下一步-1">下一步</a></li>
+        <li><a href="#按close即可">按close即可</a></li>
+      </ol>
+    </li>
+    <li><a href="#到官網下載伺服器檔案">到官網下載伺服器檔案</a></li>
+    <li><a href="#下載的檔案放到單獨的資料夾">下載的檔案放到單獨的資料夾</a></li>
+    <li><a href="#建立啟動檔案">建立啟動檔案</a></li>
+    <li><a href="#啟動伺服器">啟動伺服器</a></li>
+    <li><a href="#完成">完成</a></li>
+    <li><a href="#開啟minecraft">開啟minecraft</a></li>
+    <li><a href="#補充">補充</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/">
+                <img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/minecraft_hud16aab000ad32c6aa6ae64d4ea82e1c3_436348_800x0_resize_q75_box.jpg"
+                        srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/minecraft_hud16aab000ad32c6aa6ae64d4ea82e1c3_436348_800x0_resize_q75_box.jpg 800w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/minecraft_hud16aab000ad32c6aa6ae64d4ea82e1c3_436348_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="450" 
+                        loading="lazy"
+                        alt="Featured image of post 如何在windows架設minecraft伺服器" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/windows/" style="background-color: #2a9d8f; color: #fff;">
+                windows
+            </a>
+        
+            <a href="/categories/%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8/" style="background-color: #2a9d8f; color: #fff;">
+                遊戲伺服器
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/">如何在windows架設minecraft伺服器</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 15, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="前言">前言
+</h2><p>此篇介紹如何使用windows環境架設官方minecraft伺服器。</p>
+<h2 id="安裝java">安裝JAVA
+</h2><p><strong>下載並安裝</strong>
+👆<a class="link" href="https://www.oracle.com/java/technologies/downloads/#jdk22-windows"  target="_blank" rel="noopener"
+    >JAVA</a>👆
+<em>點網址開始下載</em></p>
+<p><img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/4257998626.png"
+	width="2551"
+	height="1184"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/4257998626_hub33a28baed22846356b98a23ad3d561c_230274_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/4257998626_hub33a28baed22846356b98a23ad3d561c_230274_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="215"
+		data-flex-basis="517px"
+	
+></p>
+<h3 id="下一步">下一步
+</h3><p><img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1442633877.png"
+	width="913"
+	height="711"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1442633877_hud331fa04d52c9b7fe1a46a63446e9346_52054_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1442633877_hud331fa04d52c9b7fe1a46a63446e9346_52054_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="128"
+		data-flex-basis="308px"
+	
+></p>
+<h3 id="下一步-1">下一步
+</h3><p><img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2773565336.png"
+	width="894"
+	height="690"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2773565336_hu81b1ddaf20c8938ab6294a02b58db630_55897_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2773565336_hu81b1ddaf20c8938ab6294a02b58db630_55897_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="129"
+		data-flex-basis="310px"
+	
+></p>
+<h3 id="按close即可">按close即可
+</h3><p><img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1365441950.png"
+	width="904"
+	height="720"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1365441950_hu8da36d165856c464a98e8b36b043c0b6_54989_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1365441950_hu8da36d165856c464a98e8b36b043c0b6_54989_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="125"
+		data-flex-basis="301px"
+	
+></p>
+<h2 id="到官網下載伺服器檔案">到官網下載伺服器檔案
+</h2><p><strong>到👆<a class="link" href="https://www.minecraft.net/en-us/download/server"  target="_blank" rel="noopener"
+    >minecraft官網</a>👆下載伺服器檔案</strong>
+<img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1062645312.png"
+	width="2560"
+	height="1183"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1062645312_hu7e0eeabe81ed7a65bcba085bf3ebbbd4_228580_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1062645312_hu7e0eeabe81ed7a65bcba085bf3ebbbd4_228580_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="216"
+		data-flex-basis="519px"
+	
+></p>
+<h2 id="下載的檔案放到單獨的資料夾">下載的檔案放到單獨的資料夾
+</h2><p><strong>將下載的 server.jar 放到單獨的資料夾中(名字不能是中文)</strong>
+<img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3878743257.png"
+	width="1958"
+	height="943"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3878743257_huabaf29f8640a0887f826640c5d362f9f_101076_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3878743257_huabaf29f8640a0887f826640c5d362f9f_101076_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="207"
+		data-flex-basis="498px"
+	
+></p>
+<h2 id="建立啟動檔案">建立啟動檔案
+</h2><p><strong>建立啟動檔案</strong>
+打開 Windows 的記事本，先貼上下面這串指令，將存檔類型改成所有檔案，並將檔案名稱命名為 run.bat，儲存到有 server.jar 的資料夾中，最後點擊存檔
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">java -Xmx1024M -Xms1024M -jar server.jar nogui</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p><img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2144257061.png"
+	width="759"
+	height="383"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2144257061_huecd45007a601d29fb44d75b5c5499dd3_30483_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2144257061_huecd45007a601d29fb44d75b5c5499dd3_30483_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="475px"
+	
+>
+<img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2083872685.png"
+	width="1156"
+	height="817"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2083872685_hu6ca9c25c989398c6c1dd5275685b9b80_79670_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2083872685_hu6ca9c25c989398c6c1dd5275685b9b80_79670_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="141"
+		data-flex-basis="339px"
+	
+></p>
+<h2 id="啟動伺服器">啟動伺服器
+</h2><p><strong>雙點擊 run.bat 來啟動伺服器，初次啟動時會先初始化，也會產生一些檔案。伺服器在 eula.txt 檔案出現後會自動關閉，這時我們可以用文字編輯器來打開 eula.txt</strong>
+<img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2894659851.png"
+	width="1958"
+	height="941"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2894659851_hud1815e304c6aff29f44e0238140705f9_128897_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2894659851_hud1815e304c6aff29f44e0238140705f9_128897_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="208"
+		data-flex-basis="499px"
+	
+>
+<img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1266046122.png"
+	width="1697"
+	height="292"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1266046122_huc18f07464d0bb7d2495d9262f66d7880_34446_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1266046122_huc18f07464d0bb7d2495d9262f66d7880_34446_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="581"
+		data-flex-basis="1394px"
+	
+></p>
+<h2 id="完成">完成
+</h2><p><strong>我們先等待所有的 Preparing spawn area 都跑完後，會出現 Done! For help, type “help” 訊息，這代表伺服器已經準備好，我們可以連線進去玩了 !</strong>
+<img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3314559782.png"
+	width="1733"
+	height="887"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3314559782_hu3b041cad40fc69b5f2ab900ea430877c_211862_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3314559782_hu3b041cad40fc69b5f2ab900ea430877c_211862_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="195"
+		data-flex-basis="468px"
+	
+></p>
+<h2 id="開啟minecraft">開啟minecraft
+</h2><p>選擇多人遊戲</p>
+<p><img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1424839977.png"
+	width="2560"
+	height="1321"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1424839977_hud6c2b0fd612c5c4f9a6871f01b4c4b72_2517502_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1424839977_hud6c2b0fd612c5c4f9a6871f01b4c4b72_2517502_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="193"
+		data-flex-basis="465px"
+	
+></p>
+<p>選擇新增伺服器</p>
+<p><img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1418865756.png"
+	width="2560"
+	height="1314"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1418865756_hu985ff92090f248c37c3407ac142a62b3_1786764_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1418865756_hu985ff92090f248c37c3407ac142a62b3_1786764_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="194"
+		data-flex-basis="467px"
+	
+></p>
+<p>伺服器位址中輸入 127.0.0.1(本地電腦ip)，再點擊完成</p>
+<p><img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1816429538.png"
+	width="2560"
+	height="1317"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1816429538_hue160d0a1ccce7ecfed0a14b9d40d2d71_1783571_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1816429538_hue160d0a1ccce7ecfed0a14b9d40d2d71_1783571_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="194"
+		data-flex-basis="466px"
+	
+></p>
+<p>選取你的伺服器並點擊加入伺服器，即可進入伺服器</p>
+<p><img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1239062799.png"
+	width="2560"
+	height="1331"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1239062799_huf35dc2c5ce7f7808cedeeddb6e6c1ec6_1500812_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1239062799_huf35dc2c5ce7f7808cedeeddb6e6c1ec6_1500812_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="192"
+		data-flex-basis="461px"
+	
+></p>
+<h2 id="補充">補充
+</h2><p><strong>如果想要開放給不是正版的人遊玩的話就需要做此步驟</strong>
+到伺服器檔案中找到server.properties的檔案，右鍵點擊開啟檔案(使用自己喜歡的文字編輯器)</p>
+<p><img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2756626940.png"
+	width="1960"
+	height="954"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2756626940_hu748d9324e4a8a42717e20c588c50270e_160152_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2756626940_hu748d9324e4a8a42717e20c588c50270e_160152_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="205"
+		data-flex-basis="493px"
+	
+>
+找到online-mode這行，把它改成false，並重新啟動伺服器就可開心地遊玩拉~</p>
+<p><img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1950297165.png"
+	width="1494"
+	height="1128"
+	srcset="/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1950297165_hua3390fc8449875462f34a42806a42734_201344_480x0_resize_box_3.png 480w, /p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1950297165_hua3390fc8449875462f34a42806a42734_201344_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="317px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相關文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級-路由設定"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級-路由設定</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級-windows設定"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級-windows設定</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級part-2"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級part-2</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級part-1"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級part-1</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/">
+        
+        
+            <div class="article-image">
+                <img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/deneo.b2dd6a44e1f9c1c77f2af0333d2b5f36_hu4587be4c28c35d967758366aed21ed1c_163757_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post LINE地震速報"
+                        
+                        data-hash="md5-st1qROH5wcd/KvAzPStfNg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">LINE地震速報</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 WEI&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+         <br />
+        
+    </section>
+    <section class="running-time">
+        本網站已經穩定運行
+        <span id="runningdays" class="running-days"></span>
+    </section>
+    <section class="totalcount">
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        發表了16篇文章 · 
+        總共1.86k字
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-15'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小時" + minutes + "分鐘";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+
+    </body>
+    
+</html>
+

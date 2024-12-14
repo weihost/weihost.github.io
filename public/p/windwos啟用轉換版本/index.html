@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name="msvalidate.01" content="AE8B53CE2030963F6CDABD8D64747041" /><meta name='description' content="前言 本篇介紹如何使用kms啟用Windows 第一種方式 使用bat檔案啟用 下載👆腳本檔案👆 滑鼠右鍵以🛡️系統管理員身分🛡️執行 如果跳出Windows以保護您的電腦按 其他資訊&ndash;&gt;扔要執行 完成 第二種方式 使用cmd指令來完成 按下 windows搜尋cmd並以系統管理員身分執行 照順序輸入 1 2 3 4 cd C:\\Windows\\System32 cscript slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX cscript slmgr.vbs /skms jameshost.org cscript slmgr.vbs /ato 補充 請自行替換第二行指令，其他請參考微軟官方。 作業系統版本 用戶端產品金鑰 Windows 10/11 專業版 W269N-WFGWX-YVC9B-4J6C9-T83GX Windows 10/11 家用版 TX9XD-98N7V-6WMQ6-BX7FG-H8Q99 Windows 10/11 專業版 N MH37W-N47XK-V7XM9-C7227-GCQG9 Windows 10/11 工作站專業版 NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J Windows 10/11 工作站專業版 N 9FNHH-K3HBT-3W4TD-6383H-6XYWF Windows 10/11 專業教育版 6TP4R-GNPTD-KYYHQ-7B7DP-J447Y Windows 10/11 專業教育版 N YVWGF-BXNMC-HTQYQ-CPQ99-66QFC Windows 10/11 教育版 NW6C2-QMPVW-D7KKK-3GKT6-VCFB2 Windows 10/11 教育版 N 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ Windows 10/11 企業版 NPPR9-FWDCX-D2C8J-H872K-2YT43 Windows 10/11 企業版 N DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4 Windows 10/11 企業版 G YYVX9-NTFWV-6MDM3-9PT4T-4M68B Windows 10/11 企業版 G N 44RPN-FTY23-9VTTB-MP9BX-T84FV 如果想轉換版本 使用bat檔案啟用 下載👆腳本檔案👆，滑鼠右鍵以🛡️系統管理員身分🛡️執行">
+<title>Windwos啟用&amp;轉換版本</title>
+
+<link rel='canonical' href='https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/'>
+
+<link rel="stylesheet" href="/scss/style.min.f116c57ca916675ff1f8441af9fea8eac04af3c755c1da2a26a73b8bbeda7ee1.css"><script defer src="https://cloud.umami.is/script.js" data-website-id="503f2c42-47bf-4084-8316-d0fa71c5a881"></script><meta property='og:title' content="Windwos啟用&轉換版本">
+<meta property='og:description' content="前言 本篇介紹如何使用kms啟用Windows 第一種方式 使用bat檔案啟用 下載👆腳本檔案👆 滑鼠右鍵以🛡️系統管理員身分🛡️執行 如果跳出Windows以保護您的電腦按 其他資訊&ndash;&gt;扔要執行 完成 第二種方式 使用cmd指令來完成 按下 windows搜尋cmd並以系統管理員身分執行 照順序輸入 1 2 3 4 cd C:\\Windows\\System32 cscript slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX cscript slmgr.vbs /skms jameshost.org cscript slmgr.vbs /ato 補充 請自行替換第二行指令，其他請參考微軟官方。 作業系統版本 用戶端產品金鑰 Windows 10/11 專業版 W269N-WFGWX-YVC9B-4J6C9-T83GX Windows 10/11 家用版 TX9XD-98N7V-6WMQ6-BX7FG-H8Q99 Windows 10/11 專業版 N MH37W-N47XK-V7XM9-C7227-GCQG9 Windows 10/11 工作站專業版 NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J Windows 10/11 工作站專業版 N 9FNHH-K3HBT-3W4TD-6383H-6XYWF Windows 10/11 專業教育版 6TP4R-GNPTD-KYYHQ-7B7DP-J447Y Windows 10/11 專業教育版 N YVWGF-BXNMC-HTQYQ-CPQ99-66QFC Windows 10/11 教育版 NW6C2-QMPVW-D7KKK-3GKT6-VCFB2 Windows 10/11 教育版 N 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ Windows 10/11 企業版 NPPR9-FWDCX-D2C8J-H872K-2YT43 Windows 10/11 企業版 N DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4 Windows 10/11 企業版 G YYVX9-NTFWV-6MDM3-9PT4T-4M68B Windows 10/11 企業版 G N 44RPN-FTY23-9VTTB-MP9BX-T84FV 如果想轉換版本 使用bat檔案啟用 下載👆腳本檔案👆，滑鼠右鍵以🛡️系統管理員身分🛡️執行">
+<meta property='og:url' content='https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/'>
+<meta property='og:site_name' content='wei&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='kms' /><meta property='article:published_time' content='2024-08-17T05:15:42&#43;08:00'/><meta property='article:modified_time' content='2024-08-17T05:15:42&#43;08:00'/><meta property='og:image' content='https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/Microsoft-Windows-11-Wallpaper.jpg' />
+<meta name="twitter:title" content="Windwos啟用&轉換版本">
+<meta name="twitter:description" content="前言 本篇介紹如何使用kms啟用Windows 第一種方式 使用bat檔案啟用 下載👆腳本檔案👆 滑鼠右鍵以🛡️系統管理員身分🛡️執行 如果跳出Windows以保護您的電腦按 其他資訊&ndash;&gt;扔要執行 完成 第二種方式 使用cmd指令來完成 按下 windows搜尋cmd並以系統管理員身分執行 照順序輸入 1 2 3 4 cd C:\\Windows\\System32 cscript slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX cscript slmgr.vbs /skms jameshost.org cscript slmgr.vbs /ato 補充 請自行替換第二行指令，其他請參考微軟官方。 作業系統版本 用戶端產品金鑰 Windows 10/11 專業版 W269N-WFGWX-YVC9B-4J6C9-T83GX Windows 10/11 家用版 TX9XD-98N7V-6WMQ6-BX7FG-H8Q99 Windows 10/11 專業版 N MH37W-N47XK-V7XM9-C7227-GCQG9 Windows 10/11 工作站專業版 NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J Windows 10/11 工作站專業版 N 9FNHH-K3HBT-3W4TD-6383H-6XYWF Windows 10/11 專業教育版 6TP4R-GNPTD-KYYHQ-7B7DP-J447Y Windows 10/11 專業教育版 N YVWGF-BXNMC-HTQYQ-CPQ99-66QFC Windows 10/11 教育版 NW6C2-QMPVW-D7KKK-3GKT6-VCFB2 Windows 10/11 教育版 N 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ Windows 10/11 企業版 NPPR9-FWDCX-D2C8J-H872K-2YT43 Windows 10/11 企業版 N DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4 Windows 10/11 企業版 G YYVX9-NTFWV-6MDM3-9PT4T-4M68B Windows 10/11 企業版 G N 44RPN-FTY23-9VTTB-MP9BX-T84FV 如果想轉換版本 使用bat檔案啟用 下載👆腳本檔案👆，滑鼠右鍵以🛡️系統管理員身分🛡️執行"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/Microsoft-Windows-11-Wallpaper.jpg' />
+    <link rel="shortcut icon" href="/img/logo.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#第一種方式">第一種方式</a></li>
+    <li><a href="#第二種方式">第二種方式</a>
+      <ol>
+        <li><a href="#照順序輸入">照順序輸入</a></li>
+      </ol>
+    </li>
+    <li><a href="#補充">補充</a></li>
+    <li><a href="#如果想轉換版本">如果想轉換版本</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/">
+                <img src="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/Microsoft-Windows-11-Wallpaper_hu2f83a6d7ba260e99a746c2ea463cb6d3_713091_800x0_resize_q75_box.jpg"
+                        srcset="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/Microsoft-Windows-11-Wallpaper_hu2f83a6d7ba260e99a746c2ea463cb6d3_713091_800x0_resize_q75_box.jpg 800w, /p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/Microsoft-Windows-11-Wallpaper_hu2f83a6d7ba260e99a746c2ea463cb6d3_713091_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="450" 
+                        loading="lazy"
+                        alt="Featured image of post Windwos啟用&amp;轉換版本" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/windows/" style="background-color: #2a9d8f; color: #fff;">
+                windows
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/">Windwos啟用&amp;轉換版本</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 17, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="前言">前言
+</h2><p>本篇介紹如何使用kms啟用Windows</p>
+<blockquote>
+<h2 id="第一種方式">第一種方式
+</h2><p>使用bat檔案啟用
+下載👆<a class="link" href="https://github.com/james788875/windwos/archive/refs/heads/main.zip"  target="_blank" rel="noopener"
+    >腳本檔案</a>👆</p>
+</blockquote>
+<p>滑鼠右鍵以<code>🛡️系統管理員身分🛡️</code>執行</p>
+<p>如果跳出<code>Windows以保護您的電腦</code>按 其他資訊&ndash;&gt;扔要執行</p>
+<p><img src="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/script.png"
+	width="1059"
+	height="652"
+	srcset="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/script_hufef5b7926c24e68f487f61e30e85bec5_77329_480x0_resize_box_3.png 480w, /p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/script_hufef5b7926c24e68f487f61e30e85bec5_77329_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="162"
+		data-flex-basis="389px"
+	
+>
+<img src="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/go.png"
+	width="525"
+	height="493"
+	srcset="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/go_hufaadb11410052922a22fbb3b60654946_24122_480x0_resize_box_3.png 480w, /p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/go_hufaadb11410052922a22fbb3b60654946_24122_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="106"
+		data-flex-basis="255px"
+	
+></p>
+<blockquote>
+<p>完成</p>
+</blockquote>
+<p><img src="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/done.png"
+	width="805"
+	height="250"
+	srcset="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/done_huffa8eb8a11c63ca6f22040f41a26ff69_9031_480x0_resize_box_3.png 480w, /p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/done_huffa8eb8a11c63ca6f22040f41a26ff69_9031_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="322"
+		data-flex-basis="772px"
+	
+></p>
+<hr>
+<blockquote>
+<h2 id="第二種方式">第二種方式
+</h2><p>使用cmd指令來完成
+按下 <code>windows</code>搜尋<code>cmd</code>並<code>以系統管理員身分執行</code>
+<img src="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/search.png"
+	width="769"
+	height="720"
+	srcset="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/search_hue7b02f9f488499c8acf8bd3ea285b49b_345148_480x0_resize_box_3.png 480w, /p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/search_hue7b02f9f488499c8acf8bd3ea285b49b_345148_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="106"
+		data-flex-basis="256px"
+	
+></p>
+</blockquote>
+<hr>
+<h3 id="照順序輸入">照順序輸入
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">cd C:\Windows\System32
+</span></span><span class="line"><span class="cl">cscript slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+</span></span><span class="line"><span class="cl">cscript slmgr.vbs /skms jameshost.org
+</span></span><span class="line"><span class="cl">cscript slmgr.vbs /ato</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="補充">補充
+</h2><ul>
+<li>請自行替換<code>第二行</code>指令，其他請參考<a class="link" href="https://learn.microsoft.com/zh-tw/windows-server/get-started/kms-client-activation-keys?tabs=server2022%2Cwindows10ltsc%2Cversion1803%2Cwindows81"  target="_blank" rel="noopener"
+    >微軟官方</a>。</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>作業系統版本</th>
+<th>用戶端產品金鑰</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows 10/11 專業版</td>
+<td><code>W269N-WFGWX-YVC9B-4J6C9-T83GX</code></td>
+</tr>
+<tr>
+<td>Windows 10/11 家用版</td>
+<td><code>TX9XD-98N7V-6WMQ6-BX7FG-H8Q99</code></td>
+</tr>
+<tr>
+<td>Windows 10/11 專業版 N</td>
+<td><code>MH37W-N47XK-V7XM9-C7227-GCQG9</code></td>
+</tr>
+<tr>
+<td>Windows 10/11 工作站專業版</td>
+<td><code>NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J</code></td>
+</tr>
+<tr>
+<td>Windows 10/11 工作站專業版 N</td>
+<td><code>9FNHH-K3HBT-3W4TD-6383H-6XYWF</code></td>
+</tr>
+<tr>
+<td>Windows 10/11 專業教育版</td>
+<td><code>6TP4R-GNPTD-KYYHQ-7B7DP-J447Y</code></td>
+</tr>
+<tr>
+<td>Windows 10/11 專業教育版 N</td>
+<td><code>YVWGF-BXNMC-HTQYQ-CPQ99-66QFC</code></td>
+</tr>
+<tr>
+<td>Windows 10/11 教育版</td>
+<td><code>NW6C2-QMPVW-D7KKK-3GKT6-VCFB2</code></td>
+</tr>
+<tr>
+<td>Windows 10/11 教育版 N</td>
+<td><code>2WH4N-8QGBV-H22JP-CT43Q-MDWWJ</code></td>
+</tr>
+<tr>
+<td>Windows 10/11 企業版</td>
+<td><code>NPPR9-FWDCX-D2C8J-H872K-2YT43</code></td>
+</tr>
+<tr>
+<td>Windows 10/11 企業版 N</td>
+<td><code>DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4</code></td>
+</tr>
+<tr>
+<td>Windows 10/11 企業版 G</td>
+<td><code>YYVX9-NTFWV-6MDM3-9PT4T-4M68B</code></td>
+</tr>
+<tr>
+<td>Windows 10/11 企業版 G N</td>
+<td><code>44RPN-FTY23-9VTTB-MP9BX-T84FV</code></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="如果想轉換版本">如果想轉換版本
+</h2><blockquote>
+<p>使用bat檔案啟用
+下載👆<a class="link" href="https://github.com/james788875/Switch/archive/refs/heads/main.zip"  target="_blank" rel="noopener"
+    >腳本檔案</a>👆，滑鼠右鍵以<code>🛡️系統管理員身分🛡️</code>執行</p>
+</blockquote>
+<ul>
+<li><code>1</code> Windows 10/11專業版</li>
+<li><code>2</code> Windows 10/11家用版</li>
+</ul>
+<p><img src="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/switch.png"
+	width="388"
+	height="233"
+	srcset="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/switch_hud3c69bfe296c0ddcaafb787226e75922_10534_480x0_resize_box_3.png 480w, /p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/switch_hud3c69bfe296c0ddcaafb787226e75922_10534_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="166"
+		data-flex-basis="399px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/kms/">Kms</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相關文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/office-header.22214226a4f5731cb82049b41745630d_hu6d1fcd840db6ce6a98a5ed8e9e8af1a1_52575_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 如何安裝Office並啟用"
+                        
+                        data-hash="md5-IiFCJqT1cxy4IEm0F0VjDQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">如何安裝Office並啟用</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級-路由設定"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級-路由設定</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級-windows設定"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級-windows設定</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級part-2"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級part-2</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級part-1"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級part-1</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 WEI&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+         <br />
+        
+    </section>
+    <section class="running-time">
+        本網站已經穩定運行
+        <span id="runningdays" class="running-days"></span>
+    </section>
+    <section class="totalcount">
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        發表了16篇文章 · 
+        總共1.86k字
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-15'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小時" + minutes + "分鐘";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+
+    </body>
+    
+</html>
+

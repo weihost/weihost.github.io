@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head>
+	<meta name="generator" content="Hugo 0.123.7"><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name="msvalidate.01" content="AE8B53CE2030963F6CDABD8D64747041" /><meta name='description' content="嗨 ! 我是阿威，我在這裡紀錄我平常在做些什麼。">
+<title>Pager 3 - wei&#39;s Blog</title>
+
+<link rel='canonical' href='https://blog.jameshost.org/'>
+
+<link rel="stylesheet" href="/scss/style.min.f116c57ca916675ff1f8441af9fea8eac04af3c755c1da2a26a73b8bbeda7ee1.css"><script defer src="https://cloud.umami.is/script.js" data-website-id="503f2c42-47bf-4084-8316-d0fa71c5a881"></script><meta property='og:title' content="wei's Blog">
+<meta property='og:description' content="嗨 ! 我是阿威，我在這裡紀錄我平常在做些什麼。">
+<meta property='og:url' content='https://blog.jameshost.org/'>
+<meta property='og:site_name' content='wei&#39;s Blog'>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2024-12-07T03:51:43&#43;08:00 '/>
+<meta name="twitter:title" content="wei's Blog">
+<meta name="twitter:description" content="嗨 ! 我是阿威，我在這裡紀錄我平常在做些什麼。"><link rel="alternate" type="application/rss&#43;xml" href="https://blog.jameshost.org/index.xml">
+    <link rel="shortcut icon" href="/img/logo.png" />
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切換選單">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu8b8ed160c09cc9167ca1fb4987f3490f_7048_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">❤️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">wei&#39;s Blog</a></h1>
+            <h2 class="site-description">嗨 ! 我是阿威，我在這裡紀錄我平常在做些什麼。</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/james788875'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.instagram.com/su__tw87/'
+                        target="_blank"
+                        title="instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z"/><rect width="16" height="16" x="4" y="4" rx="4"/><circle cx="12" cy="12" r="3"/><path d="M16.5 7.5v.001"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li  class='current' >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主頁</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%97%9C%E6%96%BC/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>關於</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>文章</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜尋</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%80%A3%E7%B5%90/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>連結</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>夜晚模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                <form action="/search/" class="search-form widget" >
+        <p>
+            <label>搜尋</label>
+            <input name="keyword" required placeholder="輸入關鍵字..." />
+        
+            <button title="搜尋">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+            </button>
+        </p>
+    </form>
+            
+        
+            
+                <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">紀錄</h2>
+
+        
+        
+        
+        
+        
+        <div class="widget-archive--list">
+            <div class="archives-year">
+                    <a href="/archives/#2024">
+                        
+                            <span class="year">2024</span>
+                            <span class="count">16</span>
+                        
+                    </a> 
+                </div>
+            
+        </div>
+    </section>
+            
+        
+            
+                <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">分類</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/categories/linux/" class="font_size_8">
+                linux
+            </a>
+        
+            <a href="/categories/windows/" class="font_size_8">
+                windows
+            </a>
+        
+            <a href="/categories/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/" class="font_size_4">
+                電腦硬體裝修乙級
+            </a>
+        
+            <a href="/categories/pve/" class="font_size_2">
+                Pve
+            </a>
+        
+            <a href="/categories/%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8/" class="font_size_1">
+                遊戲伺服器
+            </a>
+        
+    </div>
+</section>
+
+            
+        
+            
+                <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">標籤雲</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/tags/linux/" class="font_size_8">
+                Linux
+            </a>
+        
+            <a href="/tags/school/" class="font_size_4">
+                School
+            </a>
+        
+            <a href="/tags/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/" class="font_size_4">
+                電腦硬體裝修乙級
+            </a>
+        
+            <a href="/tags/kms/" class="font_size_2">
+                Kms
+            </a>
+        
+            <a href="/tags/website/" class="font_size_1">
+                Website
+            </a>
+        
+            <a href="/tags/%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/" class="font_size_1">
+                地震速報
+            </a>
+        
+            <a href="/tags/%E9%8C%AF%E8%AA%A4%E4%BF%AE%E5%BE%A9/" class="font_size_1">
+                錯誤修復
+            </a>
+        
+    </div>
+</section>
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    
+    
+    
+    
+    <div class="welcome">
+        <p style="font-size: 2rem; text-align: center; font-weight: bold">
+          <span class="shake">👋</span>
+          <span class="jump-text1" > 歡迎</span>
+          <span class="jump-text2"> 來到 </span>
+          <span class="jump-text3" style="color:#e99312">阿</span><span class="jump-text4" style="color:#e99312">威</span>
+          <span class="jump-text5" style="color:#e99312">'s </span><span class="jump-text6" style="color:#e99312"> </span>
+          <span class="jump-text7" style="color:#e99312">Blog</span>
+          
+        </p>
+      </div>
+    <section class="article-list">
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/">
+                <img src="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/nonono_huf743075a047fd124ae9e69fc7294cfa0_56832_800x0_resize_q75_box.jpg"
+                        srcset="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/nonono_huf743075a047fd124ae9e69fc7294cfa0_56832_800x0_resize_q75_box.jpg 800w, /p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/nonono_huf743075a047fd124ae9e69fc7294cfa0_56832_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="292" 
+                        loading="lazy"
+                        alt="Featured image of post 在linux架設KMS server" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" style="background-color: #2a9d8f; color: #fff;">
+                linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/">在linux架設KMS server</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 18, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/">
+                <img src="/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/cmd_hu7e977d6d7e346e1bf7c4c06f35d5a4f4_12768_800x0_resize_box_3.png"
+                        srcset="/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/cmd_hu7e977d6d7e346e1bf7c4c06f35d5a4f4_12768_800x0_resize_box_3.png 800w, /p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/cmd_hu7e977d6d7e346e1bf7c4c06f35d5a4f4_12768_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="450" 
+                        loading="lazy"
+                        alt="Featured image of post 使用Windows命令行ssh連結Linux" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" style="background-color: #2a9d8f; color: #fff;">
+                linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/">使用Windows命令行ssh連結Linux</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 18, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/">
+                <img src="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/Microsoft-Windows-11-Wallpaper_hu2f83a6d7ba260e99a746c2ea463cb6d3_713091_800x0_resize_q75_box.jpg"
+                        srcset="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/Microsoft-Windows-11-Wallpaper_hu2f83a6d7ba260e99a746c2ea463cb6d3_713091_800x0_resize_q75_box.jpg 800w, /p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/Microsoft-Windows-11-Wallpaper_hu2f83a6d7ba260e99a746c2ea463cb6d3_713091_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="450" 
+                        loading="lazy"
+                        alt="Featured image of post Windwos啟用&amp;轉換版本" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/windows/" style="background-color: #2a9d8f; color: #fff;">
+                windows
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/">Windwos啟用&amp;轉換版本</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 17, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+</article>
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/">
+                <img src="/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/office-header_hu6d1fcd840db6ce6a98a5ed8e9e8af1a1_52575_800x0_resize_q75_box.jpg"
+                        srcset="/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/office-header_hu6d1fcd840db6ce6a98a5ed8e9e8af1a1_52575_800x0_resize_q75_box.jpg 800w, /p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/office-header_hu6d1fcd840db6ce6a98a5ed8e9e8af1a1_52575_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="400" 
+                        loading="lazy"
+                        alt="Featured image of post 如何安裝Office並啟用" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/windows/" style="background-color: #2a9d8f; color: #fff;">
+                windows
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/">如何安裝Office並啟用</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 17, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+</article>
+        
+    </section>
+    <nav class='pagination'>
+        
+        
+
+        
+            
+                    <a class='page-link' href='/'>1</a>
+                
+            
+            
+                    <a class='page-link' href='/page/2/'>2</a>
+                
+            
+            
+                <span class='page-link current'>3</span>
+                
+            
+            
+                    <a class='page-link' href='/page/4/'>4</a>
+                
+            
+    </nav>
+
+<footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 WEI&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+         <br />
+        
+    </section>
+    <section class="running-time">
+        本網站已經穩定運行
+        <span id="runningdays" class="running-days"></span>
+    </section>
+    <section class="totalcount">
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        發表了16篇文章 · 
+        總共1.86k字
+    </section>
+</footer>
+<script>
+        
+    var coreSocialistValues = [
+        '❤️', '🧡', '💛', '💚', '💙', '💜',
+    ]
+        index = Math.floor(Math.random() * coreSocialistValues.length);
+    
+    document.addEventListener('click', (e)=>{
+        rx = Math.floor(Math.random()*50) - Math.floor(Math.random()*50);
+        ry = Math.floor(Math.random()*50) - Math.floor(Math.random()*50);
+        console.log(rx)
+        click(e.clientX+rx,e.clientY+ry)
+    });
+    
+    function click(x,y) {
+        console.log('click')
+        span = document.createElement('span');
+        span.textContent = coreSocialistValues[index];
+        index = (index + 1) % coreSocialistValues.length;
+        span.style.cssText = ['z-index: 9999999; position: absolute; font-size: 104px; font-weight: bold; color: white; top: ', y - 20, 'px; left: ', x, 'px;'].join('');
+        var col = ['#3ba9c2', '#e0635c']
+        Math.seed = 1999
+        var r = Math.floor(Math.random()*col.length)
+        span.style.color = col[r];
+        var font = ['15px', '20px', '25px']
+        var f = Math.floor(Math.random()*font.length)
+        span.style.fontSize = font[f]
+        document.body.appendChild(span);
+        animate(span);
+    }'e0635c'
+    
+    function animate(el) {
+        var i = 0,
+            top = parseInt(el.style.top),
+            id = setInterval(frame, 16.7);
+        function frame() {
+            if (i > 180) {
+                clearInterval(id);
+                el.parentNode.removeChild(el);
+            } else {
+                i += 2;
+                el.style.top = top - i + 'px';
+                el.style.opacity = (180 - i) / 180;
+            }
+        }
+    }
+    
+    </script>
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-15'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小時" + minutes + "分鐘";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+
+    </body>
+    
+</html>
+

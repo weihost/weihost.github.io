@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name="msvalidate.01" content="AE8B53CE2030963F6CDABD8D64747041" /><meta name='description' content="前言 本篇介紹如何讓LINE通知地震、LINE地震速報，原理是透過 地牛Wake Up! 來觸發執行檔案，並透過GAS傳到 Google Sheets 做紀錄。 原作者: 傳送門 需求 能24h開著的windows電腦 LINE帳號 耐心 流程 下載地牛Wake Up! 取得氣象署 API 取得Line Notify token 部屬GAS 下載BAT檔案 設定地牛Wake Up! 完成 如果你只想要發送通知不紀錄的話，跳到 6.取得Line Notify token ， 然後再跳到第15.製作執行檔，並填入Line Notify token就可以囉 ! 地牛Wake Up! 先安裝地牛Wake Up! 👆傳送門 👆 中央氣象署開放資料平臺註冊 到中央氣象署開放資料平臺👆傳送門👆註冊 取得授權碼 到中央氣象署開放資料平臺👆傳送門👆登入並取得授權碼 (CWA開頭的碼)，先複製保存後面才會用到。 取得Line Notify token 進入👆LINE Notify👆登入後選擇個人頁面 按下👆發行權杖👆 選擇要在哪裡發送訊息 複製tocken 先複製保存後面才會用到 GAS部署 先進入👆此連結👆 左上角檔案&ndash;&gt;建立副本 上方工具列擴充功能&ndash;&gt;Apps Script 設置 填入上面取得的氣象署API和Line Notify token 其他請自行設置 部屬 選擇新增部屬 存取 設定為所有人然後按下部署 複製網址 製作執行檔 先下載檔案👆點我下載👆，解壓縮後對檔案點右鍵&ndash;&gt;顯示其他選項&ndash;&gt;編輯，">
+<title>LINE地震速報</title>
+
+<link rel='canonical' href='https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/'>
+
+<link rel="stylesheet" href="/scss/style.min.f116c57ca916675ff1f8441af9fea8eac04af3c755c1da2a26a73b8bbeda7ee1.css"><script defer src="https://cloud.umami.is/script.js" data-website-id="503f2c42-47bf-4084-8316-d0fa71c5a881"></script><meta property='og:title' content="LINE地震速報">
+<meta property='og:description' content="前言 本篇介紹如何讓LINE通知地震、LINE地震速報，原理是透過 地牛Wake Up! 來觸發執行檔案，並透過GAS傳到 Google Sheets 做紀錄。 原作者: 傳送門 需求 能24h開著的windows電腦 LINE帳號 耐心 流程 下載地牛Wake Up! 取得氣象署 API 取得Line Notify token 部屬GAS 下載BAT檔案 設定地牛Wake Up! 完成 如果你只想要發送通知不紀錄的話，跳到 6.取得Line Notify token ， 然後再跳到第15.製作執行檔，並填入Line Notify token就可以囉 ! 地牛Wake Up! 先安裝地牛Wake Up! 👆傳送門 👆 中央氣象署開放資料平臺註冊 到中央氣象署開放資料平臺👆傳送門👆註冊 取得授權碼 到中央氣象署開放資料平臺👆傳送門👆登入並取得授權碼 (CWA開頭的碼)，先複製保存後面才會用到。 取得Line Notify token 進入👆LINE Notify👆登入後選擇個人頁面 按下👆發行權杖👆 選擇要在哪裡發送訊息 複製tocken 先複製保存後面才會用到 GAS部署 先進入👆此連結👆 左上角檔案&ndash;&gt;建立副本 上方工具列擴充功能&ndash;&gt;Apps Script 設置 填入上面取得的氣象署API和Line Notify token 其他請自行設置 部屬 選擇新增部屬 存取 設定為所有人然後按下部署 複製網址 製作執行檔 先下載檔案👆點我下載👆，解壓縮後對檔案點右鍵&ndash;&gt;顯示其他選項&ndash;&gt;編輯，">
+<meta property='og:url' content='https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/'>
+<meta property='og:site_name' content='wei&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='地震速報' /><meta property='article:published_time' content='2024-08-18T04:35:39&#43;08:00'/><meta property='article:modified_time' content='2024-08-18T04:35:39&#43;08:00'/><meta property='og:image' content='https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/deneo.png' />
+<meta name="twitter:title" content="LINE地震速報">
+<meta name="twitter:description" content="前言 本篇介紹如何讓LINE通知地震、LINE地震速報，原理是透過 地牛Wake Up! 來觸發執行檔案，並透過GAS傳到 Google Sheets 做紀錄。 原作者: 傳送門 需求 能24h開著的windows電腦 LINE帳號 耐心 流程 下載地牛Wake Up! 取得氣象署 API 取得Line Notify token 部屬GAS 下載BAT檔案 設定地牛Wake Up! 完成 如果你只想要發送通知不紀錄的話，跳到 6.取得Line Notify token ， 然後再跳到第15.製作執行檔，並填入Line Notify token就可以囉 ! 地牛Wake Up! 先安裝地牛Wake Up! 👆傳送門 👆 中央氣象署開放資料平臺註冊 到中央氣象署開放資料平臺👆傳送門👆註冊 取得授權碼 到中央氣象署開放資料平臺👆傳送門👆登入並取得授權碼 (CWA開頭的碼)，先複製保存後面才會用到。 取得Line Notify token 進入👆LINE Notify👆登入後選擇個人頁面 按下👆發行權杖👆 選擇要在哪裡發送訊息 複製tocken 先複製保存後面才會用到 GAS部署 先進入👆此連結👆 左上角檔案&ndash;&gt;建立副本 上方工具列擴充功能&ndash;&gt;Apps Script 設置 填入上面取得的氣象署API和Line Notify token 其他請自行設置 部屬 選擇新增部屬 存取 設定為所有人然後按下部署 複製網址 製作執行檔 先下載檔案👆點我下載👆，解壓縮後對檔案點右鍵&ndash;&gt;顯示其他選項&ndash;&gt;編輯，"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/deneo.png' />
+    <link rel="shortcut icon" href="/img/logo.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#需求">需求</a></li>
+    <li><a href="#流程">流程</a></li>
+    <li><a href="#地牛wake-up">地牛Wake Up!</a></li>
+    <li><a href="#中央氣象署開放資料平臺註冊">中央氣象署開放資料平臺註冊</a></li>
+    <li><a href="#取得授權碼">取得授權碼</a></li>
+    <li><a href="#取得line-notify-token">取得Line Notify token</a></li>
+    <li><a href="#按下發行權杖">按下👆發行權杖👆</a></li>
+    <li><a href="#選擇要在哪裡發送訊息">選擇要在哪裡發送訊息</a></li>
+    <li><a href="#複製tocken">複製tocken</a></li>
+    <li><a href="#gas部署">GAS部署</a></li>
+    <li><a href="#設置">設置</a></li>
+    <li><a href="#部屬">部屬</a></li>
+    <li><a href="#存取">存取</a></li>
+    <li><a href="#複製網址">複製網址</a></li>
+    <li><a href="#製作執行檔">製作執行檔</a></li>
+    <li><a href="#設定地牛">設定地牛</a></li>
+    <li><a href="#測試">測試</a></li>
+    <li><a href="#參考影片">參考影片</a></li>
+    <li><a href="#補充">補充</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/">
+                <img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/deneo_hu4587be4c28c35d967758366aed21ed1c_163757_800x0_resize_box_3.png"
+                        srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/deneo_hu4587be4c28c35d967758366aed21ed1c_163757_800x0_resize_box_3.png 800w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/deneo_hu4587be4c28c35d967758366aed21ed1c_163757_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="576" 
+                        loading="lazy"
+                        alt="Featured image of post LINE地震速報" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/windows/" style="background-color: #2a9d8f; color: #fff;">
+                windows
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/">LINE地震速報</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 18, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="前言">前言
+</h2><p>本篇介紹如何讓LINE通知地震、LINE地震速報，原理是透過 <strong>地牛Wake Up!</strong> 來觸發執行檔案，並透過GAS傳到 <strong>Google Sheets</strong> 做紀錄。</p>
+<p>原作者: <a class="link" href="https://www.youtube.com/watch?v=UTIfhd1JfbM&amp;t=1428s"  target="_blank" rel="noopener"
+    >傳送門</a></p>
+<hr>
+<blockquote>
+<h2 id="需求">需求
+</h2><ul>
+<li>能24h開著的windows電腦</li>
+<li>LINE帳號</li>
+<li>耐心</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<h2 id="流程">流程
+</h2><ul>
+<li>下載地牛Wake Up!</li>
+<li>取得氣象署 API</li>
+<li>取得Line Notify token</li>
+<li>部屬GAS</li>
+<li>下載BAT檔案</li>
+<li>設定地牛Wake Up!</li>
+<li>完成</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p>如果你只想要發送通知不紀錄的話，跳到 <code>6.取得Line Notify token</code> ，
+<br>
+然後再跳到第<code>15.製作執行檔</code>，並填入<strong>Line Notify token</strong>就可以囉 !</p>
+</blockquote>
+<hr>
+<h2 id="地牛wake-up">地牛Wake Up!
+</h2><p>先安裝<code>地牛Wake Up!</code> 👆<a class="link" href="https://eew.earthquake.tw/"  target="_blank" rel="noopener"
+    >傳送門</a> 👆</p>
+<p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/wakeup.png"
+	width="998"
+	height="715"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/wakeup_hu5382801c3eeb36c4c068d1fdcbc634f7_323781_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/wakeup_hu5382801c3eeb36c4c068d1fdcbc634f7_323781_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="139"
+		data-flex-basis="334px"
+	
+></p>
+<hr>
+<h2 id="中央氣象署開放資料平臺註冊">中央氣象署開放資料平臺註冊
+</h2><p>到中央氣象署開放資料平臺👆<a class="link" href="https://pweb.cwa.gov.tw/emember/register"  target="_blank" rel="noopener"
+    >傳送門</a>👆註冊</p>
+<p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/register.png"
+	width="1898"
+	height="912"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/register_hu650e38a296e495964183e1aac0023dfd_46630_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/register_hu650e38a296e495964183e1aac0023dfd_46630_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="208"
+		data-flex-basis="499px"
+	
+></p>
+<hr>
+<h2 id="取得授權碼">取得授權碼
+</h2><p>到中央氣象署開放資料平臺👆<a class="link" href="https://opendata.cwa.gov.tw/user/authkey"  target="_blank" rel="noopener"
+    >傳送門</a>👆登入並取得<code>授權碼</code> (<strong>CWA開頭的碼</strong>)，先<strong>複製保存</strong>後面才會用到。</p>
+<p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/ch.png"
+	width="1919"
+	height="921"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/ch_hu7fefb2ca1cb01e442405d9495e3e7988_380497_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/ch_hu7fefb2ca1cb01e442405d9495e3e7988_380497_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="208"
+		data-flex-basis="500px"
+	
+></p>
+<h2 id="取得line-notify-token">取得Line Notify token
+</h2><p>進入👆<a class="link" href="https://notify-bot.line.me/my/"  target="_blank" rel="noopener"
+    >LINE Notify</a>👆登入後選擇<code>個人頁面</code></p>
+<p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/me.png"
+	width="1919"
+	height="914"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/me_hu0de60e819b928503134b0a15309411a7_68465_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/me_hu0de60e819b928503134b0a15309411a7_68465_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="209"
+		data-flex-basis="503px"
+	
+></p>
+<h2 id="按下發行權杖">按下👆發行權杖👆
+</h2><p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fa.png"
+	width="1907"
+	height="917"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fa_hu5c28c5f57118ceb7f9a54002ca4eecc4_69623_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fa_hu5c28c5f57118ceb7f9a54002ca4eecc4_69623_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="207"
+		data-flex-basis="499px"
+	
+></p>
+<h2 id="選擇要在哪裡發送訊息">選擇要在哪裡發送訊息
+</h2><p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/select.png"
+	width="520"
+	height="761"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/select_hu3fb7d585dacffee820a07eb81331eb2c_34554_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/select_hu3fb7d585dacffee820a07eb81331eb2c_34554_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="68"
+		data-flex-basis="163px"
+	
+></p>
+<h2 id="複製tocken">複製tocken
+</h2><p>先<code>複製保存</code>後面才會用到</p>
+<p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/token.png"
+	width="518"
+	height="431"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/token_hu2878da71a3ff041d7af52bd656c380c0_10600_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/token_hu2878da71a3ff041d7af52bd656c380c0_10600_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="120"
+		data-flex-basis="288px"
+	
+></p>
+<hr>
+<h2 id="gas部署">GAS部署
+</h2><p>先進入👆<a class="link" href="https://docs.google.com/spreadsheets/d/1wtwCsSuMBpfxVKOMfKnK8nHms4uVHzgwA4MbSrAWG2Y/edit?gid=0#gid=0"  target="_blank" rel="noopener"
+    >此連結</a>👆</p>
+<p>左上角<code>檔案</code>&ndash;&gt;<code>建立副本</code></p>
+<p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fb.png"
+	width="1916"
+	height="922"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fb_hu99dec0357a52ea32cd34e0d10ada8c23_93354_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fb_hu99dec0357a52ea32cd34e0d10ada8c23_93354_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="207"
+		data-flex-basis="498px"
+	
+></p>
+<p>上方工具列<code>擴充功能</code>&ndash;&gt;<code>Apps Script</code></p>
+<p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/appsscript.png"
+	width="877"
+	height="444"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/appsscript_hu24086c64d03d78a875d4373e86591be3_44877_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/appsscript_hu24086c64d03d78a875d4373e86591be3_44877_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="474px"
+	
+></p>
+<h2 id="設置">設置
+</h2><p>填入上面取得的<code>氣象署API</code>和<code>Line Notify token</code>
+其他請<code>自行設置</code></p>
+<p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/tian.png"
+	width="872"
+	height="372"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/tian_hu92f272a30a6696c621dcdcd6d41fa180_62604_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/tian_hu92f272a30a6696c621dcdcd6d41fa180_62604_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="234"
+		data-flex-basis="562px"
+	
+></p>
+<h2 id="部屬">部屬
+</h2><p>選擇<code>新增部屬</code></p>
+<p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/bosu.png"
+	width="1905"
+	height="912"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/bosu_hu53a776bae75957daef0ed47d6025ebe8_199889_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/bosu_hu53a776bae75957daef0ed47d6025ebe8_199889_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="208"
+		data-flex-basis="501px"
+	
+></p>
+<h2 id="存取">存取
+</h2><p>設定為<code>所有人</code>然後按下<code>部署</code>
+<img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/sa.png"
+	width="753"
+	height="594"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/sa_hu49657e576069a86a1d24fd9f27713618_33957_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/sa_hu49657e576069a86a1d24fd9f27713618_33957_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="126"
+		data-flex-basis="304px"
+	
+></p>
+<h2 id="複製網址">複製網址
+</h2><p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/copy.png"
+	width="761"
+	height="599"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/copy_huf7c1c7c5310011a29336ceb97169fc7c_34381_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/copy_huf7c1c7c5310011a29336ceb97169fc7c_34381_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="304px"
+	
+></p>
+<h2 id="製作執行檔">製作執行檔
+</h2><p>先下載檔案👆<a class="link" href="https://github.com/james788875/earthquake/archive/refs/heads/main.zip"  target="_blank" rel="noopener"
+    >點我下載</a>👆，解壓縮後對檔案點<code>右鍵</code>&ndash;&gt;<code>顯示其他選項</code>&ndash;&gt;<code>編輯</code>，</p>
+<p>在紅線處分別填入<code>氣象署API</code>和<code>Line Notify token</code>，</p>
+<p>填入後記得 <kbd>CTRL</kbd>+<kbd>S</kbd> <code>保存</code>並退出。</p>
+<p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/aaaa.png"
+	width="1425"
+	height="718"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/aaaa_hu7e409831d53db9bcdd63e1e74d40bbd4_63224_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/aaaa_hu7e409831d53db9bcdd63e1e74d40bbd4_63224_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="476px"
+	
+></p>
+<h2 id="設定地牛">設定地牛
+</h2><p>到<code>地牛Wake Up!</code>的設定&ndash;&gt;其他<code>連動設定</code>選取你剛剛保存的<code>earthquake.bat</code></p>
+<p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/test.png"
+	width="999"
+	height="720"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/test_huf4bc9ea4af7acb5240c3fce4e34c7fef_244751_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/test_huf4bc9ea4af7acb5240c3fce4e34c7fef_244751_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="138"
+		data-flex-basis="333px"
+	
+></p>
+<h2 id="測試">測試
+</h2><p>按下<code>測試</code>，如果你的LINE有成功收到通知，</p>
+<p>同時打開你的<code>google sheet</code>也有紀錄，這說明你成功了 !✅</p>
+<p><img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/testtest.png"
+	width="1001"
+	height="718"
+	srcset="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/testtest_hu60173f403b2ed0feb7dd99890d826827_242079_480x0_resize_box_3.png 480w, /p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/testtest_hu60173f403b2ed0feb7dd99890d826827_242079_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="139"
+		data-flex-basis="334px"
+	
+></p>
+<h2 id="參考影片">參考影片
+</h2><div class="video-wrapper">
+    <iframe loading="lazy" 
+            src="https://www.youtube.com/embed/UTIfhd1JfbM" 
+            allowfullscreen 
+            title="YouTube Video"
+    >
+    </iframe>
+</div>
+
+<br>
+<h2 id="補充">補充
+</h2><p>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<code>更改了之後就無法再改回需要重灌才能解決</code>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+<blockquote>
+<p>如果傳送通知中文會變亂碼，需要更改windwos的設定，
+<br>
+控制台&ndash;&gt;時鐘和地區&ndash;&gt;變更日期、時間或數字格式&ndash;&gt;系統管理&ndash;&gt;🛡️變更系統地區設定&ndash;&gt;
+<br>把Beta Unicode UTF-8打勾✅</p>
+</blockquote>
+<p>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<code>更改了之後就無法再改回需要重灌才能解決</code>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/">地震速報</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相關文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級-路由設定"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級-路由設定</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級-windows設定"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級-windows設定</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級part-2"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級part-2</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級part-1"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級part-1</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/">
+        
+        
+            <div class="article-image">
+                <img src="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/_hu2f83a6d7ba260e99a746c2ea463cb6d3_713091_dd1ef2fe44e0ef4d88fd231ba16ba5d4.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Windwos啟用&amp;轉換版本"
+                        
+                        data-hash="md5-3/BYSa/yLJseDyMp87yzzQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Windwos啟用&amp;轉換版本</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 WEI&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+         <br />
+        
+    </section>
+    <section class="running-time">
+        本網站已經穩定運行
+        <span id="runningdays" class="running-days"></span>
+    </section>
+    <section class="totalcount">
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        發表了16篇文章 · 
+        總共1.86k字
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-15'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小時" + minutes + "分鐘";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+
+    </body>
+    
+</html>
+

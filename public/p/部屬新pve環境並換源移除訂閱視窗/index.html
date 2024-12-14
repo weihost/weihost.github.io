@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name="msvalidate.01" content="AE8B53CE2030963F6CDABD8D64747041" /><meta name='description' content="前言 最近想把我的機器重新弄一次順便紀錄一下我做了些什麼，這篇介紹如何安裝並初始化你的pve，包括刪除訂閱警告視窗、換pve源。 準備工作 2G 以上的隨身碟 下載寫入工具 👆rufus👆 下載👆Proxmox VE ISO👆 安裝PVE 選擇你的ISO和USB直接按下執行 設定第一啟動項 插入隨身碟到你的機器，打开 BIOS 界面，根據主機板的類型，設定第一啟動為隨身碟 請在BIOS中開啟VT-d和VT-x和SR-IOV每家主機板廠商開啟方式不一樣，這部份自己去google找關鍵字。 MSI主機板請參考這邊 圖片來源 安裝系統 安裝部分就自行設定。 設定 pve 瀏覽器你的機器 IP+端口：https://ip:8006 （注意是 HTTPS ），進入 PVE 管理界面。 換源 到shell視窗 方法一 使用腳本 複製直行即可 1 wget https://cloud.jameshost.org/d/script/yuan.sh?sign=hUWplOxT3d9w6UrV5ZYBccCDONsJ7pIcRvOftUm0eF8=:0 -O yuan.sh &amp;&amp; chmod +x yuan.sh &amp;&amp; ./yuan.sh 然後在執行，就完成拉~ 1 apt update &amp;&amp; apt dist-upgrade 方法二 手動換源 先刪除sources.list.d 1 rm -rf /etc/apt/sources.list.d/ 然後換源 (可以全部一起複製) 1 2 3 4 5 echo &#34;deb https://mirrors.ustc.edu.cn/debian/ bookworm main contrib non-free non-free-firmware&#34; &gt; /etc/apt/sources.">
+<title>部屬新PVE環境並換源移除訂閱視窗</title>
+
+<link rel='canonical' href='https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/'>
+
+<link rel="stylesheet" href="/scss/style.min.f116c57ca916675ff1f8441af9fea8eac04af3c755c1da2a26a73b8bbeda7ee1.css"><script defer src="https://cloud.umami.is/script.js" data-website-id="503f2c42-47bf-4084-8316-d0fa71c5a881"></script><meta property='og:title' content="部屬新PVE環境並換源移除訂閱視窗">
+<meta property='og:description' content="前言 最近想把我的機器重新弄一次順便紀錄一下我做了些什麼，這篇介紹如何安裝並初始化你的pve，包括刪除訂閱警告視窗、換pve源。 準備工作 2G 以上的隨身碟 下載寫入工具 👆rufus👆 下載👆Proxmox VE ISO👆 安裝PVE 選擇你的ISO和USB直接按下執行 設定第一啟動項 插入隨身碟到你的機器，打开 BIOS 界面，根據主機板的類型，設定第一啟動為隨身碟 請在BIOS中開啟VT-d和VT-x和SR-IOV每家主機板廠商開啟方式不一樣，這部份自己去google找關鍵字。 MSI主機板請參考這邊 圖片來源 安裝系統 安裝部分就自行設定。 設定 pve 瀏覽器你的機器 IP+端口：https://ip:8006 （注意是 HTTPS ），進入 PVE 管理界面。 換源 到shell視窗 方法一 使用腳本 複製直行即可 1 wget https://cloud.jameshost.org/d/script/yuan.sh?sign=hUWplOxT3d9w6UrV5ZYBccCDONsJ7pIcRvOftUm0eF8=:0 -O yuan.sh &amp;&amp; chmod +x yuan.sh &amp;&amp; ./yuan.sh 然後在執行，就完成拉~ 1 apt update &amp;&amp; apt dist-upgrade 方法二 手動換源 先刪除sources.list.d 1 rm -rf /etc/apt/sources.list.d/ 然後換源 (可以全部一起複製) 1 2 3 4 5 echo &#34;deb https://mirrors.ustc.edu.cn/debian/ bookworm main contrib non-free non-free-firmware&#34; &gt; /etc/apt/sources.">
+<meta property='og:url' content='https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/'>
+<meta property='og:site_name' content='wei&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:published_time' content='2024-08-26T14:12:57&#43;08:00'/><meta property='article:modified_time' content='2024-08-26T14:12:57&#43;08:00'/><meta property='og:image' content='https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/pve.jpg' />
+<meta name="twitter:title" content="部屬新PVE環境並換源移除訂閱視窗">
+<meta name="twitter:description" content="前言 最近想把我的機器重新弄一次順便紀錄一下我做了些什麼，這篇介紹如何安裝並初始化你的pve，包括刪除訂閱警告視窗、換pve源。 準備工作 2G 以上的隨身碟 下載寫入工具 👆rufus👆 下載👆Proxmox VE ISO👆 安裝PVE 選擇你的ISO和USB直接按下執行 設定第一啟動項 插入隨身碟到你的機器，打开 BIOS 界面，根據主機板的類型，設定第一啟動為隨身碟 請在BIOS中開啟VT-d和VT-x和SR-IOV每家主機板廠商開啟方式不一樣，這部份自己去google找關鍵字。 MSI主機板請參考這邊 圖片來源 安裝系統 安裝部分就自行設定。 設定 pve 瀏覽器你的機器 IP+端口：https://ip:8006 （注意是 HTTPS ），進入 PVE 管理界面。 換源 到shell視窗 方法一 使用腳本 複製直行即可 1 wget https://cloud.jameshost.org/d/script/yuan.sh?sign=hUWplOxT3d9w6UrV5ZYBccCDONsJ7pIcRvOftUm0eF8=:0 -O yuan.sh &amp;&amp; chmod +x yuan.sh &amp;&amp; ./yuan.sh 然後在執行，就完成拉~ 1 apt update &amp;&amp; apt dist-upgrade 方法二 手動換源 先刪除sources.list.d 1 rm -rf /etc/apt/sources.list.d/ 然後換源 (可以全部一起複製) 1 2 3 4 5 echo &#34;deb https://mirrors.ustc.edu.cn/debian/ bookworm main contrib non-free non-free-firmware&#34; &gt; /etc/apt/sources."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/pve.jpg' />
+    <link rel="shortcut icon" href="/img/logo.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#準備工作">準備工作</a></li>
+    <li><a href="#安裝pve">安裝PVE</a>
+      <ol>
+        <li><a href="#設定第一啟動項">設定第一啟動項</a></li>
+        <li><a href="#安裝系統">安裝系統</a></li>
+        <li><a href="#設定-pve">設定 pve</a></li>
+      </ol>
+    </li>
+    <li><a href="#換源">換源</a>
+      <ol>
+        <li><a href="#方法一">方法一</a></li>
+        <li><a href="#方法二">方法二</a></li>
+      </ol>
+    </li>
+    <li><a href="#刪除訂閱視窗">刪除訂閱視窗</a></li>
+    <li><a href="#直通pcie設備">直通PCIE設備</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/">
+                <img src="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/pve_hu27f833264ca549b80d62dc69327df655_2260_800x0_resize_q75_box.jpg"
+                        srcset="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/pve_hu27f833264ca549b80d62dc69327df655_2260_800x0_resize_q75_box.jpg 800w, /p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/pve_hu27f833264ca549b80d62dc69327df655_2260_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="178" 
+                        loading="lazy"
+                        alt="Featured image of post 部屬新PVE環境並換源移除訂閱視窗" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/pve/" >
+                Pve
+            </a>
+        
+            <a href="/categories/linux/" style="background-color: #2a9d8f; color: #fff;">
+                linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/">部屬新PVE環境並換源移除訂閱視窗</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 26, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="前言">前言
+</h2><p>最近想把我的機器重新弄一次順便紀錄一下我做了些什麼，這篇介紹如何安裝並初始化你的pve，包括刪除訂閱警告視窗、換pve源。</p>
+<hr>
+<h2 id="準備工作">準備工作
+</h2><ul>
+<li>
+<p>2G 以上的隨身碟</p>
+</li>
+<li>
+<p>下載寫入工具 <a class="link" href="https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe"  target="_blank" rel="noopener"
+    >👆rufus👆</a></p>
+</li>
+<li>
+<p>下載<a class="link" href="https://www.proxmox.com/en/downloads"  target="_blank" rel="noopener"
+    >👆Proxmox VE ISO👆</a></p>
+</li>
+</ul>
+<hr>
+<h2 id="安裝pve">安裝PVE
+</h2><p>選擇你的ISO和USB直接按下執行</p>
+<p><img src="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/go.png"
+	width="410"
+	height="530"
+	srcset="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/go_hu7527a1c0bcb5c4af266896cf4f263efd_30034_480x0_resize_box_3.png 480w, /p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/go_hu7527a1c0bcb5c4af266896cf4f263efd_30034_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="77"
+		data-flex-basis="185px"
+	
+></p>
+<hr>
+<h3 id="設定第一啟動項">設定第一啟動項
+</h3><p>插入隨身碟到你的機器，打开 BIOS 界面，根據主機板的類型，設定第一啟動為隨身碟</p>
+<blockquote>
+<p>請在BIOS中開啟<code>VT-d</code>和<code>VT-x</code>和<code>SR-IOV</code>每家主機板廠商開啟方式不一樣，這部份自己去google找關鍵字。</p>
+</blockquote>
+<p>MSI主機板請參考這邊 <a class="link" href="https://tw.msi.com/faq/faq-5390"  target="_blank" rel="noopener"
+    >圖片來源</a></p>
+<p><img src="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/msi.png"
+	width="923"
+	height="694"
+	srcset="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/msi_hu2b60bef3a8579e30baa895dff89b084e_288466_480x0_resize_box_3.png 480w, /p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/msi_hu2b60bef3a8579e30baa895dff89b084e_288466_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="319px"
+	
+></p>
+<hr>
+<h3 id="安裝系統">安裝系統
+</h3><p>安裝部分就自行設定。</p>
+<p><img src="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/install.png"
+	width="1226"
+	height="915"
+	srcset="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/install_hucec9704655e8968d35fbd856c0fb12ab_346906_480x0_resize_box_3.png 480w, /p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/install_hucec9704655e8968d35fbd856c0fb12ab_346906_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="133"
+		data-flex-basis="321px"
+	
+></p>
+<hr>
+<h3 id="設定-pve">設定 pve
+</h3><p>瀏覽器你的機器 IP+端口：<code>https://ip:8006</code> （注意是 HTTPS ），進入 PVE 管理界面。</p>
+<p><img src="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/yayaya.png"
+	width="1912"
+	height="928"
+	srcset="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/yayaya_hudb4f58b89e75c396fbf48713e25364db_104832_480x0_resize_box_3.png 480w, /p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/yayaya_hudb4f58b89e75c396fbf48713e25364db_104832_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="206"
+		data-flex-basis="494px"
+	
+></p>
+<hr>
+<h2 id="換源">換源
+</h2><p>到shell視窗</p>
+<p><img src="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/next.png"
+	width="1921"
+	height="914"
+	srcset="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/next_hu1bdf3c96a7cc13b252fc06a2f6ca79bb_110641_480x0_resize_box_3.png 480w, /p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/next_hu1bdf3c96a7cc13b252fc06a2f6ca79bb_110641_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="210"
+		data-flex-basis="504px"
+	
+></p>
+<hr>
+<blockquote>
+<h3 id="方法一">方法一
+</h3><p>使用腳本</p>
+</blockquote>
+<p>複製直行即可
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">wget https://cloud.jameshost.org/d/script/yuan.sh?sign=hUWplOxT3d9w6UrV5ZYBccCDONsJ7pIcRvOftUm0eF8=:0 -O yuan.sh <span class="err">&amp;&amp;</span> chmod +x yuan.sh <span class="err">&amp;&amp;</span> ./yuan.sh</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p>然後在執行，就完成拉~
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">apt update <span class="err">&amp;&amp;</span> apt dist-upgrade</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<hr>
+<blockquote>
+<h3 id="方法二">方法二
+</h3><p>手動換源</p>
+</blockquote>
+<p>先刪除<code>sources.list.d</code>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">rm -rf /etc/apt/sources.list.d/</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p>然後換源 (可以全部一起複製)
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">echo &#34;deb https://mirrors.ustc.edu.cn/debian/ bookworm main contrib non-free non-free-firmware&#34; &gt; /etc/apt/sources.list
+</span></span><span class="line"><span class="cl">echo &#34;deb https://mirrors.ustc.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware&#34; &gt;&gt; /etc/apt/sources.list
+</span></span><span class="line"><span class="cl">echo &#34;deb https://mirrors.ustc.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware&#34; &gt;&gt; /etc/apt/sources.list
+</span></span><span class="line"><span class="cl">echo &#34;deb https://mirrors.ustc.edu.cn/debian-security bookworm-security main&#34; &gt;&gt; /etc/apt/sources.list
+</span></span><span class="line"><span class="cl">echo &#34;deb https://mirrors.ustc.edu.cn/proxmox/debian bookworm pve-no-subscription&#34; &gt;&gt; /etc/apt/sources.list</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p>最後在執行，就完成拉~
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">apt update <span class="err">&amp;&amp;</span> apt dist-upgrade</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<h2 id="刪除訂閱視窗">刪除訂閱視窗
+</h2><p>執行完成後瀏覽器 <kbd>CURL</kbd>+<kbd>F5</kbd> 清緩存。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">sed -Ezi.bak &#34;s/(Ext.Msg.show\(\{\s+title: gettext\(&#39;No valid sub)/void\(\{ \/\/\1/g&#34; /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js <span class="err">&amp;&amp;</span> systemctl restart pveproxy.service</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<h2 id="直通pcie設備">直通PCIE設備
+</h2><p>直通部分比較複雜這邊附上影片可參考
+<div class="video-wrapper">
+    <iframe loading="lazy" 
+            src="https://www.youtube.com/embed/kXYndWCew9o" 
+            allowfullscreen 
+            title="YouTube Video"
+    >
+    </iframe>
+</div>
+</p>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/linux/">Linux</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相關文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/Synology_Logo.ed3abe48ee15de503a17aba2000ac2a1_hu62fa9f3c2cfac1b3b0302a31c512e8df_49353_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 使用RR安裝黑群輝、黑群輝洗白"
+                        
+                        data-hash="md5-7Tq&#43;SO4V3lA6F6uiAArCoQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用RR安裝黑群輝、黑群輝洗白</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/title.69450729c398e30225ffd7cd29daa341_hu4d72c7405d560601e21693f08d6a8ec6_47850_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 如何在Ubuntu上修復「apt-key」棄用警告"
+                        
+                        data-hash="md5-aUUHKcOY4wIl/9fNKdqjQQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">如何在Ubuntu上修復「apt-key」棄用警告</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/nonono.ca9adb6ad25f6574be6d4eb949f5e912_huf743075a047fd124ae9e69fc7294cfa0_56832_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 在linux架設KMS server"
+                        
+                        data-hash="md5-yprbatJfZXS&#43;bU65SfXpEg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">在linux架設KMS server</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/cmd.361d1eefb95b498607517dace37203d3_hu7e977d6d7e346e1bf7c4c06f35d5a4f4_12768_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 使用Windows命令行ssh連結Linux"
+                        
+                        data-hash="md5-Nh0e77lbSYYHUX2s43ID0w==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用Windows命令行ssh連結Linux</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/aapanel.ea03b1299ba174d888ca743a80b22b78_hube8575f1538012c097c0a04e0154fa38_153675_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 使用linux搭建aapanel"
+                        
+                        data-hash="md5-6gOxKZuhdNiIynQ6gLIreA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用linux搭建aapanel</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 WEI&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+         <br />
+        
+    </section>
+    <section class="running-time">
+        本網站已經穩定運行
+        <span id="runningdays" class="running-days"></span>
+    </section>
+    <section class="totalcount">
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        發表了16篇文章 · 
+        總共1.86k字
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-15'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小時" + minutes + "分鐘";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+
+    </body>
+    
+</html>
+

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name="msvalidate.01" content="AE8B53CE2030963F6CDABD8D64747041" /><meta name='description' content="前言 此篇windwos 10 設定。 👆檢查筆記👆 👆評分表👆 確認硬碟 容量設定在評分表上會寫。 灌好系統第一件事就是 確認C槽和D槽容量是否正確。 新增使用者 master、user1、user2。 Your browser doesn't support HTML5 video. Here is a link to the video instead. 提高master權限 Your browser doesn't support HTML5 video. Here is a link to the video instead. 關閉防火牆 Your browser doesn't support HTML5 video. Here is a link to the video instead. 設定網路 IP 設定為 172.16.140.1XX (工作崗位號碼) 遮罩設為 255.255.255.0 閘道設為 172.16.140.100 (Server IP) DNS 設定為 192.168.140.100">
+<title>電腦硬體裝修乙級-windows設定</title>
+
+<link rel='canonical' href='https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/'>
+
+<link rel="stylesheet" href="/scss/style.min.f116c57ca916675ff1f8441af9fea8eac04af3c755c1da2a26a73b8bbeda7ee1.css"><script defer src="https://cloud.umami.is/script.js" data-website-id="503f2c42-47bf-4084-8316-d0fa71c5a881"></script><meta property='og:title' content="電腦硬體裝修乙級-windows設定">
+<meta property='og:description' content="前言 此篇windwos 10 設定。 👆檢查筆記👆 👆評分表👆 確認硬碟 容量設定在評分表上會寫。 灌好系統第一件事就是 確認C槽和D槽容量是否正確。 新增使用者 master、user1、user2。 Your browser doesn't support HTML5 video. Here is a link to the video instead. 提高master權限 Your browser doesn't support HTML5 video. Here is a link to the video instead. 關閉防火牆 Your browser doesn't support HTML5 video. Here is a link to the video instead. 設定網路 IP 設定為 172.16.140.1XX (工作崗位號碼) 遮罩設為 255.255.255.0 閘道設為 172.16.140.100 (Server IP) DNS 設定為 192.168.140.100">
+<meta property='og:url' content='https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/'>
+<meta property='og:site_name' content='wei&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='school' /><meta property='article:tag' content='電腦硬體裝修乙級' /><meta property='article:published_time' content='2024-12-07T02:45:32&#43;08:00'/><meta property='article:modified_time' content='2024-12-07T02:45:32&#43;08:00'/><meta property='og:image' content='https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/abc.jpg' />
+<meta name="twitter:title" content="電腦硬體裝修乙級-windows設定">
+<meta name="twitter:description" content="前言 此篇windwos 10 設定。 👆檢查筆記👆 👆評分表👆 確認硬碟 容量設定在評分表上會寫。 灌好系統第一件事就是 確認C槽和D槽容量是否正確。 新增使用者 master、user1、user2。 Your browser doesn't support HTML5 video. Here is a link to the video instead. 提高master權限 Your browser doesn't support HTML5 video. Here is a link to the video instead. 關閉防火牆 Your browser doesn't support HTML5 video. Here is a link to the video instead. 設定網路 IP 設定為 172.16.140.1XX (工作崗位號碼) 遮罩設為 255.255.255.0 閘道設為 172.16.140.100 (Server IP) DNS 設定為 192.168.140.100"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/abc.jpg' />
+    <link rel="shortcut icon" href="/img/logo.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#確認硬碟">確認硬碟</a></li>
+    <li><a href="#新增使用者">新增使用者</a></li>
+    <li><a href="#提高master權限">提高master權限</a></li>
+    <li><a href="#關閉防火牆">關閉防火牆</a></li>
+    <li><a href="#設定網路">設定網路</a></li>
+    <li><a href="#結尾">結尾</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/abc_hua19acc9e2061ee172fdfec71456f2891_340931_800x0_resize_q75_box.jpg"
+                        srcset="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/abc_hua19acc9e2061ee172fdfec71456f2891_340931_800x0_resize_q75_box.jpg 800w, /p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/abc_hua19acc9e2061ee172fdfec71456f2891_340931_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="454" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級-windows設定" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/windows/" style="background-color: #2a9d8f; color: #fff;">
+                windows
+            </a>
+        
+            <a href="/categories/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/" >
+                電腦硬體裝修乙級
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/">電腦硬體裝修乙級-windows設定</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 07, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="前言">前言
+</h2><p>此篇windwos 10 設定。<br><a class="link" href="https://hackmd.io/@james87575/HyzeYKxVkl"  target="_blank" rel="noopener"
+    >👆檢查筆記👆</a><br> <a class="link" href="https://hackmd.io/@james87575/SyNPaJfEkx"  target="_blank" rel="noopener"
+    >👆評分表👆</a></p>
+<h2 id="確認硬碟">確認硬碟
+</h2><p>容量設定在評分表上會寫。
+灌好系統第一件事就是 <code>確認C槽和D槽容量</code>是否正確。</p>
+<p><img src="https://cloud.jameshost.org/p/video/CCC.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<hr>
+<h2 id="新增使用者">新增使用者
+</h2><p><code>master</code>、<code>user1</code>、<code>user2</code>。</p>
+<div class="video-wrapper">
+    <video
+    controls
+    src="https://cloud.jameshost.org/p/video/newsuer.mp4"
+    
+    
+    >
+        <p>
+            Your browser doesn't support HTML5 video. Here is a
+            <a href="https://cloud.jameshost.org/p/video/newsuer.mp4">link to the video</a> instead.
+        </p>
+    </video>
+</div>
+
+<hr>
+<h2 id="提高master權限">提高master權限
+</h2><div class="video-wrapper">
+    <video
+    controls
+    src="https://cloud.jameshost.org/p/video/up.mp4"
+    
+    
+    >
+        <p>
+            Your browser doesn't support HTML5 video. Here is a
+            <a href="https://cloud.jameshost.org/p/video/up.mp4">link to the video</a> instead.
+        </p>
+    </video>
+</div>
+
+<hr>
+<h2 id="關閉防火牆">關閉防火牆
+</h2><div class="video-wrapper">
+    <video
+    controls
+    src="https://cloud.jameshost.org/p/video/turnoff.mp4"
+    
+    
+    >
+        <p>
+            Your browser doesn't support HTML5 video. Here is a
+            <a href="https://cloud.jameshost.org/p/video/turnoff.mp4">link to the video</a> instead.
+        </p>
+    </video>
+</div>
+
+<hr>
+<h2 id="設定網路">設定網路
+</h2><p>IP 設定為 <code>172.16.140.1XX</code> (工作崗位號碼)</p>
+<p>遮罩設為 <code>255.255.255.0</code></p>
+<p>閘道設為 <code>172.16.140.100</code> (Server IP)</p>
+<p>DNS 設定為 <code>192.168.140.100</code></p>
+<div class="video-wrapper">
+    <video
+    controls
+    src="https://cloud.jameshost.org/p/video/ipset.mp4"
+    
+    
+    >
+        <p>
+            Your browser doesn't support HTML5 video. Here is a
+            <a href="https://cloud.jameshost.org/p/video/ipset.mp4">link to the video</a> instead.
+        </p>
+    </video>
+</div>
+
+<hr>
+<h2 id="結尾">結尾
+</h2><p>Cliant 端設定完成後就可以去設定Server，設定完後記得 <a class="link" href="https://blog.jameshost.org/p/%e9%9b%bb%e8%85%a6%e7%a1%ac%e9%ab%94%e8%a3%9d%e4%bf%ae%e4%b9%99%e7%b4%9apart-2/#%e6%b8%ac%e8%a9%a6%e8%a8%ad%e5%ae%9a%e5%85%a7%e5%ae%b9"  target="_blank" rel="noopener"
+    >測試</a>👆 。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/school/">School</a>
+        
+            <a href="/tags/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/">電腦硬體裝修乙級</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相關文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級-路由設定"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級-路由設定</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級part-2"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級part-2</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/abc.a4c144443699743de7874b06a49f2669_hua19acc9e2061ee172fdfec71456f2891_340931_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 電腦硬體裝修乙級part-1"
+                        
+                        data-hash="md5-pMFERDaZdD3nh0sGpJ8maQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">電腦硬體裝修乙級part-1</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/">
+        
+        
+            <div class="article-image">
+                <img src="/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/deneo.b2dd6a44e1f9c1c77f2af0333d2b5f36_hu4587be4c28c35d967758366aed21ed1c_163757_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post LINE地震速報"
+                        
+                        data-hash="md5-st1qROH5wcd/KvAzPStfNg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">LINE地震速報</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/">
+        
+        
+            <div class="article-image">
+                <img src="/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/_hu2f83a6d7ba260e99a746c2ea463cb6d3_713091_dd1ef2fe44e0ef4d88fd231ba16ba5d4.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Windwos啟用&amp;轉換版本"
+                        
+                        data-hash="md5-3/BYSa/yLJseDyMp87yzzQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Windwos啟用&amp;轉換版本</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 WEI&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+         <br />
+        
+    </section>
+    <section class="running-time">
+        本網站已經穩定運行
+        <span id="runningdays" class="running-days"></span>
+    </section>
+    <section class="totalcount">
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        發表了16篇文章 · 
+        總共1.86k字
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-15'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小時" + minutes + "分鐘";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+
+    </body>
+    
+</html>
+

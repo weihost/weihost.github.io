@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>錯誤修復 on wei&#39;s Blog</title>
+        <link>https://blog.jameshost.org/tags/%E9%8C%AF%E8%AA%A4%E4%BF%AE%E5%BE%A9/</link>
+        <description>Recent content in 錯誤修復 on wei&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>WEI&#39;s Blog</copyright>
+        <lastBuildDate>Tue, 20 Aug 2024 06:01:50 +0800</lastBuildDate><atom:link href="https://blog.jameshost.org/tags/%E9%8C%AF%E8%AA%A4%E4%BF%AE%E5%BE%A9/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>如何在Ubuntu上修復「apt-key」棄用警告</title>
+        <link>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/</link>
+        <pubDate>Tue, 20 Aug 2024 06:01:50 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/title.png" alt="Featured image of post 如何在Ubuntu上修復「apt-key」棄用警告" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;最近，我在更新我的linux系統時遇到了一些問題，再更新系統時會警告我下面這串，雖然這 &lt;strong&gt;不會影響到我執行更新&lt;/strong&gt; ，但我看著這行警告心會癢癢，我們應該如何解決 GPG 金鑰的問題？&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;W: https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果您在Ubuntu上運行&lt;code&gt;apt update&lt;/code&gt;時看到&lt;code&gt;apt-key&lt;/code&gt;已棄用的警告，那麼您來對地方了。&lt;/p&gt;
+&lt;p&gt;參考文章 : &lt;a class=&#34;link&#34; href=&#34;https://askubuntu.com/questions/1398344/apt-key-deprecation-warning-when-updating-system-key-is-stored-in-legacy-trust&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;傳送門&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;方法一&#34;&gt;方法一
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;執行這行指令看有現在有哪些key。
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-key list&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;根據你的警告內容查找相關的key，如下方這串&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pub   rsa4096 2017-02-22 [SCEA]
+9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid  [ unknown] Docker Release (CE deb) &amp;lt;docker@docker.com&amp;gt;
+sub   rsa4096 2017-02-22 [S]
+
+/etc/apt/trusted.gpg.d/ubuntu-keyring-2012-cdimage.gpg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;複製第二行的最後 8 個字，並使用下面的命令將其轉換為檔案。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;記得&lt;code&gt;刪除8個字中間的空格&lt;/code&gt;，然後幫你的檔案命名。
+&lt;br&gt;
+在我的示例中，我需要運行：
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-key export 0EBFCD88 | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;下次運行更新指令時，就&lt;strong&gt;不會再顯示已棄用的錯誤&lt;/strong&gt;（如果影響其他存儲庫，就需要對每個存儲庫重複上述步驟）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;方法二&#34;&gt;方法二
+&lt;/h2&gt;&lt;p&gt;在 Ubuntu 上修復 apt 棄用錯誤的 &lt;strong&gt;推薦&lt;/strong&gt; 方法是上面的方法。但是有一個 &lt;strong&gt;更快速&lt;/strong&gt; 的解決方法。&lt;/p&gt;
+&lt;p&gt;你的情況可能會不同，這有可能不是解決此問題最好的方法，因為根據系統中的舊密鑰，&lt;code&gt;它可能會危及系統的安全性&lt;/code&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;執行下方指令
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd /etc/apt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo cp trusted.gpg trusted.gpg.d&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在次運行&lt;code&gt;apt update&lt;/code&gt;就不會再看到那行錯誤。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

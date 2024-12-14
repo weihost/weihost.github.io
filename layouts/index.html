@@ -1,0 +1,78 @@
+{{ define "main" }}
+    {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
+    {{ $filtered := ($pages | intersect $notHidden) }}
+    {{ $pag := .Paginate ($filtered) }}
+    <div class="welcome">
+        <p style="font-size: 2rem; text-align: center; font-weight: bold">
+          <span class="shake">👋</span>
+          <span class="jump-text1" > 歡迎</span>
+          <span class="jump-text2"> 來到 </span>
+          <span class="jump-text3" style="color:#e99312">阿</span><span class="jump-text4" style="color:#e99312">威</span>
+          <span class="jump-text5" style="color:#e99312">'s </span><span class="jump-text6" style="color:#e99312"> </span>
+          <span class="jump-text7" style="color:#e99312">Blog</span>
+          <!--
+          <span class="jump-text8" style="color:#e99312">'s</span>
+          <span class="jump-text9" style="color:#e99312">Blog</span> -->
+        </p>
+      </div>
+    <section class="article-list">
+        {{ range $index, $element := $pag.Pages }}
+            {{ partial "article-list/default" . }}
+        {{ end }}
+    </section>
+    {{- partial "pagination.html" . -}}
+    {{- partial "footer/footer" . -}}
+    <script>
+        //----------------------------------
+    var coreSocialistValues = [
+        '❤️', '🧡', '💛', '💚', '💙', '💜',
+    ]
+        index = Math.floor(Math.random() * coreSocialistValues.length);
+    //----------------------------------
+    document.addEventListener('click', (e)=>{
+        rx = Math.floor(Math.random()*50) - Math.floor(Math.random()*50);
+        ry = Math.floor(Math.random()*50) - Math.floor(Math.random()*50);
+        console.log(rx)
+        click(e.clientX+rx,e.clientY+ry)
+    });
+    //----------------------------------
+    function click(x,y) {
+        console.log('click')
+        span = document.createElement('span');
+        span.textContent = coreSocialistValues[index];
+        index = (index + 1) % coreSocialistValues.length;
+        span.style.cssText = ['z-index: 9999999; position: absolute; font-size: 104px; font-weight: bold; color: white; top: ', y - 20, 'px; left: ', x, 'px;'].join('');
+        var col = ['#3ba9c2', '#e0635c']
+        Math.seed = 1999
+        var r = Math.floor(Math.random()*col.length)
+        span.style.color = col[r];
+        var font = ['15px', '20px', '25px']
+        var f = Math.floor(Math.random()*font.length)
+        span.style.fontSize = font[f]
+        document.body.appendChild(span);
+        animate(span);
+    }'e0635c'
+    //----------------------------------
+    function animate(el) {
+        var i = 0,
+            top = parseInt(el.style.top),
+            id = setInterval(frame, 16.7);
+        function frame() {
+            if (i > 180) {
+                clearInterval(id);
+                el.parentNode.removeChild(el);
+            } else {
+                i += 2;
+                el.style.top = top - i + 'px';
+                el.style.opacity = (180 - i) / 180;
+            }
+        }
+    }
+    //----------------------------------
+    </script>
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}
