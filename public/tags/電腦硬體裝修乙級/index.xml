@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>電腦硬體裝修乙級 on wei&#39;s Blog</title>
-        <link>https://blog.jameshost.org/tags/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/</link>
+        <link>http://localhost:1313/tags/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/</link>
         <description>Recent content in 電腦硬體裝修乙級 on wei&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>WEI&#39;s Blog</copyright>
-        <lastBuildDate>Sat, 07 Dec 2024 03:51:43 +0800</lastBuildDate><atom:link href="https://blog.jameshost.org/tags/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Dec 2024 03:51:43 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>電腦硬體裝修乙級-路由設定</title>
-        <link>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/</link>
+        <link>http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/</link>
         <pubDate>Sat, 07 Dec 2024 03:51:43 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/</guid>
-        <description>&lt;img src="https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級-路由設定" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+        <guid>http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級-路由設定" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;此篇windwos server 2012 r2 part-2 (路由設定)。&lt;br&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/HyzeYKxVkl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;👆檢查筆記👆&lt;/a&gt;&lt;br&gt; &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/SyNPaJfEkx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;👆評分表👆&lt;/a&gt;&lt;/p&gt;
@@ -79,11 +79,11 @@
         </item>
         <item>
         <title>電腦硬體裝修乙級-windows設定</title>
-        <link>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/</link>
+        <link>http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/</link>
         <pubDate>Sat, 07 Dec 2024 02:45:32 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/</guid>
-        <description>&lt;img src="https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級-windows設定" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+        <guid>http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級-windows設定" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;此篇windwos 10 設定。&lt;br&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/HyzeYKxVkl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;👆檢查筆記👆&lt;/a&gt;&lt;br&gt; &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/SyNPaJfEkx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;👆評分表👆&lt;/a&gt;&lt;/p&gt;
@@ -175,11 +175,11 @@
         </item>
         <item>
         <title>電腦硬體裝修乙級part-2</title>
-        <link>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/</link>
+        <link>http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/</link>
         <pubDate>Sat, 07 Dec 2024 01:27:57 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/</guid>
-        <description>&lt;img src="https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級part-2" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言
+        <guid>http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級part-2" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言
 &lt;/h1&gt;&lt;h2 id=&#34;此篇windwos-server-2012-r2-part-2-服務架設br檢查筆記httpshackmdiojames87575hyzeykxvklbr-評分表httpshackmdiojames87575synpajfekx&#34;&gt;此篇windwos server 2012 r2 part-2 (服務架設)。&lt;br&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/HyzeYKxVkl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;👆檢查筆記👆&lt;/a&gt;&lt;br&gt; &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/SyNPaJfEkx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;👆評分表👆&lt;/a&gt;
@@ -410,11 +410,11 @@
         </item>
         <item>
         <title>電腦硬體裝修乙級part-1</title>
-        <link>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/</link>
+        <link>http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/</link>
         <pubDate>Fri, 06 Dec 2024 23:24:58 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/</guid>
-        <description>&lt;img src="https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級part-1" /&gt;&lt;hr&gt;
+        <guid>http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級part-1" /&gt;&lt;hr&gt;
 &lt;h1 id=&#34;前言&#34;&gt;前言
 &lt;/h1&gt;&lt;p&gt;此篇只有windwos server 2012 r2 基本設定部分，服務架設請參考part-2。&lt;br&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/HyzeYKxVkl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;👆檢查筆記👆&lt;/a&gt;&lt;br&gt; &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/SyNPaJfEkx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

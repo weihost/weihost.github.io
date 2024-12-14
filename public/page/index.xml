@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on wei&#39;s Blog</title>
-        <link>https://blog.jameshost.org/page/</link>
+        <link>http://localhost:1313/page/</link>
         <description>Recent content in Pages on wei&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>WEI&#39;s Blog</copyright>
-        <lastBuildDate>Fri, 16 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.jameshost.org/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 16 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>關於</title>
-        <link>https://blog.jameshost.org/%E9%97%9C%E6%96%BC/</link>
+        <link>http://localhost:1313/%E9%97%9C%E6%96%BC/</link>
         <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://blog.jameshost.org/%E9%97%9C%E6%96%BC/</guid>
+        <guid>http://localhost:1313/%E9%97%9C%E6%96%BC/</guid>
         <description>&lt;h2 id=&#34;關於我&#34;&gt;🃏關於我
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -70,18 +70,18 @@ Learn more and contribute on [GitHub](https://github.com/gohugoio). --&gt;
         </item>
         <item>
         <title>文章</title>
-        <link>https://blog.jameshost.org/archives/</link>
+        <link>http://localhost:1313/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://blog.jameshost.org/archives/</guid>
+        <guid>http://localhost:1313/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>連結</title>
-        <link>https://blog.jameshost.org/%E9%80%A3%E7%B5%90/</link>
+        <link>http://localhost:1313/%E9%80%A3%E7%B5%90/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://blog.jameshost.org/%E9%80%A3%E7%B5%90/</guid>
+        <guid>http://localhost:1313/%E9%80%A3%E7%B5%90/</guid>
         <description>&lt;p&gt;這裡是關於我的其他連結&lt;/p&gt;
 &lt;!-- ```yaml
 links:
@@ -99,10 +99,10 @@ links:
         </item>
         <item>
         <title>搜尋</title>
-        <link>https://blog.jameshost.org/search/</link>
+        <link>http://localhost:1313/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://blog.jameshost.org/search/</guid>
+        <guid>http://localhost:1313/search/</guid>
         <description></description>
         </item>
         

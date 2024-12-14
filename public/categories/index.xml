@@ -2,50 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on wei&#39;s Blog</title>
-        <link>https://blog.jameshost.org/categories/</link>
+        <link>http://localhost:1313/categories/</link>
         <description>Recent content in Categories on wei&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>WEI&#39;s Blog</copyright>
-        <lastBuildDate>Sat, 07 Dec 2024 03:51:43 +0800</lastBuildDate><atom:link href="https://blog.jameshost.org/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Dec 2024 03:51:43 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>windows</title>
-        <link>https://blog.jameshost.org/categories/windows/</link>
+        <link>http://localhost:1313/categories/windows/</link>
         <pubDate>Sat, 07 Dec 2024 03:51:43 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/categories/windows/</guid>
-        <description>&lt;img src="https://blog.jameshost.org/categories/windows/windows.jpg" alt="Featured image of post windows" /&gt;</description>
+        <guid>http://localhost:1313/categories/windows/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/windows/windows.jpg" alt="Featured image of post windows" /&gt;</description>
         </item>
         <item>
         <title>電腦硬體裝修乙級</title>
-        <link>https://blog.jameshost.org/categories/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/</link>
+        <link>http://localhost:1313/categories/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/</link>
         <pubDate>Sat, 07 Dec 2024 03:51:43 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/categories/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/</guid>
+        <guid>http://localhost:1313/categories/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/</guid>
         <description></description>
         </item>
         <item>
         <title>linux</title>
-        <link>https://blog.jameshost.org/categories/linux/</link>
+        <link>http://localhost:1313/categories/linux/</link>
         <pubDate>Wed, 04 Sep 2024 21:44:41 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/categories/linux/</guid>
-        <description>&lt;img src="https://blog.jameshost.org/categories/linux/linux.jpg" alt="Featured image of post linux" /&gt;</description>
+        <guid>http://localhost:1313/categories/linux/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/linux/linux.jpg" alt="Featured image of post linux" /&gt;</description>
         </item>
         <item>
         <title>Pve</title>
-        <link>https://blog.jameshost.org/categories/pve/</link>
+        <link>http://localhost:1313/categories/pve/</link>
         <pubDate>Wed, 04 Sep 2024 21:44:41 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/categories/pve/</guid>
+        <guid>http://localhost:1313/categories/pve/</guid>
         <description></description>
         </item>
         <item>
         <title>遊戲伺服器</title>
-        <link>https://blog.jameshost.org/categories/%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8/</link>
+        <link>http://localhost:1313/categories/%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8/</link>
         <pubDate>Thu, 15 Aug 2024 03:32:37 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/categories/%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8/</guid>
-        <description>&lt;img src="https://blog.jameshost.org/categories/%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8/gameserver.jpg" alt="Featured image of post 遊戲伺服器" /&gt;</description>
+        <guid>http://localhost:1313/categories/%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8/gameserver.jpg" alt="Featured image of post 遊戲伺服器" /&gt;</description>
         </item>
         
     </channel>

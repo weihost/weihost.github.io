@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Kms on wei&#39;s Blog</title>
-        <link>https://blog.jameshost.org/tags/kms/</link>
+        <link>http://localhost:1313/tags/kms/</link>
         <description>Recent content in Kms on wei&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>WEI&#39;s Blog</copyright>
-        <lastBuildDate>Sat, 17 Aug 2024 05:15:42 +0800</lastBuildDate><atom:link href="https://blog.jameshost.org/tags/kms/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 17 Aug 2024 05:15:42 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/kms/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Windwos啟用&amp;轉換版本</title>
-        <link>https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/</link>
+        <link>http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/</link>
         <pubDate>Sat, 17 Aug 2024 05:15:42 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/</guid>
-        <description>&lt;img src="https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/Microsoft-Windows-11-Wallpaper.jpg" alt="Featured image of post Windwos啟用&amp;轉換版本" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+        <guid>http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/</guid>
+        <description>&lt;img src="http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/Microsoft-Windows-11-Wallpaper.jpg" alt="Featured image of post Windwos啟用&amp;轉換版本" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;本篇介紹如何使用kms啟用Windows&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;h2 id=&#34;第一種方式&#34;&gt;第一種方式
@@ -23,10 +23,10 @@
 &lt;/blockquote&gt;
 &lt;p&gt;滑鼠右鍵以&lt;code&gt;🛡️系統管理員身分🛡️&lt;/code&gt;執行&lt;/p&gt;
 &lt;p&gt;如果跳出&lt;code&gt;Windows以保護您的電腦&lt;/code&gt;按 其他資訊&amp;ndash;&amp;gt;扔要執行&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/script.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/script.png&#34;
 	width=&#34;1059&#34;
 	height=&#34;652&#34;
-	srcset=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/script_hufef5b7926c24e68f487f61e30e85bec5_77329_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/script_hufef5b7926c24e68f487f61e30e85bec5_77329_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/script_hufef5b7926c24e68f487f61e30e85bec5_77329_480x0_resize_box_3.png 480w, http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/script_hufef5b7926c24e68f487f61e30e85bec5_77329_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -35,10 +35,10 @@
 		data-flex-basis=&#34;389px&#34;
 	
 &gt;
-&lt;img src=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/go.png&#34;
+&lt;img src=&#34;http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/go.png&#34;
 	width=&#34;525&#34;
 	height=&#34;493&#34;
-	srcset=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/go_hufaadb11410052922a22fbb3b60654946_24122_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/go_hufaadb11410052922a22fbb3b60654946_24122_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/go_hufaadb11410052922a22fbb3b60654946_24122_480x0_resize_box_3.png 480w, http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/go_hufaadb11410052922a22fbb3b60654946_24122_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -50,10 +50,10 @@
 &lt;blockquote&gt;
 &lt;p&gt;完成&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/done.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/done.png&#34;
 	width=&#34;805&#34;
 	height=&#34;250&#34;
-	srcset=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/done_huffa8eb8a11c63ca6f22040f41a26ff69_9031_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/done_huffa8eb8a11c63ca6f22040f41a26ff69_9031_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/done_huffa8eb8a11c63ca6f22040f41a26ff69_9031_480x0_resize_box_3.png 480w, http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/done_huffa8eb8a11c63ca6f22040f41a26ff69_9031_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -67,10 +67,10 @@
 &lt;h2 id=&#34;第二種方式&#34;&gt;第二種方式
 &lt;/h2&gt;&lt;p&gt;使用cmd指令來完成
 按下 &lt;code&gt;windows&lt;/code&gt;搜尋&lt;code&gt;cmd&lt;/code&gt;並&lt;code&gt;以系統管理員身分執行&lt;/code&gt;
-&lt;img src=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/search.png&#34;
+&lt;img src=&#34;http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/search.png&#34;
 	width=&#34;769&#34;
 	height=&#34;720&#34;
-	srcset=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/search_hue7b02f9f488499c8acf8bd3ea285b49b_345148_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/search_hue7b02f9f488499c8acf8bd3ea285b49b_345148_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/search_hue7b02f9f488499c8acf8bd3ea285b49b_345148_480x0_resize_box_3.png 480w, http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/search_hue7b02f9f488499c8acf8bd3ea285b49b_345148_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -174,10 +174,10 @@
 &lt;li&gt;&lt;code&gt;1&lt;/code&gt; Windows 10/11專業版&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;2&lt;/code&gt; Windows 10/11家用版&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/switch.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/switch.png&#34;
 	width=&#34;388&#34;
 	height=&#34;233&#34;
-	srcset=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/switch_hud3c69bfe296c0ddcaafb787226e75922_10534_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/switch_hud3c69bfe296c0ddcaafb787226e75922_10534_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/switch_hud3c69bfe296c0ddcaafb787226e75922_10534_480x0_resize_box_3.png 480w, http://localhost:1313/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/switch_hud3c69bfe296c0ddcaafb787226e75922_10534_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -190,21 +190,21 @@
         </item>
         <item>
         <title>如何安裝Office並啟用</title>
-        <link>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/</link>
+        <link>http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/</link>
         <pubDate>Sat, 17 Aug 2024 03:16:03 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/</guid>
-        <description>&lt;img src="https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/office-header.jpg" alt="Featured image of post 如何安裝Office並啟用" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+        <guid>http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/office-header.jpg" alt="Featured image of post 如何安裝Office並啟用" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;安裝&lt;code&gt;office&lt;/code&gt;的方法有很多種，我選了一個比較簡單的方式&lt;/p&gt;
 &lt;p&gt;本篇是透過&lt;code&gt;Office Tool Plus&lt;/code&gt;來進行安裝&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;開始安裝&#34;&gt;開始安裝
 &lt;/h2&gt;&lt;p&gt;先到官網下載👆 &lt;a class=&#34;link&#34; href=&#34;https://otp.landian.vip/zh-tw/download.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Office Tool Plus&lt;/a&gt;👆&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/download.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/download.png&#34;
 	width=&#34;1450&#34;
 	height=&#34;693&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/download_hufc91704a05cd1d6effc0cd889dc99e22_31705_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/download_hufc91704a05cd1d6effc0cd889dc99e22_31705_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/download_hufc91704a05cd1d6effc0cd889dc99e22_31705_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/download_hufc91704a05cd1d6effc0cd889dc99e22_31705_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -216,10 +216,10 @@
 &lt;hr&gt;
 &lt;h3 id=&#34;開啟檔案&#34;&gt;開啟檔案
 &lt;/h3&gt;&lt;p&gt;&lt;code&gt;解壓縮後&lt;/code&gt;並開啟檔案&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/open.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/open.png&#34;
 	width=&#34;1057&#34;
 	height=&#34;577&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/open_hu4ac3c76f6633dc6b5de2342befb3dd81_64032_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/open_hu4ac3c76f6633dc6b5de2342befb3dd81_64032_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/open_hu4ac3c76f6633dc6b5de2342befb3dd81_64032_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/open_hu4ac3c76f6633dc6b5de2342befb3dd81_64032_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -230,10 +230,10 @@
 &gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;如果跳出&lt;code&gt;Windows以保護您的電腦&lt;/code&gt;按 其他資訊&amp;ndash;&amp;gt;扔要執行&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/go.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/go.png&#34;
 	width=&#34;526&#34;
 	height=&#34;487&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/go_huf4dfb5202f33af8ca4ac2bfeba0b5022_26163_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/go_huf4dfb5202f33af8ca4ac2bfeba0b5022_26163_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/go_huf4dfb5202f33af8ca4ac2bfeba0b5022_26163_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/go_huf4dfb5202f33af8ca4ac2bfeba0b5022_26163_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -244,10 +244,10 @@
 &gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;選擇部署&#34;&gt;選擇部署
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/bs.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/bs.png&#34;
 	width=&#34;1428&#34;
 	height=&#34;751&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/bs_hu8a65a76df1469a4bf1ed87d785b8a972_66746_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/bs_hu8a65a76df1469a4bf1ed87d785b8a972_66746_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/bs_hu8a65a76df1469a4bf1ed87d785b8a972_66746_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/bs_hu8a65a76df1469a4bf1ed87d785b8a972_66746_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -262,10 +262,10 @@
 &lt;p&gt;架構&lt;code&gt;根據自己系統&lt;/code&gt;選擇
 更新通道選擇&lt;code&gt;2024永久企業版&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/cirle.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/cirle.png&#34;
 	width=&#34;1008&#34;
 	height=&#34;369&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/cirle_hubc1d39983e29ff5cf977144f23d32f65_33174_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/cirle_hubc1d39983e29ff5cf977144f23d32f65_33174_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/cirle_hubc1d39983e29ff5cf977144f23d32f65_33174_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/cirle_hubc1d39983e29ff5cf977144f23d32f65_33174_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -278,10 +278,10 @@
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;新增產品並選擇&lt;code&gt;Office LTSC 專業增強版2024(大量授權)&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/2024.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/2024.png&#34;
 	width=&#34;597&#34;
 	height=&#34;660&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/2024_hu6254a9f824cebd0b7ffe5117ea0fec6c_48757_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/2024_hu6254a9f824cebd0b7ffe5117ea0fec6c_48757_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/2024_hu6254a9f824cebd0b7ffe5117ea0fec6c_48757_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/2024_hu6254a9f824cebd0b7ffe5117ea0fec6c_48757_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -294,10 +294,10 @@
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;語言選擇&lt;code&gt;繁體中文&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/luan.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/luan.png&#34;
 	width=&#34;596&#34;
 	height=&#34;341&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/luan_hud9bab6a85e1c30ad5b30bd91aa5fb460_13992_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/luan_hud9bab6a85e1c30ad5b30bd91aa5fb460_13992_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/luan_hud9bab6a85e1c30ad5b30bd91aa5fb460_13992_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/luan_hud9bab6a85e1c30ad5b30bd91aa5fb460_13992_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -311,10 +311,10 @@
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;確認&lt;code&gt;設定無誤&lt;/code&gt;後，會開始下載&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/start.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/start.png&#34;
 	width=&#34;1415&#34;
 	height=&#34;737&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/start_hu6a31934e3c867d6c10f06586e951eff9_61208_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/start_hu6a31934e3c867d6c10f06586e951eff9_61208_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/start_hu6a31934e3c867d6c10f06586e951eff9_61208_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/start_hu6a31934e3c867d6c10f06586e951eff9_61208_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -322,10 +322,10 @@
 		data-flex-grow=&#34;191&#34;
 		data-flex-basis=&#34;460px&#34;
 	
-&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/yes.png&#34;
+&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/yes.png&#34;
 	width=&#34;595&#34;
 	height=&#34;484&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/yes_hu9d54db05aa220190a5e02bdf7804e264_28539_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/yes_hu9d54db05aa220190a5e02bdf7804e264_28539_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/yes_hu9d54db05aa220190a5e02bdf7804e264_28539_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/yes_hu9d54db05aa220190a5e02bdf7804e264_28539_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -339,10 +339,10 @@
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;下載完成&lt;code&gt;關閉&lt;/code&gt;即可&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/done.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/done.png&#34;
 	width=&#34;656&#34;
 	height=&#34;400&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/done_hud7efa9147945512d10836e39854a8b18_23392_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/done_hud7efa9147945512d10836e39854a8b18_23392_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/done_hud7efa9147945512d10836e39854a8b18_23392_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/done_hud7efa9147945512d10836e39854a8b18_23392_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -355,10 +355,10 @@
 &lt;h3 id=&#34;確認&#34;&gt;確認
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;先關閉&lt;code&gt;Office Tool Plus&lt;/code&gt;並打開&lt;code&gt;word&lt;/code&gt;
-&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/important.png&#34;
+&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/important.png&#34;
 	width=&#34;1117&#34;
 	height=&#34;569&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/important_hu30a88f9476d7b63517e6e350aa7dbfb5_58726_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/important_hu30a88f9476d7b63517e6e350aa7dbfb5_58726_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/important_hu30a88f9476d7b63517e6e350aa7dbfb5_58726_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/important_hu30a88f9476d7b63517e6e350aa7dbfb5_58726_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -370,10 +370,10 @@
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;選擇帳戶後，這邊就可以&lt;code&gt;把word先關掉&lt;/code&gt;
-&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/check.png&#34;
+&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/check.png&#34;
 	width=&#34;1338&#34;
 	height=&#34;565&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/check_hu9c1e58f05e0093bdc2065914eccede75_69962_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/check_hu9c1e58f05e0093bdc2065914eccede75_69962_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/check_hu9c1e58f05e0093bdc2065914eccede75_69962_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/check_hu9c1e58f05e0093bdc2065914eccede75_69962_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -388,10 +388,10 @@
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;選擇啟用&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/choice.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/choice.png&#34;
 	width=&#34;1436&#34;
 	height=&#34;746&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/choice_hubc05dae7bdbb5e973a6f119eaa1a9b78_52621_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/choice_hubc05dae7bdbb5e973a6f119eaa1a9b78_52621_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/choice_hubc05dae7bdbb5e973a6f119eaa1a9b78_52621_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/choice_hubc05dae7bdbb5e973a6f119eaa1a9b78_52621_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -405,10 +405,10 @@
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;選擇&lt;code&gt;安裝&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/install.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/install.png&#34;
 	width=&#34;1429&#34;
 	height=&#34;742&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/install_hu79143cdc1f5ea0849a2004c60fc5e47e_61580_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/install_hu79143cdc1f5ea0849a2004c60fc5e47e_61580_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/install_hu79143cdc1f5ea0849a2004c60fc5e47e_61580_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/install_hu79143cdc1f5ea0849a2004c60fc5e47e_61580_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -420,10 +420,10 @@
 &lt;ul&gt;
 &lt;li&gt;選擇&lt;code&gt;Office LTSC 專業增強版2024(大量授權)&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/idk.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/idk.png&#34;
 	width=&#34;591&#34;
 	height=&#34;653&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/idk_hu2ea7a261ce8a98a0b24ef7f72334614d_49841_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/idk_hu2ea7a261ce8a98a0b24ef7f72334614d_49841_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/idk_hu2ea7a261ce8a98a0b24ef7f72334614d_49841_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/idk_hu2ea7a261ce8a98a0b24ef7f72334614d_49841_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -443,10 +443,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jameshost.org&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/org.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/org.png&#34;
 	width=&#34;1432&#34;
 	height=&#34;747&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/org_hu66714553f820caae2e27012a1977480a_64076_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/org_hu66714553f820caae2e27012a1977480a_64076_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/org_hu66714553f820caae2e27012a1977480a_64076_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/org_hu66714553f820caae2e27012a1977480a_64076_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -460,10 +460,10 @@
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;按下&lt;code&gt;啟用&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/active.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/active.png&#34;
 	width=&#34;1432&#34;
 	height=&#34;740&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/active_hub22be1784f736995d4881af97d796bed_65258_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/active_hub22be1784f736995d4881af97d796bed_65258_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/active_hub22be1784f736995d4881af97d796bed_65258_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/active_hub22be1784f736995d4881af97d796bed_65258_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -476,10 +476,10 @@
 &lt;h2 id=&#34;啟用成功&#34;&gt;啟用成功
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;到這邊就可以關閉&lt;code&gt;Office Tool Plus&lt;/code&gt;
-&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/ffff.png&#34;
+&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/ffff.png&#34;
 	width=&#34;597&#34;
 	height=&#34;316&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/ffff_hu1f075b4bf40eba1c4f767c346bb5ce4d_12665_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/ffff_hu1f075b4bf40eba1c4f767c346bb5ce4d_12665_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/ffff_hu1f075b4bf40eba1c4f767c346bb5ce4d_12665_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/ffff_hu1f075b4bf40eba1c4f767c346bb5ce4d_12665_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -494,10 +494,10 @@
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;恭喜這樣就啟用成功拉~&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/word.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/word.png&#34;
 	width=&#34;530&#34;
 	height=&#34;526&#34;
-	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/word_hu9beb23c760fbb57a2b5fe892d1909e67_25685_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/word_hu9beb23c760fbb57a2b5fe892d1909e67_25685_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/word_hu9beb23c760fbb57a2b5fe892d1909e67_25685_480x0_resize_box_3.png 480w, http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/word_hu9beb23c760fbb57a2b5fe892d1909e67_25685_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	

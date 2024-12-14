@@ -2,65 +2,65 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on wei&#39;s Blog</title>
-        <link>https://blog.jameshost.org/tags/</link>
+        <link>http://localhost:1313/tags/</link>
         <description>Recent content in Tags on wei&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>WEI&#39;s Blog</copyright>
-        <lastBuildDate>Sat, 07 Dec 2024 03:51:43 +0800</lastBuildDate><atom:link href="https://blog.jameshost.org/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Dec 2024 03:51:43 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>School</title>
-        <link>https://blog.jameshost.org/tags/school/</link>
+        <link>http://localhost:1313/tags/school/</link>
         <pubDate>Sat, 07 Dec 2024 03:51:43 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/tags/school/</guid>
+        <guid>http://localhost:1313/tags/school/</guid>
         <description></description>
         </item>
         <item>
         <title>電腦硬體裝修乙級</title>
-        <link>https://blog.jameshost.org/tags/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/</link>
+        <link>http://localhost:1313/tags/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/</link>
         <pubDate>Sat, 07 Dec 2024 03:51:43 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/tags/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/</guid>
+        <guid>http://localhost:1313/tags/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/</guid>
         <description></description>
         </item>
         <item>
         <title>Linux</title>
-        <link>https://blog.jameshost.org/tags/linux/</link>
+        <link>http://localhost:1313/tags/linux/</link>
         <pubDate>Wed, 04 Sep 2024 21:44:41 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/tags/linux/</guid>
+        <guid>http://localhost:1313/tags/linux/</guid>
         <description></description>
         </item>
         <item>
         <title>錯誤修復</title>
-        <link>https://blog.jameshost.org/tags/%E9%8C%AF%E8%AA%A4%E4%BF%AE%E5%BE%A9/</link>
+        <link>http://localhost:1313/tags/%E9%8C%AF%E8%AA%A4%E4%BF%AE%E5%BE%A9/</link>
         <pubDate>Tue, 20 Aug 2024 06:01:50 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/tags/%E9%8C%AF%E8%AA%A4%E4%BF%AE%E5%BE%A9/</guid>
+        <guid>http://localhost:1313/tags/%E9%8C%AF%E8%AA%A4%E4%BF%AE%E5%BE%A9/</guid>
         <description></description>
         </item>
         <item>
         <title>地震速報</title>
-        <link>https://blog.jameshost.org/tags/%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/</link>
+        <link>http://localhost:1313/tags/%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/</link>
         <pubDate>Sun, 18 Aug 2024 04:35:39 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/tags/%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/</guid>
+        <guid>http://localhost:1313/tags/%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/</guid>
         <description></description>
         </item>
         <item>
         <title>Kms</title>
-        <link>https://blog.jameshost.org/tags/kms/</link>
+        <link>http://localhost:1313/tags/kms/</link>
         <pubDate>Sat, 17 Aug 2024 05:15:42 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/tags/kms/</guid>
+        <guid>http://localhost:1313/tags/kms/</guid>
         <description></description>
         </item>
         <item>
         <title>Website</title>
-        <link>https://blog.jameshost.org/tags/website/</link>
+        <link>http://localhost:1313/tags/website/</link>
         <pubDate>Sat, 17 Aug 2024 00:53:25 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/tags/website/</guid>
+        <guid>http://localhost:1313/tags/website/</guid>
         <description></description>
         </item>
         

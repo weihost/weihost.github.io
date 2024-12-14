@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name="msvalidate.01" content="AE8B53CE2030963F6CDABD8D64747041" /><meta name='description' content="前言 此篇windwos server 2012 r2 part-2 (路由設定)。 👆檢查筆記👆 👆評分表👆 設定路由 選擇介於兩個私人網路的安全連線&ndash;&gt;不要撥號&ndash;&gt;完成✅ Your browser doesn't support HTML5 video. Here is a link to the video instead. 查看路由表 可以對靜態路由右鍵選擇查看。 或是透過command輸入route print查詢。 Your browser doesn't support HTML5 video. Here is a link to the video instead. DHCP設定 新增DHCP領域 設定 IP範圍(評分表規定) 預設閘道 192.168.140.100(Server) DNS設定 192.168.140.100(Server) Your browser doesn't support HTML5 video. Here is a link to the video instead. 測試 把win10的固定ip改成自動獲取看看能不能拿的到ip。">
 <title>電腦硬體裝修乙級-路由設定</title>
 
-<link rel='canonical' href='https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/'>
+<link rel='canonical' href='http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/'>
 
 <link rel="stylesheet" href="/scss/style.min.f116c57ca916675ff1f8441af9fea8eac04af3c755c1da2a26a73b8bbeda7ee1.css"><script defer src="https://cloud.umami.is/script.js" data-website-id="503f2c42-47bf-4084-8316-d0fa71c5a881"></script><meta property='og:title' content="電腦硬體裝修乙級-路由設定">
 <meta property='og:description' content="前言 此篇windwos server 2012 r2 part-2 (路由設定)。 👆檢查筆記👆 👆評分表👆 設定路由 選擇介於兩個私人網路的安全連線&ndash;&gt;不要撥號&ndash;&gt;完成✅ Your browser doesn't support HTML5 video. Here is a link to the video instead. 查看路由表 可以對靜態路由右鍵選擇查看。 或是透過command輸入route print查詢。 Your browser doesn't support HTML5 video. Here is a link to the video instead. DHCP設定 新增DHCP領域 設定 IP範圍(評分表規定) 預設閘道 192.168.140.100(Server) DNS設定 192.168.140.100(Server) Your browser doesn't support HTML5 video. Here is a link to the video instead. 測試 把win10的固定ip改成自動獲取看看能不能拿的到ip。">
-<meta property='og:url' content='https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/'>
+<meta property='og:url' content='http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/'>
 <meta property='og:site_name' content='wei&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='school' /><meta property='article:tag' content='電腦硬體裝修乙級' /><meta property='article:published_time' content='2024-12-07T03:51:43&#43;08:00'/><meta property='article:modified_time' content='2024-12-07T03:51:43&#43;08:00'/><meta property='og:image' content='https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/abc.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='school' /><meta property='article:tag' content='電腦硬體裝修乙級' /><meta property='article:published_time' content='2024-12-07T03:51:43&#43;08:00'/><meta property='article:modified_time' content='2024-12-07T03:51:43&#43;08:00'/><meta property='og:image' content='http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/abc.jpg' />
 <meta name="twitter:title" content="電腦硬體裝修乙級-路由設定">
 <meta name="twitter:description" content="前言 此篇windwos server 2012 r2 part-2 (路由設定)。 👆檢查筆記👆 👆評分表👆 設定路由 選擇介於兩個私人網路的安全連線&ndash;&gt;不要撥號&ndash;&gt;完成✅ Your browser doesn't support HTML5 video. Here is a link to the video instead. 查看路由表 可以對靜態路由右鍵選擇查看。 或是透過command輸入route print查詢。 Your browser doesn't support HTML5 video. Here is a link to the video instead. DHCP設定 新增DHCP領域 設定 IP範圍(評分表規定) 預設閘道 192.168.140.100(Server) DNS設定 192.168.140.100(Server) Your browser doesn't support HTML5 video. Here is a link to the video instead. 測試 把win10的固定ip改成自動獲取看看能不能拿的到ip。"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/abc.jpg' />
+    <meta name="twitter:image" content='http://localhost:1313/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/abc.jpg' />
     <link rel="shortcut icon" href="/img/logo.png" />
 
     </head>

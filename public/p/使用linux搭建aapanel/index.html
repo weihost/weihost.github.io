@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name="msvalidate.01" content="AE8B53CE2030963F6CDABD8D64747041" /><meta name='description' content="前言 這幾天想搭建一個typecho的blog，因為現在寶塔面板要登入帳號。 而寶塔面板跟aaPanel是一樣的，是不需要登入就可使用的，所以有了這篇教學。 傳送門: https://www.aapanel.com/new/download.html#install 腳本快速安裝 Ubuntu、centOS、Debian都可使用腳本 先切換成root 1 sudo -i 下載腳本並執行 複製執行即可(大約2~3分鐘左右) 1 URL=https://www.aapanel.com/script/install_7.0_en.sh &amp;&amp; if [ -f /usr/bin/curl ];then curl -ksSO &#34;$URL&#34; ;else wget --no-check-certificate -O install_7.0_en.sh &#34;$URL&#34;;fi;bash install_7.0_en.sh aapanel 安裝成功 記得上面有用戶名和密碼先複製起來保存 登入面板 基本操控 停止服務 1 service bt stop 開啟服務 1 service bt start 開啟服務 1 service bt start 解除安裝 1 service bt stop &amp;&amp; chkconfig --del bt &amp;&amp; rm -f /etc/init.d/bt &amp;&amp; rm -rf /www/server/panel 結語 因為是通過 面板安裝服務 可能會等比較長的時間，這篇就到這邊結束拉~">
 <title>使用linux搭建aapanel</title>
 
-<link rel='canonical' href='https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/'>
+<link rel='canonical' href='http://localhost:1313/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/'>
 
 <link rel="stylesheet" href="/scss/style.min.f116c57ca916675ff1f8441af9fea8eac04af3c755c1da2a26a73b8bbeda7ee1.css"><script defer src="https://cloud.umami.is/script.js" data-website-id="503f2c42-47bf-4084-8316-d0fa71c5a881"></script><meta property='og:title' content="使用linux搭建aapanel">
 <meta property='og:description' content="前言 這幾天想搭建一個typecho的blog，因為現在寶塔面板要登入帳號。 而寶塔面板跟aaPanel是一樣的，是不需要登入就可使用的，所以有了這篇教學。 傳送門: https://www.aapanel.com/new/download.html#install 腳本快速安裝 Ubuntu、centOS、Debian都可使用腳本 先切換成root 1 sudo -i 下載腳本並執行 複製執行即可(大約2~3分鐘左右) 1 URL=https://www.aapanel.com/script/install_7.0_en.sh &amp;&amp; if [ -f /usr/bin/curl ];then curl -ksSO &#34;$URL&#34; ;else wget --no-check-certificate -O install_7.0_en.sh &#34;$URL&#34;;fi;bash install_7.0_en.sh aapanel 安裝成功 記得上面有用戶名和密碼先複製起來保存 登入面板 基本操控 停止服務 1 service bt stop 開啟服務 1 service bt start 開啟服務 1 service bt start 解除安裝 1 service bt stop &amp;&amp; chkconfig --del bt &amp;&amp; rm -f /etc/init.d/bt &amp;&amp; rm -rf /www/server/panel 結語 因為是通過 面板安裝服務 可能會等比較長的時間，這篇就到這邊結束拉~">
-<meta property='og:url' content='https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/'>
+<meta property='og:url' content='http://localhost:1313/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/'>
 <meta property='og:site_name' content='wei&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='website' /><meta property='article:published_time' content='2024-08-17T00:53:25&#43;08:00'/><meta property='article:modified_time' content='2024-08-17T00:53:25&#43;08:00'/><meta property='og:image' content='https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/aapanel.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='website' /><meta property='article:published_time' content='2024-08-17T00:53:25&#43;08:00'/><meta property='article:modified_time' content='2024-08-17T00:53:25&#43;08:00'/><meta property='og:image' content='http://localhost:1313/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/aapanel.png' />
 <meta name="twitter:title" content="使用linux搭建aapanel">
 <meta name="twitter:description" content="前言 這幾天想搭建一個typecho的blog，因為現在寶塔面板要登入帳號。 而寶塔面板跟aaPanel是一樣的，是不需要登入就可使用的，所以有了這篇教學。 傳送門: https://www.aapanel.com/new/download.html#install 腳本快速安裝 Ubuntu、centOS、Debian都可使用腳本 先切換成root 1 sudo -i 下載腳本並執行 複製執行即可(大約2~3分鐘左右) 1 URL=https://www.aapanel.com/script/install_7.0_en.sh &amp;&amp; if [ -f /usr/bin/curl ];then curl -ksSO &#34;$URL&#34; ;else wget --no-check-certificate -O install_7.0_en.sh &#34;$URL&#34;;fi;bash install_7.0_en.sh aapanel 安裝成功 記得上面有用戶名和密碼先複製起來保存 登入面板 基本操控 停止服務 1 service bt stop 開啟服務 1 service bt start 開啟服務 1 service bt start 解除安裝 1 service bt stop &amp;&amp; chkconfig --del bt &amp;&amp; rm -f /etc/init.d/bt &amp;&amp; rm -rf /www/server/panel 結語 因為是通過 面板安裝服務 可能會等比較長的時間，這篇就到這邊結束拉~"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/aapanel.png' />
+    <meta name="twitter:image" content='http://localhost:1313/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/aapanel.png' />
     <link rel="shortcut icon" href="/img/logo.png" />
 
     </head>

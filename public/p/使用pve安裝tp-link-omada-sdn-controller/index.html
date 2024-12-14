@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name="msvalidate.01" content="AE8B53CE2030963F6CDABD8D64747041" /><meta name='description' content="前言 Tp-link omada SDN目前只有兩種型號(OC200、OC300)，也可以透過官方提供的docker文件來架設 本篇使用pve建立容器並執行。 優點 省錢 省電 功能齊全 缺點 依照你的機器決定穩不穩定 較耗電 開始安裝 選擇你的容器 選擇CT範本 下載ubuntu 20 建立CT 填入主機名稱、用戶密碼 選擇剛剛下載好的範本 設定核心數和記憶體(建議2核2G) 設定網路 把防火牆的選項取消勾選，根據自己路由器配置主機ip位置 確認 確認好機器配置沒有錯 開機 登入主機 1 2 帳號:root 密碼:&lt;剛剛設定的&gt; 更新套件庫 1 2 sudo apt-get update sudo apt-get upgrade 安裝必要套件 1 sudo apt-get install mongodb jsvc openjdk-8-jdk gdebi-core -y 設定java預設執行版本 1 sudo update-alternatives --config java 下載Tp-link執行腳本 1 wget https://static.tp-link.com/upload/software/2023/202303/20230321/Omada_SDN_Controller_v5.9.31_Linux_x64.deb 安裝Tp-link執行腳本 1 gdebi Omada_SDN_Controller_v5.9.31_Linux_x64.deb 進入設定網頁 安裝完成後進入 http://&lt;你的ip&gt;:8088 進入後網頁如果顯示不安全選擇進階&ndash;&gt;繼續前往網站 開始設定 輸入基本資訊就大功告成拉~">
 <title>使用pve安裝TP-Link Omada SDN Controller</title>
 
-<link rel='canonical' href='https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/'>
+<link rel='canonical' href='http://localhost:1313/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/'>
 
 <link rel="stylesheet" href="/scss/style.min.f116c57ca916675ff1f8441af9fea8eac04af3c755c1da2a26a73b8bbeda7ee1.css"><script defer src="https://cloud.umami.is/script.js" data-website-id="503f2c42-47bf-4084-8316-d0fa71c5a881"></script><meta property='og:title' content="使用pve安裝TP-Link Omada SDN Controller">
 <meta property='og:description' content="前言 Tp-link omada SDN目前只有兩種型號(OC200、OC300)，也可以透過官方提供的docker文件來架設 本篇使用pve建立容器並執行。 優點 省錢 省電 功能齊全 缺點 依照你的機器決定穩不穩定 較耗電 開始安裝 選擇你的容器 選擇CT範本 下載ubuntu 20 建立CT 填入主機名稱、用戶密碼 選擇剛剛下載好的範本 設定核心數和記憶體(建議2核2G) 設定網路 把防火牆的選項取消勾選，根據自己路由器配置主機ip位置 確認 確認好機器配置沒有錯 開機 登入主機 1 2 帳號:root 密碼:&lt;剛剛設定的&gt; 更新套件庫 1 2 sudo apt-get update sudo apt-get upgrade 安裝必要套件 1 sudo apt-get install mongodb jsvc openjdk-8-jdk gdebi-core -y 設定java預設執行版本 1 sudo update-alternatives --config java 下載Tp-link執行腳本 1 wget https://static.tp-link.com/upload/software/2023/202303/20230321/Omada_SDN_Controller_v5.9.31_Linux_x64.deb 安裝Tp-link執行腳本 1 gdebi Omada_SDN_Controller_v5.9.31_Linux_x64.deb 進入設定網頁 安裝完成後進入 http://&lt;你的ip&gt;:8088 進入後網頁如果顯示不安全選擇進階&ndash;&gt;繼續前往網站 開始設定 輸入基本資訊就大功告成拉~">
-<meta property='og:url' content='https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/'>
+<meta property='og:url' content='http://localhost:1313/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/'>
 <meta property='og:site_name' content='wei&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:published_time' content='2024-08-15T15:42:24&#43;08:00'/><meta property='article:modified_time' content='2024-08-15T15:42:24&#43;08:00'/><meta property='og:image' content='https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/omada.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:published_time' content='2024-08-15T15:42:24&#43;08:00'/><meta property='article:modified_time' content='2024-08-15T15:42:24&#43;08:00'/><meta property='og:image' content='http://localhost:1313/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/omada.png' />
 <meta name="twitter:title" content="使用pve安裝TP-Link Omada SDN Controller">
 <meta name="twitter:description" content="前言 Tp-link omada SDN目前只有兩種型號(OC200、OC300)，也可以透過官方提供的docker文件來架設 本篇使用pve建立容器並執行。 優點 省錢 省電 功能齊全 缺點 依照你的機器決定穩不穩定 較耗電 開始安裝 選擇你的容器 選擇CT範本 下載ubuntu 20 建立CT 填入主機名稱、用戶密碼 選擇剛剛下載好的範本 設定核心數和記憶體(建議2核2G) 設定網路 把防火牆的選項取消勾選，根據自己路由器配置主機ip位置 確認 確認好機器配置沒有錯 開機 登入主機 1 2 帳號:root 密碼:&lt;剛剛設定的&gt; 更新套件庫 1 2 sudo apt-get update sudo apt-get upgrade 安裝必要套件 1 sudo apt-get install mongodb jsvc openjdk-8-jdk gdebi-core -y 設定java預設執行版本 1 sudo update-alternatives --config java 下載Tp-link執行腳本 1 wget https://static.tp-link.com/upload/software/2023/202303/20230321/Omada_SDN_Controller_v5.9.31_Linux_x64.deb 安裝Tp-link執行腳本 1 gdebi Omada_SDN_Controller_v5.9.31_Linux_x64.deb 進入設定網頁 安裝完成後進入 http://&lt;你的ip&gt;:8088 進入後網頁如果顯示不安全選擇進階&ndash;&gt;繼續前往網站 開始設定 輸入基本資訊就大功告成拉~"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/omada.png' />
+    <meta name="twitter:image" content='http://localhost:1313/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/omada.png' />
     <link rel="shortcut icon" href="/img/logo.png" />
 
     </head>

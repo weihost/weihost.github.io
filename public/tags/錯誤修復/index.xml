@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>錯誤修復 on wei&#39;s Blog</title>
-        <link>https://blog.jameshost.org/tags/%E9%8C%AF%E8%AA%A4%E4%BF%AE%E5%BE%A9/</link>
+        <link>http://localhost:1313/tags/%E9%8C%AF%E8%AA%A4%E4%BF%AE%E5%BE%A9/</link>
         <description>Recent content in 錯誤修復 on wei&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>WEI&#39;s Blog</copyright>
-        <lastBuildDate>Tue, 20 Aug 2024 06:01:50 +0800</lastBuildDate><atom:link href="https://blog.jameshost.org/tags/%E9%8C%AF%E8%AA%A4%E4%BF%AE%E5%BE%A9/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 20 Aug 2024 06:01:50 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E9%8C%AF%E8%AA%A4%E4%BF%AE%E5%BE%A9/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>如何在Ubuntu上修復「apt-key」棄用警告</title>
-        <link>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/</link>
+        <link>http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/</link>
         <pubDate>Tue, 20 Aug 2024 06:01:50 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/</guid>
-        <description>&lt;img src="https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/title.png" alt="Featured image of post 如何在Ubuntu上修復「apt-key」棄用警告" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+        <guid>http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/title.png" alt="Featured image of post 如何在Ubuntu上修復「apt-key」棄用警告" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;最近，我在更新我的linux系統時遇到了一些問題，再更新系統時會警告我下面這串，雖然這 &lt;strong&gt;不會影響到我執行更新&lt;/strong&gt; ，但我看著這行警告心會癢癢，我們應該如何解決 GPG 金鑰的問題？&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;W: https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
 &lt;/code&gt;&lt;/pre&gt;

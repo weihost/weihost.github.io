@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>地震速報 on wei&#39;s Blog</title>
-        <link>https://blog.jameshost.org/tags/%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/</link>
+        <link>http://localhost:1313/tags/%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/</link>
         <description>Recent content in 地震速報 on wei&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>WEI&#39;s Blog</copyright>
-        <lastBuildDate>Sun, 18 Aug 2024 04:35:39 +0800</lastBuildDate><atom:link href="https://blog.jameshost.org/tags/%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 18 Aug 2024 04:35:39 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>LINE地震速報</title>
-        <link>https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/</link>
+        <link>http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/</link>
         <pubDate>Sun, 18 Aug 2024 04:35:39 +0800</pubDate>
         
-        <guid>https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/</guid>
-        <description>&lt;img src="https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/deneo.png" alt="Featured image of post LINE地震速報" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+        <guid>http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/</guid>
+        <description>&lt;img src="http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/deneo.png" alt="Featured image of post LINE地震速報" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;本篇介紹如何讓LINE通知地震、LINE地震速報，原理是透過 &lt;strong&gt;地牛Wake Up!&lt;/strong&gt; 來觸發執行檔案，並透過GAS傳到 &lt;strong&gt;Google Sheets&lt;/strong&gt; 做紀錄。&lt;/p&gt;
 &lt;p&gt;原作者: &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=UTIfhd1JfbM&amp;amp;t=1428s&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;傳送門&lt;/a&gt;&lt;/p&gt;
@@ -49,10 +49,10 @@
 &lt;h2 id=&#34;地牛wake-up&#34;&gt;地牛Wake Up!
 &lt;/h2&gt;&lt;p&gt;先安裝&lt;code&gt;地牛Wake Up!&lt;/code&gt; 👆&lt;a class=&#34;link&#34; href=&#34;https://eew.earthquake.tw/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;傳送門&lt;/a&gt; 👆&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/wakeup.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/wakeup.png&#34;
 	width=&#34;998&#34;
 	height=&#34;715&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/wakeup_hu5382801c3eeb36c4c068d1fdcbc634f7_323781_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/wakeup_hu5382801c3eeb36c4c068d1fdcbc634f7_323781_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/wakeup_hu5382801c3eeb36c4c068d1fdcbc634f7_323781_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/wakeup_hu5382801c3eeb36c4c068d1fdcbc634f7_323781_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -65,10 +65,10 @@
 &lt;h2 id=&#34;中央氣象署開放資料平臺註冊&#34;&gt;中央氣象署開放資料平臺註冊
 &lt;/h2&gt;&lt;p&gt;到中央氣象署開放資料平臺👆&lt;a class=&#34;link&#34; href=&#34;https://pweb.cwa.gov.tw/emember/register&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;傳送門&lt;/a&gt;👆註冊&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/register.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/register.png&#34;
 	width=&#34;1898&#34;
 	height=&#34;912&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/register_hu650e38a296e495964183e1aac0023dfd_46630_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/register_hu650e38a296e495964183e1aac0023dfd_46630_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/register_hu650e38a296e495964183e1aac0023dfd_46630_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/register_hu650e38a296e495964183e1aac0023dfd_46630_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -81,10 +81,10 @@
 &lt;h2 id=&#34;取得授權碼&#34;&gt;取得授權碼
 &lt;/h2&gt;&lt;p&gt;到中央氣象署開放資料平臺👆&lt;a class=&#34;link&#34; href=&#34;https://opendata.cwa.gov.tw/user/authkey&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;傳送門&lt;/a&gt;👆登入並取得&lt;code&gt;授權碼&lt;/code&gt; (&lt;strong&gt;CWA開頭的碼&lt;/strong&gt;)，先&lt;strong&gt;複製保存&lt;/strong&gt;後面才會用到。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/ch.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/ch.png&#34;
 	width=&#34;1919&#34;
 	height=&#34;921&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/ch_hu7fefb2ca1cb01e442405d9495e3e7988_380497_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/ch_hu7fefb2ca1cb01e442405d9495e3e7988_380497_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/ch_hu7fefb2ca1cb01e442405d9495e3e7988_380497_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/ch_hu7fefb2ca1cb01e442405d9495e3e7988_380497_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -96,10 +96,10 @@
 &lt;h2 id=&#34;取得line-notify-token&#34;&gt;取得Line Notify token
 &lt;/h2&gt;&lt;p&gt;進入👆&lt;a class=&#34;link&#34; href=&#34;https://notify-bot.line.me/my/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;LINE Notify&lt;/a&gt;👆登入後選擇&lt;code&gt;個人頁面&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/me.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/me.png&#34;
 	width=&#34;1919&#34;
 	height=&#34;914&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/me_hu0de60e819b928503134b0a15309411a7_68465_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/me_hu0de60e819b928503134b0a15309411a7_68465_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/me_hu0de60e819b928503134b0a15309411a7_68465_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/me_hu0de60e819b928503134b0a15309411a7_68465_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -109,10 +109,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;按下發行權杖&#34;&gt;按下👆發行權杖👆
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fa.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fa.png&#34;
 	width=&#34;1907&#34;
 	height=&#34;917&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fa_hu5c28c5f57118ceb7f9a54002ca4eecc4_69623_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fa_hu5c28c5f57118ceb7f9a54002ca4eecc4_69623_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fa_hu5c28c5f57118ceb7f9a54002ca4eecc4_69623_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fa_hu5c28c5f57118ceb7f9a54002ca4eecc4_69623_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -122,10 +122,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;選擇要在哪裡發送訊息&#34;&gt;選擇要在哪裡發送訊息
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/select.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/select.png&#34;
 	width=&#34;520&#34;
 	height=&#34;761&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/select_hu3fb7d585dacffee820a07eb81331eb2c_34554_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/select_hu3fb7d585dacffee820a07eb81331eb2c_34554_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/select_hu3fb7d585dacffee820a07eb81331eb2c_34554_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/select_hu3fb7d585dacffee820a07eb81331eb2c_34554_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -136,10 +136,10 @@
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;複製tocken&#34;&gt;複製tocken
 &lt;/h2&gt;&lt;p&gt;先&lt;code&gt;複製保存&lt;/code&gt;後面才會用到&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/token.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/token.png&#34;
 	width=&#34;518&#34;
 	height=&#34;431&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/token_hu2878da71a3ff041d7af52bd656c380c0_10600_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/token_hu2878da71a3ff041d7af52bd656c380c0_10600_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/token_hu2878da71a3ff041d7af52bd656c380c0_10600_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/token_hu2878da71a3ff041d7af52bd656c380c0_10600_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -153,10 +153,10 @@
 &lt;/h2&gt;&lt;p&gt;先進入👆&lt;a class=&#34;link&#34; href=&#34;https://docs.google.com/spreadsheets/d/1wtwCsSuMBpfxVKOMfKnK8nHms4uVHzgwA4MbSrAWG2Y/edit?gid=0#gid=0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;此連結&lt;/a&gt;👆&lt;/p&gt;
 &lt;p&gt;左上角&lt;code&gt;檔案&lt;/code&gt;&amp;ndash;&amp;gt;&lt;code&gt;建立副本&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fb.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fb.png&#34;
 	width=&#34;1916&#34;
 	height=&#34;922&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fb_hu99dec0357a52ea32cd34e0d10ada8c23_93354_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fb_hu99dec0357a52ea32cd34e0d10ada8c23_93354_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fb_hu99dec0357a52ea32cd34e0d10ada8c23_93354_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fb_hu99dec0357a52ea32cd34e0d10ada8c23_93354_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -166,10 +166,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;上方工具列&lt;code&gt;擴充功能&lt;/code&gt;&amp;ndash;&amp;gt;&lt;code&gt;Apps Script&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/appsscript.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/appsscript.png&#34;
 	width=&#34;877&#34;
 	height=&#34;444&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/appsscript_hu24086c64d03d78a875d4373e86591be3_44877_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/appsscript_hu24086c64d03d78a875d4373e86591be3_44877_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/appsscript_hu24086c64d03d78a875d4373e86591be3_44877_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/appsscript_hu24086c64d03d78a875d4373e86591be3_44877_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -181,10 +181,10 @@
 &lt;h2 id=&#34;設置&#34;&gt;設置
 &lt;/h2&gt;&lt;p&gt;填入上面取得的&lt;code&gt;氣象署API&lt;/code&gt;和&lt;code&gt;Line Notify token&lt;/code&gt;
 其他請&lt;code&gt;自行設置&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/tian.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/tian.png&#34;
 	width=&#34;872&#34;
 	height=&#34;372&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/tian_hu92f272a30a6696c621dcdcd6d41fa180_62604_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/tian_hu92f272a30a6696c621dcdcd6d41fa180_62604_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/tian_hu92f272a30a6696c621dcdcd6d41fa180_62604_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/tian_hu92f272a30a6696c621dcdcd6d41fa180_62604_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -195,10 +195,10 @@
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;部屬&#34;&gt;部屬
 &lt;/h2&gt;&lt;p&gt;選擇&lt;code&gt;新增部屬&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/bosu.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/bosu.png&#34;
 	width=&#34;1905&#34;
 	height=&#34;912&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/bosu_hu53a776bae75957daef0ed47d6025ebe8_199889_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/bosu_hu53a776bae75957daef0ed47d6025ebe8_199889_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/bosu_hu53a776bae75957daef0ed47d6025ebe8_199889_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/bosu_hu53a776bae75957daef0ed47d6025ebe8_199889_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -209,10 +209,10 @@
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;存取&#34;&gt;存取
 &lt;/h2&gt;&lt;p&gt;設定為&lt;code&gt;所有人&lt;/code&gt;然後按下&lt;code&gt;部署&lt;/code&gt;
-&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/sa.png&#34;
+&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/sa.png&#34;
 	width=&#34;753&#34;
 	height=&#34;594&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/sa_hu49657e576069a86a1d24fd9f27713618_33957_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/sa_hu49657e576069a86a1d24fd9f27713618_33957_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/sa_hu49657e576069a86a1d24fd9f27713618_33957_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/sa_hu49657e576069a86a1d24fd9f27713618_33957_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -222,10 +222,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;複製網址&#34;&gt;複製網址
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/copy.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/copy.png&#34;
 	width=&#34;761&#34;
 	height=&#34;599&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/copy_huf7c1c7c5310011a29336ceb97169fc7c_34381_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/copy_huf7c1c7c5310011a29336ceb97169fc7c_34381_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/copy_huf7c1c7c5310011a29336ceb97169fc7c_34381_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/copy_huf7c1c7c5310011a29336ceb97169fc7c_34381_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -239,10 +239,10 @@
     &gt;點我下載&lt;/a&gt;👆，解壓縮後對檔案點&lt;code&gt;右鍵&lt;/code&gt;&amp;ndash;&amp;gt;&lt;code&gt;顯示其他選項&lt;/code&gt;&amp;ndash;&amp;gt;&lt;code&gt;編輯&lt;/code&gt;，&lt;/p&gt;
 &lt;p&gt;在紅線處分別填入&lt;code&gt;氣象署API&lt;/code&gt;和&lt;code&gt;Line Notify token&lt;/code&gt;，&lt;/p&gt;
 &lt;p&gt;填入後記得 &lt;kbd&gt;CTRL&lt;/kbd&gt;+&lt;kbd&gt;S&lt;/kbd&gt; &lt;code&gt;保存&lt;/code&gt;並退出。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/aaaa.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/aaaa.png&#34;
 	width=&#34;1425&#34;
 	height=&#34;718&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/aaaa_hu7e409831d53db9bcdd63e1e74d40bbd4_63224_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/aaaa_hu7e409831d53db9bcdd63e1e74d40bbd4_63224_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/aaaa_hu7e409831d53db9bcdd63e1e74d40bbd4_63224_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/aaaa_hu7e409831d53db9bcdd63e1e74d40bbd4_63224_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -253,10 +253,10 @@
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;設定地牛&#34;&gt;設定地牛
 &lt;/h2&gt;&lt;p&gt;到&lt;code&gt;地牛Wake Up!&lt;/code&gt;的設定&amp;ndash;&amp;gt;其他&lt;code&gt;連動設定&lt;/code&gt;選取你剛剛保存的&lt;code&gt;earthquake.bat&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/test.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/test.png&#34;
 	width=&#34;999&#34;
 	height=&#34;720&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/test_huf4bc9ea4af7acb5240c3fce4e34c7fef_244751_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/test_huf4bc9ea4af7acb5240c3fce4e34c7fef_244751_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/test_huf4bc9ea4af7acb5240c3fce4e34c7fef_244751_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/test_huf4bc9ea4af7acb5240c3fce4e34c7fef_244751_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -268,10 +268,10 @@
 &lt;h2 id=&#34;測試&#34;&gt;測試
 &lt;/h2&gt;&lt;p&gt;按下&lt;code&gt;測試&lt;/code&gt;，如果你的LINE有成功收到通知，&lt;/p&gt;
 &lt;p&gt;同時打開你的&lt;code&gt;google sheet&lt;/code&gt;也有紀錄，這說明你成功了 !✅&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/testtest.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/testtest.png&#34;
 	width=&#34;1001&#34;
 	height=&#34;718&#34;
-	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/testtest_hu60173f403b2ed0feb7dd99890d826827_242079_480x0_resize_box_3.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/testtest_hu60173f403b2ed0feb7dd99890d826827_242079_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/testtest_hu60173f403b2ed0feb7dd99890d826827_242079_480x0_resize_box_3.png 480w, http://localhost:1313/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/testtest_hu60173f403b2ed0feb7dd99890d826827_242079_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
