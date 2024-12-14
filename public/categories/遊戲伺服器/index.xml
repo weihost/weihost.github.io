@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>遊戲伺服器 on wei&#39;s Blog</title>
+        <link>https://blog.jameshost.org/categories/%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8/</link>
+        <description>Recent content in 遊戲伺服器 on wei&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>WEI&#39;s Blog</copyright>
+        <lastBuildDate>Thu, 15 Aug 2024 03:32:37 +0800</lastBuildDate><atom:link href="https://blog.jameshost.org/categories/%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>如何在windows架設minecraft伺服器</title>
+        <link>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/</link>
+        <pubDate>Thu, 15 Aug 2024 03:32:37 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/minecraft.jpg" alt="Featured image of post 如何在windows架設minecraft伺服器" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;此篇介紹如何使用windows環境架設官方minecraft伺服器。&lt;/p&gt;
+&lt;h2 id=&#34;安裝java&#34;&gt;安裝JAVA
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;下載並安裝&lt;/strong&gt;
+👆&lt;a class=&#34;link&#34; href=&#34;https://www.oracle.com/java/technologies/downloads/#jdk22-windows&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JAVA&lt;/a&gt;👆
+&lt;em&gt;點網址開始下載&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/4257998626.png&#34;
+	width=&#34;2551&#34;
+	height=&#34;1184&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/4257998626_hu13816576733257855245.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/4257998626_hu14201332066120027106.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;215&#34;
+		data-flex-basis=&#34;517px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;下一步&#34;&gt;下一步
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1442633877.png&#34;
+	width=&#34;913&#34;
+	height=&#34;711&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1442633877_hu5360854203760190499.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1442633877_hu7630302661535709282.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;128&#34;
+		data-flex-basis=&#34;308px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;下一步-1&#34;&gt;下一步
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2773565336.png&#34;
+	width=&#34;894&#34;
+	height=&#34;690&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2773565336_hu885257286393999112.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2773565336_hu17194850884832354661.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;129&#34;
+		data-flex-basis=&#34;310px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;按close即可&#34;&gt;按close即可
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1365441950.png&#34;
+	width=&#34;904&#34;
+	height=&#34;720&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1365441950_hu7241572901845028398.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1365441950_hu1988873105880787842.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;125&#34;
+		data-flex-basis=&#34;301px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;到官網下載伺服器檔案&#34;&gt;到官網下載伺服器檔案
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;到👆&lt;a class=&#34;link&#34; href=&#34;https://www.minecraft.net/en-us/download/server&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;minecraft官網&lt;/a&gt;👆下載伺服器檔案&lt;/strong&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1062645312.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1183&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1062645312_hu18067004409870451205.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1062645312_hu14608480081137189901.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;216&#34;
+		data-flex-basis=&#34;519px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;下載的檔案放到單獨的資料夾&#34;&gt;下載的檔案放到單獨的資料夾
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;將下載的 server.jar 放到單獨的資料夾中(名字不能是中文)&lt;/strong&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3878743257.png&#34;
+	width=&#34;1958&#34;
+	height=&#34;943&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3878743257_hu3964490943549362281.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3878743257_hu11668127100440310363.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;207&#34;
+		data-flex-basis=&#34;498px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立啟動檔案&#34;&gt;建立啟動檔案
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;建立啟動檔案&lt;/strong&gt;
+打開 Windows 的記事本，先貼上下面這串指令，將存檔類型改成所有檔案，並將檔案名稱命名為 run.bat，儲存到有 server.jar 的資料夾中，最後點擊存檔
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;java -Xmx1024M -Xms1024M -jar server.jar nogui&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2144257061.png&#34;
+	width=&#34;759&#34;
+	height=&#34;383&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2144257061_hu16932670278088355007.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2144257061_hu8362042101610604343.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;198&#34;
+		data-flex-basis=&#34;475px&#34;
+	
+&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2083872685.png&#34;
+	width=&#34;1156&#34;
+	height=&#34;817&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2083872685_hu5710948573465164840.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2083872685_hu15961753269100056916.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;141&#34;
+		data-flex-basis=&#34;339px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;啟動伺服器&#34;&gt;啟動伺服器
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;雙點擊 run.bat 來啟動伺服器，初次啟動時會先初始化，也會產生一些檔案。伺服器在 eula.txt 檔案出現後會自動關閉，這時我們可以用文字編輯器來打開 eula.txt&lt;/strong&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2894659851.png&#34;
+	width=&#34;1958&#34;
+	height=&#34;941&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2894659851_hu6859049599011520633.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2894659851_hu11434295220708653673.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;208&#34;
+		data-flex-basis=&#34;499px&#34;
+	
+&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1266046122.png&#34;
+	width=&#34;1697&#34;
+	height=&#34;292&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1266046122_hu12290594504697292058.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1266046122_hu5013970861552762556.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;581&#34;
+		data-flex-basis=&#34;1394px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;完成&#34;&gt;完成
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;我們先等待所有的 Preparing spawn area 都跑完後，會出現 Done! For help, type “help” 訊息，這代表伺服器已經準備好，我們可以連線進去玩了 !&lt;/strong&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3314559782.png&#34;
+	width=&#34;1733&#34;
+	height=&#34;887&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3314559782_hu14651321802355163352.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3314559782_hu553666254462475772.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;195&#34;
+		data-flex-basis=&#34;468px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;開啟minecraft&#34;&gt;開啟minecraft
+&lt;/h2&gt;&lt;p&gt;選擇多人遊戲&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1424839977.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1321&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1424839977_hu497855965388191862.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1424839977_hu6094635286738585309.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;193&#34;
+		data-flex-basis=&#34;465px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;選擇新增伺服器&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1418865756.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1314&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1418865756_hu3550783334575392278.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1418865756_hu9147766223685222325.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;194&#34;
+		data-flex-basis=&#34;467px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;伺服器位址中輸入 127.0.0.1(本地電腦ip)，再點擊完成&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1816429538.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1317&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1816429538_hu12395223513015307602.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1816429538_hu9941452209132746387.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;194&#34;
+		data-flex-basis=&#34;466px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;選取你的伺服器並點擊加入伺服器，即可進入伺服器&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1239062799.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1331&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1239062799_hu15295546824216318492.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1239062799_hu14592610633362946916.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;192&#34;
+		data-flex-basis=&#34;461px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;補充&#34;&gt;補充
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;如果想要開放給不是正版的人遊玩的話就需要做此步驟&lt;/strong&gt;
+到伺服器檔案中找到server.properties的檔案，右鍵點擊開啟檔案(使用自己喜歡的文字編輯器)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2756626940.png&#34;
+	width=&#34;1960&#34;
+	height=&#34;954&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2756626940_hu7293169780370832764.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2756626940_hu7945554124930169089.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;205&#34;
+		data-flex-basis=&#34;493px&#34;
+	
+&gt;
+找到online-mode這行，把它改成false，並重新啟動伺服器就可開心地遊玩拉~&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1950297165.png&#34;
+	width=&#34;1494&#34;
+	height=&#34;1128&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1950297165_hu5752191092885883233.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1950297165_hu6516421168442479840.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;317px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

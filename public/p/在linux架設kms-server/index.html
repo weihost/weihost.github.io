@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="前言\r使用 KMS (Key Management Service) 來啟用 Windows 可以是合法的，也可能是盜版，取決於具體的情況。 ✅合法的情況：\r企業授權：KMS 是 Microsoft 提供的一種啟用方式，主要針對大型企業、教育機構等，允許它們使用一個集中化的 KMS 伺服器來管理 Windows 和 Office 等產品的批量授權。這些企業和機構會購買合法的批量授權，並在內部使用 KMS 伺服器來啟用產品。 ❌非法的情況：\r破解工具：有些人可能會下載和使用非法的 KMS 激活工具（如 KMSAuto、KMSPico 等），這些工具使用未經授權的 KMS 伺服器來欺騙 Windows，以便免費啟用操作系統或軟體。這種方式被視為盜版，是非法的。 如果你使用的是來自合法來源的 KMS 伺服器並擁有適當的授權，那麼使用 KMS 是合法的。如果你使用的是未經授權的 KMS 伺服器或工具，那麼這就是盜版。 如何架設KMS系統?\r升級系統\r1 sudo apt update &amp;&amp; sudo apt upgrade 切換root使用者\r1 sudo -i 使用腳本安裝\r按任意按鍵繼續安裝，CTRL + C 取消 1 wget --no-check-certificate https://github.com/teddysun/across/raw/master/kms.sh &amp;&amp; chmod +x kms.sh &amp;&amp; ./kms.sh 安裝 net-tools\r1 apt install net-tools 完成\r安装完成后，輸入以下命令查看端口 1688 的監聽狀況 1 netstat -nxtlp | grep 1688 結語\r測試請參考這篇文">
+<title>在linux架設KMS server</title>
+
+<link rel='canonical' href='https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/'>
+
+<link rel="stylesheet" href="/scss/style.min.7e7a16cb271beed639a5217ae6dd01f39b2da6d18280f5ee44677ab9666fea6a.css"><script defer src="https://cloud.umami.is/script.js" data-website-id="503f2c42-47bf-4084-8316-d0fa71c5a881"></script><meta property='og:title' content="在linux架設KMS server">
+<meta property='og:description' content="前言\r使用 KMS (Key Management Service) 來啟用 Windows 可以是合法的，也可能是盜版，取決於具體的情況。 ✅合法的情況：\r企業授權：KMS 是 Microsoft 提供的一種啟用方式，主要針對大型企業、教育機構等，允許它們使用一個集中化的 KMS 伺服器來管理 Windows 和 Office 等產品的批量授權。這些企業和機構會購買合法的批量授權，並在內部使用 KMS 伺服器來啟用產品。 ❌非法的情況：\r破解工具：有些人可能會下載和使用非法的 KMS 激活工具（如 KMSAuto、KMSPico 等），這些工具使用未經授權的 KMS 伺服器來欺騙 Windows，以便免費啟用操作系統或軟體。這種方式被視為盜版，是非法的。 如果你使用的是來自合法來源的 KMS 伺服器並擁有適當的授權，那麼使用 KMS 是合法的。如果你使用的是未經授權的 KMS 伺服器或工具，那麼這就是盜版。 如何架設KMS系統?\r升級系統\r1 sudo apt update &amp;&amp; sudo apt upgrade 切換root使用者\r1 sudo -i 使用腳本安裝\r按任意按鍵繼續安裝，CTRL + C 取消 1 wget --no-check-certificate https://github.com/teddysun/across/raw/master/kms.sh &amp;&amp; chmod +x kms.sh &amp;&amp; ./kms.sh 安裝 net-tools\r1 apt install net-tools 完成\r安装完成后，輸入以下命令查看端口 1688 的監聽狀況 1 netstat -nxtlp | grep 1688 結語\r測試請參考這篇文">
+<meta property='og:url' content='https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/'>
+<meta property='og:site_name' content='wei&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:published_time' content='2024-08-18T03:51:01&#43;08:00'/><meta property='article:modified_time' content='2024-08-18T03:51:01&#43;08:00'/><meta property='og:image' content='https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/nonono.jpg' />
+<meta name="twitter:title" content="在linux架設KMS server">
+<meta name="twitter:description" content="前言\r使用 KMS (Key Management Service) 來啟用 Windows 可以是合法的，也可能是盜版，取決於具體的情況。 ✅合法的情況：\r企業授權：KMS 是 Microsoft 提供的一種啟用方式，主要針對大型企業、教育機構等，允許它們使用一個集中化的 KMS 伺服器來管理 Windows 和 Office 等產品的批量授權。這些企業和機構會購買合法的批量授權，並在內部使用 KMS 伺服器來啟用產品。 ❌非法的情況：\r破解工具：有些人可能會下載和使用非法的 KMS 激活工具（如 KMSAuto、KMSPico 等），這些工具使用未經授權的 KMS 伺服器來欺騙 Windows，以便免費啟用操作系統或軟體。這種方式被視為盜版，是非法的。 如果你使用的是來自合法來源的 KMS 伺服器並擁有適當的授權，那麼使用 KMS 是合法的。如果你使用的是未經授權的 KMS 伺服器或工具，那麼這就是盜版。 如何架設KMS系統?\r升級系統\r1 sudo apt update &amp;&amp; sudo apt upgrade 切換root使用者\r1 sudo -i 使用腳本安裝\r按任意按鍵繼續安裝，CTRL + C 取消 1 wget --no-check-certificate https://github.com/teddysun/across/raw/master/kms.sh &amp;&amp; chmod +x kms.sh &amp;&amp; ./kms.sh 安裝 net-tools\r1 apt install net-tools 完成\r安装完成后，輸入以下命令查看端口 1688 的監聽狀況 1 netstat -nxtlp | grep 1688 結語\r測試請參考這篇文"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/nonono.jpg' />
+    <link rel="shortcut icon" href="/img/logo.png" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a>
+      <ol>
+        <li><a href="#合法的情況">✅合法的情況：</a></li>
+        <li><a href="#非法的情況">❌非法的情況：</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#升級系統">升級系統</a></li>
+    <li><a href="#切換root使用者">切換root使用者</a></li>
+    <li><a href="#使用腳本安裝">使用腳本安裝</a></li>
+    <li><a href="#安裝-net-tools">安裝 <code>net-tools</code></a></li>
+    <li><a href="#完成">完成</a></li>
+    <li><a href="#結語">結語</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/">
+                <img src="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/nonono_hu16240605758631954906.jpg"
+                        srcset="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/nonono_hu16240605758631954906.jpg 800w, /p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/nonono_hu17342988640121005252.jpg 1600w"
+                        width="800" 
+                        height="292" 
+                        loading="lazy"
+                        alt="Featured image of post 在linux架設KMS server" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" style="background-color: #2a9d8f; color: #fff;">
+                linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/">在linux架設KMS server</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 18, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="前言">前言
+</h2><p>使用 KMS (Key Management Service) 來啟用 Windows 可以是<strong>合法</strong>的，也可能是<strong>盜版</strong>，取決於具體的情況。</p>
+<h3 id="合法的情況">✅合法的情況：
+</h3><p>企業授權：KMS 是 Microsoft 提供的一種啟用方式，主要針對<code>大型企業</code>、<code>教育機構</code>等，允許它們使用一個集中化的 KMS 伺服器來管理 Windows 和 Office 等產品的批量授權。這些企業和機構會<code>購買合法的批量授權</code>，並在內部使用 KMS 伺服器來啟用產品。</p>
+<h3 id="非法的情況">❌非法的情況：
+</h3><p>破解工具：有些人可能會下載和使用非法的 KMS 激活工具（如 KMSAuto、KMSPico 等），這些工具使用<code>未經授權的 KMS 伺服器來欺騙 Windows</code>，以便免費啟用操作系統或軟體。這種方式被視為盜版，是非法的。
+如果你使用的是來自合法來源的 KMS 伺服器並擁有適當的授權，那麼使用 KMS 是合法的。如果你使用的是未經授權的 KMS 伺服器或工具，<code>那麼這就是盜版</code>。</p>
+<hr>
+<blockquote>
+<h1 id="如何架設kms系統">如何架設KMS系統?
+</h1></blockquote>
+<h2 id="升級系統">升級系統
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">sudo apt update <span class="err">&amp;&amp;</span> sudo apt upgrade</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<hr>
+<h2 id="切換root使用者">切換root使用者
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">sudo -i</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<hr>
+<h2 id="使用腳本安裝">使用腳本安裝
+</h2><p>按任<code>意按鍵</code>繼續安裝，<kbd>CTRL</kbd> + <kbd>C</kbd> 取消
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">wget --no-check-certificate https://github.com/teddysun/across/raw/master/kms.sh <span class="err">&amp;&amp;</span> chmod +x kms.sh <span class="err">&amp;&amp;</span> ./kms.sh</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p><img src="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/press.png"
+	width="776"
+	height="489"
+	srcset="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/press_hu8689549937412363791.png 480w, /p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/press_hu6069442558766421009.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="380px"
+	
+></p>
+<hr>
+<h2 id="安裝-net-tools">安裝 <code>net-tools</code>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">apt install net-tools</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<hr>
+<h2 id="完成">完成
+</h2><p>安装完成后，輸入以下命令查看端口 1688 的監聽狀況
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">netstat -nxtlp | grep 1688</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p><img src="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/done.png"
+	width="773"
+	height="484"
+	srcset="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/done_hu18347290570446165823.png 480w, /p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/done_hu6944855864900887313.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="159"
+		data-flex-basis="383px"
+	
+></p>
+<h2 id="結語">結語
+</h2><p>測試請參考<a class="link" href="https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/"  target="_blank" rel="noopener"
+    >這篇文</a></p>
+<p>再次聲明自行架設KMS是🛑<code>盜版</code>🛑!</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/linux/">Linux</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相關文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/Synology_Logo.ed3abe48ee15de503a17aba2000ac2a1_hu13575554344639187646.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 使用RR安裝黑群輝、黑群輝洗白"
+                        
+                        data-hash="md5-7Tq&#43;SO4V3lA6F6uiAArCoQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用RR安裝黑群輝、黑群輝洗白</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/pve.cc7088ecc3c07992f70f8eaf23cb4d8c_hu5918568157826690202.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 部屬新PVE環境並換源移除訂閱視窗"
+                        
+                        data-hash="md5-zHCI7MPAeZL3D46vI8tNjA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">部屬新PVE環境並換源移除訂閱視窗</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/title.69450729c398e30225ffd7cd29daa341_hu8273010954836707195.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 如何在Ubuntu上修復「apt-key」棄用警告"
+                        
+                        data-hash="md5-aUUHKcOY4wIl/9fNKdqjQQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">如何在Ubuntu上修復「apt-key」棄用警告</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/cmd.361d1eefb95b498607517dace37203d3_hu8046604924607401254.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 使用Windows命令行ssh連結Linux"
+                        
+                        data-hash="md5-Nh0e77lbSYYHUX2s43ID0w==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用Windows命令行ssh連結Linux</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/aapanel.ea03b1299ba174d888ca743a80b22b78_hu6692722012269164018.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 使用linux搭建aapanel"
+                        
+                        data-hash="md5-6gOxKZuhdNiIynQ6gLIreA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用linux搭建aapanel</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 WEI&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+         <br />
+        
+    </section>
+    <section class="running-time">
+        本網站已經穩定運行
+        <span id="runningdays" class="running-days"></span>
+    </section>
+    <section class="totalcount">
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        發表了16篇文章 · 
+        總共1.86k字
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-15'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小時" + minutes + "分鐘";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+
+    </body>
+    
+</html>
+

@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="更新系统\r1 apt update -y 設置主機名\r我們規劃郵局的網域名稱為 mail.&lt;你的網域&gt; ，所以，我們需要設定 linux 的主機名稱。 首先，需要編輯 /etc/hosts 文件，找到含有你的主機IP位址的那一行；如果沒有，則會新增一行。內容如下： 1 192.168.0.30 mail.&lt;你的網域&gt; mail 其中, 192.168.0.30 可換為你的伺服器 IP 位址，後面依序填入長主機名和短主機名，切記不可填反。 然後，我們找到 VPS 的 /etc/hostname 文件，編輯裡面的內容為 mail （網域的前綴） 這樣，就設定好了主機名稱。然後再重啟主機。\n檢查一下是否設定正確：\r執行：hostname\n執行：hostname -f\n此時，我們分別看到mail 和 mail.&lt;你的網域&gt; 這樣，我們就全部設定好了主機名稱（hostname）, 可以進行接下來的其他操作了。\n下載並安裝 iRedMail\r系統將會自動開始安裝。安裝過程中會出現以下這些情況，您需要依序根據您自己的資訊來設定。 1 2 3 4 apt-get install git -y wget https://github.com/iredmail/iRedMail.git cd iRedMail bash iRedMail.sh 然後按下 ENTER，然後等待安裝。\n第一步\r歡迎介面，兩個選項，yes或no ，直接選yes。\n第二部\r設定安裝目錄，這裡可以看到安裝目錄為/var/vmail 直接 ENTER，下一步。\n第三步\r選擇web伺服器，此時可以看到nginx前面有個星號，這代表已經被選中，如果沒有星號，切換到nginx選項，按一下空格，星號出現， ENTER 下一步。\n第四步\r選擇資料庫，上下選擇到MariaDB ，空格星號選中，ENTER下一步。\n第五步\r設定資料庫密碼，自己設定。\n第六步\r設定網域，不帶網域前綴mail，我這邊是jameshost.xyz。\n第七步\r設定管理員密碼\n第八步\r選擇需要安裝的組件，預設即可，那個Sogo可裝可不裝，都可以，不影響郵件服務，ENTER下一步。\n第九步\r確定設定無誤(Y確認N取消)\n安裝大約需要10分鐘左右。全部安裝好之後，系統會提示是否設定防火牆規則，我們輸入y確認即可。 重啟伺服器，讓郵件伺服器生效！ 至此，郵件伺服器搭建完畢，以下開始設定郵件伺服器。\n設定郵件伺服器\r可以透過存取（當然，我們目前還沒有解析域名，後面在一起解析）\rhttps://你的網域/mail ——郵件登入位址\rhttps://你的網域/netdata ——伺服器狀態監控\rhttps://你的網域/iredadmin ——郵件伺服器後台管理\r管理員帳號：postmaster@你的網域 例如 postmaster@jameshost.xyz\r管理者密碼：安裝時候設定的密碼\r以上訊息，可以在 /root/iRedMail-1.6.3/iRedMail.tips 檔案中查看\r配置 DNS 及解析\r您需要設定一條TXT記錄，將根網域名稱（例如我這裡的jameshost.org）解析值設定如下。\n內容為 1 v=spf1 mx ~all ">
+<title>建立 iRedMail 郵件伺服器(SMTP)</title>
+
+<link rel='canonical' href='https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/'>
+
+<link rel="stylesheet" href="/scss/style.min.7e7a16cb271beed639a5217ae6dd01f39b2da6d18280f5ee44677ab9666fea6a.css"><script defer src="https://cloud.umami.is/script.js" data-website-id="503f2c42-47bf-4084-8316-d0fa71c5a881"></script><meta property='og:title' content="建立 iRedMail 郵件伺服器(SMTP)">
+<meta property='og:description' content="更新系统\r1 apt update -y 設置主機名\r我們規劃郵局的網域名稱為 mail.&lt;你的網域&gt; ，所以，我們需要設定 linux 的主機名稱。 首先，需要編輯 /etc/hosts 文件，找到含有你的主機IP位址的那一行；如果沒有，則會新增一行。內容如下： 1 192.168.0.30 mail.&lt;你的網域&gt; mail 其中, 192.168.0.30 可換為你的伺服器 IP 位址，後面依序填入長主機名和短主機名，切記不可填反。 然後，我們找到 VPS 的 /etc/hostname 文件，編輯裡面的內容為 mail （網域的前綴） 這樣，就設定好了主機名稱。然後再重啟主機。\n檢查一下是否設定正確：\r執行：hostname\n執行：hostname -f\n此時，我們分別看到mail 和 mail.&lt;你的網域&gt; 這樣，我們就全部設定好了主機名稱（hostname）, 可以進行接下來的其他操作了。\n下載並安裝 iRedMail\r系統將會自動開始安裝。安裝過程中會出現以下這些情況，您需要依序根據您自己的資訊來設定。 1 2 3 4 apt-get install git -y wget https://github.com/iredmail/iRedMail.git cd iRedMail bash iRedMail.sh 然後按下 ENTER，然後等待安裝。\n第一步\r歡迎介面，兩個選項，yes或no ，直接選yes。\n第二部\r設定安裝目錄，這裡可以看到安裝目錄為/var/vmail 直接 ENTER，下一步。\n第三步\r選擇web伺服器，此時可以看到nginx前面有個星號，這代表已經被選中，如果沒有星號，切換到nginx選項，按一下空格，星號出現， ENTER 下一步。\n第四步\r選擇資料庫，上下選擇到MariaDB ，空格星號選中，ENTER下一步。\n第五步\r設定資料庫密碼，自己設定。\n第六步\r設定網域，不帶網域前綴mail，我這邊是jameshost.xyz。\n第七步\r設定管理員密碼\n第八步\r選擇需要安裝的組件，預設即可，那個Sogo可裝可不裝，都可以，不影響郵件服務，ENTER下一步。\n第九步\r確定設定無誤(Y確認N取消)\n安裝大約需要10分鐘左右。全部安裝好之後，系統會提示是否設定防火牆規則，我們輸入y確認即可。 重啟伺服器，讓郵件伺服器生效！ 至此，郵件伺服器搭建完畢，以下開始設定郵件伺服器。\n設定郵件伺服器\r可以透過存取（當然，我們目前還沒有解析域名，後面在一起解析）\rhttps://你的網域/mail ——郵件登入位址\rhttps://你的網域/netdata ——伺服器狀態監控\rhttps://你的網域/iredadmin ——郵件伺服器後台管理\r管理員帳號：postmaster@你的網域 例如 postmaster@jameshost.xyz\r管理者密碼：安裝時候設定的密碼\r以上訊息，可以在 /root/iRedMail-1.6.3/iRedMail.tips 檔案中查看\r配置 DNS 及解析\r您需要設定一條TXT記錄，將根網域名稱（例如我這裡的jameshost.org）解析值設定如下。\n內容為 1 v=spf1 mx ~all ">
+<meta property='og:url' content='https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/'>
+<meta property='og:site_name' content='wei&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:published_time' content='2024-08-15T00:21:01&#43;08:00'/><meta property='article:modified_time' content='2024-08-15T00:21:01&#43;08:00'/><meta property='og:image' content='https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/mail.jpg' />
+<meta name="twitter:title" content="建立 iRedMail 郵件伺服器(SMTP)">
+<meta name="twitter:description" content="更新系统\r1 apt update -y 設置主機名\r我們規劃郵局的網域名稱為 mail.&lt;你的網域&gt; ，所以，我們需要設定 linux 的主機名稱。 首先，需要編輯 /etc/hosts 文件，找到含有你的主機IP位址的那一行；如果沒有，則會新增一行。內容如下： 1 192.168.0.30 mail.&lt;你的網域&gt; mail 其中, 192.168.0.30 可換為你的伺服器 IP 位址，後面依序填入長主機名和短主機名，切記不可填反。 然後，我們找到 VPS 的 /etc/hostname 文件，編輯裡面的內容為 mail （網域的前綴） 這樣，就設定好了主機名稱。然後再重啟主機。\n檢查一下是否設定正確：\r執行：hostname\n執行：hostname -f\n此時，我們分別看到mail 和 mail.&lt;你的網域&gt; 這樣，我們就全部設定好了主機名稱（hostname）, 可以進行接下來的其他操作了。\n下載並安裝 iRedMail\r系統將會自動開始安裝。安裝過程中會出現以下這些情況，您需要依序根據您自己的資訊來設定。 1 2 3 4 apt-get install git -y wget https://github.com/iredmail/iRedMail.git cd iRedMail bash iRedMail.sh 然後按下 ENTER，然後等待安裝。\n第一步\r歡迎介面，兩個選項，yes或no ，直接選yes。\n第二部\r設定安裝目錄，這裡可以看到安裝目錄為/var/vmail 直接 ENTER，下一步。\n第三步\r選擇web伺服器，此時可以看到nginx前面有個星號，這代表已經被選中，如果沒有星號，切換到nginx選項，按一下空格，星號出現， ENTER 下一步。\n第四步\r選擇資料庫，上下選擇到MariaDB ，空格星號選中，ENTER下一步。\n第五步\r設定資料庫密碼，自己設定。\n第六步\r設定網域，不帶網域前綴mail，我這邊是jameshost.xyz。\n第七步\r設定管理員密碼\n第八步\r選擇需要安裝的組件，預設即可，那個Sogo可裝可不裝，都可以，不影響郵件服務，ENTER下一步。\n第九步\r確定設定無誤(Y確認N取消)\n安裝大約需要10分鐘左右。全部安裝好之後，系統會提示是否設定防火牆規則，我們輸入y確認即可。 重啟伺服器，讓郵件伺服器生效！ 至此，郵件伺服器搭建完畢，以下開始設定郵件伺服器。\n設定郵件伺服器\r可以透過存取（當然，我們目前還沒有解析域名，後面在一起解析）\rhttps://你的網域/mail ——郵件登入位址\rhttps://你的網域/netdata ——伺服器狀態監控\rhttps://你的網域/iredadmin ——郵件伺服器後台管理\r管理員帳號：postmaster@你的網域 例如 postmaster@jameshost.xyz\r管理者密碼：安裝時候設定的密碼\r以上訊息，可以在 /root/iRedMail-1.6.3/iRedMail.tips 檔案中查看\r配置 DNS 及解析\r您需要設定一條TXT記錄，將根網域名稱（例如我這裡的jameshost.org）解析值設定如下。\n內容為 1 v=spf1 mx ~all "><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/mail.jpg' />
+    <link rel="shortcut icon" href="/img/logo.png" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#更新系统">更新系统</a></li>
+    <li><a href="#設置主機名">設置主機名</a></li>
+    <li><a href="#檢查一下是否設定正確">檢查一下是否設定正確：</a></li>
+    <li><a href="#下載並安裝-iredmail">下載並安裝 iRedMail</a>
+      <ol>
+        <li><a href="#第一步">第一步</a></li>
+        <li><a href="#第二部">第二部</a></li>
+        <li><a href="#第三步">第三步</a></li>
+        <li><a href="#第四步">第四步</a></li>
+        <li><a href="#第五步">第五步</a></li>
+        <li><a href="#第六步">第六步</a></li>
+        <li><a href="#第七步">第七步</a></li>
+        <li><a href="#第八步">第八步</a></li>
+        <li><a href="#第九步">第九步</a></li>
+      </ol>
+    </li>
+    <li><a href="#設定郵件伺服器">設定郵件伺服器</a></li>
+    <li><a href="#配置-dns-及解析">配置 DNS 及解析</a>
+      <ol>
+        <li><a href="#設定-mx-紀錄">設定 MX 紀錄</a></li>
+        <li><a href="#設定-dmarc-紀錄">設定 DMARC 紀錄</a></li>
+        <li><a href="#設定-dkim記錄">設定 DKIM記錄</a></li>
+      </ol>
+    </li>
+    <li><a href="#申請證書">申請證書</a></li>
+    <li><a href="#配置證書">配置證書</a></li>
+    <li><a href="#開始設定">開始設定</a>
+      <ol>
+        <li><a href="#新增帳號">新增帳號</a></li>
+        <li><a href="#測試郵件收發">測試郵件收發</a></li>
+        <li><a href="#成功">成功</a></li>
+      </ol>
+    </li>
+    <li><a href="#補充">補充</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/">
+                <img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/mail_hu7126153670580053691.jpg"
+                        srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/mail_hu7126153670580053691.jpg 800w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/mail_hu255681133105169674.jpg 1600w"
+                        width="800" 
+                        height="600" 
+                        loading="lazy"
+                        alt="Featured image of post 建立 iRedMail 郵件伺服器(SMTP)" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" style="background-color: #2a9d8f; color: #fff;">
+                linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/">建立 iRedMail 郵件伺服器(SMTP)</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 15, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="更新系统">更新系统
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">apt update -y</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<hr>
+<h2 id="設置主機名">設置主機名
+</h2><p>我們規劃郵局的網域名稱為 <code>mail.&lt;你的網域&gt;</code> ，所以，我們需要設定 linux 的主機名稱。
+首先，需要編輯 <code>/etc/hosts</code> 文件，找到含有你的主機IP位址的那一行；如果沒有，則會新增一行。內容如下：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">192.168.0.30 mail.<span class="p">&lt;</span><span class="nt">你的網域</span><span class="p">&gt;</span> mail</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p>其中, 192.168.0.30 可換為你的伺服器 IP 位址，後面依序填入長主機名和短主機名，切記不可填反。
+然後，我們找到 VPS 的 <code>/etc/hostname</code> 文件，編輯裡面的內容為 mail （網域的前綴）
+這樣，就設定好了主機名稱。然後再<code>重啟主機</code>。</p>
+<hr>
+<h2 id="檢查一下是否設定正確">檢查一下是否設定正確：
+</h2><p>執行：<code>hostname</code></p>
+<p>執行：<code>hostname -f</code></p>
+<p>此時，我們分別看到<code>mail</code> 和 <code>mail.&lt;你的網域&gt;</code>
+<img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1045613294.png"
+	width="574"
+	height="230"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1045613294_hu6475546660403546974.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1045613294_hu2588220411804911533.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="249"
+		data-flex-basis="598px"
+	
+></p>
+<p>這樣，我們就全部設定好了主機名稱（hostname）, 可以進行接下來的其他操作了。</p>
+<hr>
+<h2 id="下載並安裝-iredmail">下載並安裝 iRedMail
+</h2><p>系統將會自動開始安裝。安裝過程中會出現以下這些情況，您需要依序根據您自己的資訊來設定。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">    apt-get install git -y
+</span></span><span class="line"><span class="cl">    wget https://github.com/iredmail/iRedMail.git
+</span></span><span class="line"><span class="cl">    cd iRedMail
+</span></span><span class="line"><span class="cl">    bash iRedMail.sh</span></span></code></pre></td></tr></table>
+</div>
+</div>
+然後按下 <kbd>ENTER</kbd>，然後等待安裝。</p>
+<h3 id="第一步">第一步
+</h3><p>歡迎介面，兩個選項，yes或no ，直接選<code>yes</code>。</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/722561471.png"
+	width="1683"
+	height="837"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/722561471_hu13774896334991227075.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/722561471_hu4208898966562732089.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="201"
+		data-flex-basis="482px"
+	
+></p>
+<h3 id="第二部">第二部
+</h3><p>設定安裝目錄，這裡可以看到安裝目錄為<code>/var/vmail</code> 直接 <kbd>ENTER</kbd>，下一步。</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3672566704.png"
+	width="1681"
+	height="842"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3672566704_hu368148415395625716.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3672566704_hu16712779189937486798.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="199"
+		data-flex-basis="479px"
+	
+></p>
+<h3 id="第三步">第三步
+</h3><p>選擇web伺服器，此時可以看到nginx前面有個星號，這代表已經被選中，如果沒有星號，切換到<code>nginx</code>選項，按一下空格，星號出現， <kbd>ENTER</kbd> 下一步。</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3278080190.png"
+	width="1711"
+	height="837"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3278080190_hu3999179967179282731.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3278080190_hu6550236802286259907.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="204"
+		data-flex-basis="490px"
+	
+></p>
+<h3 id="第四步">第四步
+</h3><p>選擇資料庫，上下選擇到<code>MariaDB</code> ，空格星號選中，<kbd>ENTER</kbd>下一步。</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1464860941.png"
+	width="1712"
+	height="837"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1464860941_hu5265490582342597936.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1464860941_hu16055947564468168276.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="204"
+		data-flex-basis="490px"
+	
+></p>
+<h3 id="第五步">第五步
+</h3><p>設定資料庫密碼，自己設定。</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1809752071.png"
+	width="1713"
+	height="845"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1809752071_hu17239331385571314645.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1809752071_hu15727923467073860928.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="202"
+		data-flex-basis="486px"
+	
+></p>
+<h3 id="第六步">第六步
+</h3><p>設定網域，不帶<strong>網域前綴mail</strong>，我這邊是<code>jameshost.xyz</code>。</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1156212310.png"
+	width="1706"
+	height="839"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1156212310_hu14399946367898641773.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1156212310_hu201294439262937844.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="203"
+		data-flex-basis="488px"
+	
+></p>
+<h3 id="第七步">第七步
+</h3><p>設定管理員密碼</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1424253593.png"
+	width="1708"
+	height="825"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1424253593_hu18287527774748310310.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1424253593_hu13012057853559350570.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="207"
+		data-flex-basis="496px"
+	
+></p>
+<h3 id="第八步">第八步
+</h3><p>選擇需要安裝的組件，預設即可，那個Sogo可裝可不裝，都可以，不影響郵件服務，<kbd>ENTER</kbd>下一步。</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3266559137.png"
+	width="1706"
+	height="831"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3266559137_hu4454122423145931871.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3266559137_hu18250394935735008025.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="205"
+		data-flex-basis="492px"
+	
+></p>
+<h3 id="第九步">第九步
+</h3><p>確定設定無誤(<code>Y確認N取消</code>)</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1673203824.png"
+	width="1689"
+	height="670"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1673203824_hu11189583360929173285.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1673203824_hu6123958284292409148.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="252"
+		data-flex-basis="605px"
+	
+></p>
+<p>安裝大約需要10分鐘左右。全部安裝好之後，系統會提示是否設定防火牆規則，我們輸入y確認即可。
+<strong>重啟伺服器，讓郵件伺服器生效！</strong> 至此，郵件伺服器搭建完畢，以下開始設定郵件伺服器。</p>
+<h2 id="設定郵件伺服器">設定郵件伺服器
+</h2><pre><code>可以透過存取（當然，我們目前還沒有解析域名，後面在一起解析）
+https://你的網域/mail ——郵件登入位址
+https://你的網域/netdata ——伺服器狀態監控
+https://你的網域/iredadmin ——郵件伺服器後台管理
+管理員帳號：postmaster@你的網域 例如 postmaster@jameshost.xyz
+管理者密碼：安裝時候設定的密碼
+以上訊息，可以在 /root/iRedMail-1.6.3/iRedMail.tips 檔案中查看
+</code></pre>
+<hr>
+<h2 id="配置-dns-及解析">配置 DNS 及解析
+</h2><p>您需要設定一條TXT記錄，將根網域名稱（例如我這裡的jameshost.org）解析值設定如下。</p>
+<p>內容為
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">v=spf1 mx ~all</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/txt.png"
+	width="1003"
+	height="566"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/txt_hu17584787971436083699.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/txt_hu1870148352972719811.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="425px"
+	
+></p>
+<hr>
+<h3 id="設定-mx-紀錄">設定 MX 紀錄
+</h3><p>建立一個名為根域名解析到郵件伺服器的ip</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/mx.png"
+	width="1127"
+	height="394"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/mx_hu584381324311344885.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/mx_hu6032974827362956113.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="286"
+		data-flex-basis="686px"
+	
+></p>
+<hr>
+<h3 id="設定-dmarc-紀錄">設定 DMARC 紀錄
+</h3><p>DMARC記錄的設定比較複雜，這裡簡單設定一下，對於普通的網域郵件已經足夠使用了。您需要新增一則TXT記錄，將_dmarc.jameshost.org <code>不要遺漏dmarc前面的那個底線</code>解析值設定為如下：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">v=DMARC1; p=none; pct=100; rua=mailto:dmarc@<span class="p">&lt;</span><span class="nt">你的網域</span><span class="p">&gt;</span></span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/_dmarc.png"
+	width="1008"
+	height="403"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/_dmarc_hu2029873089059683433.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/_dmarc_hu14062252444040805267.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="250"
+		data-flex-basis="600px"
+	
+></p>
+<hr>
+<h3 id="設定-dkim記錄">設定 DKIM記錄
+</h3><p>在配置DKIM記錄之前，我們先要產生DKIM金鑰。在SSH中執行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">amavisd-new showkeys</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>會看到類似下面的密鑰：</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3852784953.png"
+	width="1118"
+	height="337"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3852784953_hu6380349440102415456.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3852784953_hu11141961956215510489.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="331"
+		data-flex-basis="796px"
+	
+></p>
+<p>然後，以網域jameshost.xyz為例，請去您的<code>cloudflare DNS</code>那裡，新增一條<code>TXT記錄</code>，</p>
+<p>將<code>dkim._domainkey.jameshost.xyz</code>解析到<code>v=DKIM1; p=MIIBIj…………………… ………………h6o3Lv7OoNd</code>。</p>
+<p>請注意，這裡的解析值不包含<code>小括號以及所有引號</code>。</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/dddddd.png"
+	width="1134"
+	height="456"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/dddddd_hu4045293668044052057.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/dddddd_hu9996767011859099937.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="248"
+		data-flex-basis="596px"
+	
+></p>
+<hr>
+<h2 id="申請證書">申請證書
+</h2><p>安装證書工具certbot
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">apt-get install certbot -y</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p>然后，申請免費的Let’s Encrypt證書：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">certbot certonly --webroot -d mail.<span class="p">&lt;</span><span class="nt">你的網域</span><span class="p">&gt;</span> -w /var/www/html/</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>申請期間會叫你輸入<code>電子郵件地址</code>
+然後根據提示<code>輸入Y</code>，然後他會問你要不要接收廣告郵件<code>輸入N</code>不同意。</p>
+<pre><code>公鑰路徑: /etc/letsencrypt/live/mail.&lt;你的網域&gt;/fullchain.pem
+
+私鑰: /etc/letsencrypt/live/mail.&lt;你的網域&gt;/privkey.pem
+</code></pre>
+<h2 id="配置證書">配置證書
+</h2><p><strong>申請完畢後，我們先設定Nginx.</strong>
+編輯檔案<code>/etc/nginx/templates/ssl.tmpl</code>, 找到下面兩行：</p>
+<pre><code>ssl_certificate /etc/ssl/certs/iRedMail.crt;
+ssl_certificate_key /etc/ssl/private/iRedMail.key;
+</code></pre>
+<p>將地址更換為<strong>您的證書地址</strong>：</p>
+<pre><code>ssl_certificate /etc/letsencrypt/live/mail.&lt;你的網域&gt;/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/live/mail.&lt;你的網域&gt;/privkey.pem;
+</code></pre>
+<p>保存好後重新载入Nginx配置文件：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">service nginx reload</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p>收發郵件時，同樣需要用到TLS安全認證，因此我們還需要配置Postfix和Dovecot. 首先，編輯<code>/etc/postfix/main.cf</code>文件，找到下面這三行（第95 ~ 97行）：</p>
+<pre><code>smtpd_tls_key_file = /etc/ssl/private/iRedMail.key
+smtpd_tls_cert_file = /etc/ssl/certs/iRedMail.crt
+smtpd_tls_CAfile = /etc/ssl/certs/iRedMail.crt
+</code></pre>
+<p>將其替換為您的憑證地址：</p>
+<pre><code>smtpd_tls_key_file = /etc/letsencrypt/live/mail.&lt;你的網域&gt;/privkey.pem
+smtpd_tls_cert_file = /etc/letsencrypt/live/mail.&lt;你的網域&gt;/cert.pem
+smtpd_tls_CAfile = /etc/letsencrypt/live/mail.&lt;你的網域&gt;/chain.pem
+</code></pre>
+<p>儲存好之後重新載入Postfix設定檔。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">service postfix reload</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p>最後，給Dovecot配置憑證。編輯檔案<code>/etc/dovecot/dovecot.conf</code>, 找到下面這兩行（第45和46行）:</p>
+<pre><code>ssl_cert = &lt;/etc/ssl/certs/iRedMail.crt
+ssl_key = &lt;/etc/ssl/private/iRedMail.key
+</code></pre>
+<p>將其替換為您的憑證地址：</p>
+<pre><code>ssl_cert = &lt;/etc/letsencrypt/live/mail.&lt;你的網域&gt;/fullchain.pem
+ssl_key = &lt;/etc/letsencrypt/live/mail.&lt;你的網域&gt;/privkey.pem
+</code></pre>
+<p>儲存好之後重新載入Dovecot設定檔。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">service dovecot reload</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p><strong>這樣，我們為Nginx, Postfix, Dovecot分別配置好了SSL/TLS安全性憑證。</strong>
+我們先給設定檔提升權限：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">chmod +w /opt/iredapd/settings.py</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p>然後編輯該檔案<code>/opt/iredapd/settings.py</code>，找出下面這行：</p>
+<pre><code>plugins = [&quot;reject_null_sender&quot;, &quot;wblist_rdns&quot;, &quot;reject_sender_login_mismatch&quot;, &quot;greylisting&quot;, &quot;throttle&quot;, &quot;amavisd_wblist&quot;, &quot;sql_alias_access_policy&quot;]
+</code></pre>
+<p>將其中的<code>”greylisting”</code>這項刪去即可。然後，重啟iredapd, 並且恢復檔案權限。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">service iredapd restart
+</span></span><span class="line"><span class="cl">chmod -w /opt/iredapd/settings.py</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<hr>
+<h2 id="開始設定">開始設定
+</h2><p>進入<code>https://&lt;你的網域&gt;/iredadmin</code></p>
+<p>帳號密碼就是一開始安裝時設定的<code>postermaster@&lt;你的網域&gt;</code></p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/2586333774.png"
+	width="2560"
+	height="1306"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/2586333774_hu11839191709790589826.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/2586333774_hu7789655683589092068.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="196"
+		data-flex-basis="470px"
+	
+></p>
+<h3 id="新增帳號">新增帳號
+</h3><p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/468469464.png"
+	width="2560"
+	height="1160"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/468469464_hu14982570847219001850.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/468469464_hu13625877323052235897.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="220"
+		data-flex-basis="529px"
+	
+></p>
+<h3 id="測試郵件收發">測試郵件收發
+</h3><p>進入 <code>https://你的網域/mail</code> 登入郵件並填寫郵件測試，
+如果是自家主機，測試前別忘了先<code>端口轉發</code>。</p>
+<pre><code>SMTP: 25/587, POP3: 110/995, IMAP: 143/993
+</code></pre>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/569641455.png"
+	width="2554"
+	height="1195"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/569641455_hu2383123237267926373.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/569641455_hu1396710169029735011.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="213"
+		data-flex-basis="512px"
+	
+></p>
+<h3 id="成功">成功
+</h3><p>收到確認有收到郵件就大功告成拉，
+發送郵件可能會再垃圾郵件中按下<code>回報為非垃圾郵件</code>就可以了，
+順便回信測試，如果回信沒有收到有可能是<strong>端口轉發沒有成功</strong>。</p>
+<p><img src="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/2753942639.png"
+	width="2545"
+	height="1182"
+	srcset="/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/2753942639_hu12140682719144840446.png 480w, /p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/2753942639_hu11195215472276252115.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="215"
+		data-flex-basis="516px"
+	
+></p>
+<h2 id="補充">補充
+</h2><p>如果您需要使用客戶端來收發信，則smtp, pop, imap位址均為mail.jameshost.xyz, 連接埠是常用的連接埠請自行轉發(SMTP: 25/587, POP3: 110/995, IMAP: 143/993).</p>
+<blockquote>
+<p>有問題歡迎來私訊我的<a class="link" href="https://www.instagram.com/su__tw87/"  target="_blank" rel="noopener"
+    >instagram</a>來討論 !</p>
+</blockquote>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/linux/">Linux</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相關文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/Synology_Logo.ed3abe48ee15de503a17aba2000ac2a1_hu13575554344639187646.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 使用RR安裝黑群輝、黑群輝洗白"
+                        
+                        data-hash="md5-7Tq&#43;SO4V3lA6F6uiAArCoQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用RR安裝黑群輝、黑群輝洗白</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/pve.cc7088ecc3c07992f70f8eaf23cb4d8c_hu5918568157826690202.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 部屬新PVE環境並換源移除訂閱視窗"
+                        
+                        data-hash="md5-zHCI7MPAeZL3D46vI8tNjA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">部屬新PVE環境並換源移除訂閱視窗</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/title.69450729c398e30225ffd7cd29daa341_hu8273010954836707195.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 如何在Ubuntu上修復「apt-key」棄用警告"
+                        
+                        data-hash="md5-aUUHKcOY4wIl/9fNKdqjQQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">如何在Ubuntu上修復「apt-key」棄用警告</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/nonono.ca9adb6ad25f6574be6d4eb949f5e912_hu4722685417779049512.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 在linux架設KMS server"
+                        
+                        data-hash="md5-yprbatJfZXS&#43;bU65SfXpEg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">在linux架設KMS server</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/cmd.361d1eefb95b498607517dace37203d3_hu8046604924607401254.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 使用Windows命令行ssh連結Linux"
+                        
+                        data-hash="md5-Nh0e77lbSYYHUX2s43ID0w==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用Windows命令行ssh連結Linux</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 WEI&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+         <br />
+        
+    </section>
+    <section class="running-time">
+        本網站已經穩定運行
+        <span id="runningdays" class="running-days"></span>
+    </section>
+    <section class="totalcount">
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        發表了16篇文章 · 
+        總共1.86k字
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-15'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小時" + minutes + "分鐘";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+
+    </body>
+    
+</html>
+

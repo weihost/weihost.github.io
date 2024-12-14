@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>電腦硬體裝修乙級 on wei&#39;s Blog</title>
+        <link>https://blog.jameshost.org/tags/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/</link>
+        <description>Recent content in 電腦硬體裝修乙級 on wei&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>WEI&#39;s Blog</copyright>
+        <lastBuildDate>Sat, 07 Dec 2024 03:51:43 +0800</lastBuildDate><atom:link href="https://blog.jameshost.org/tags/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>電腦硬體裝修乙級-路由設定</title>
+        <link>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/</link>
+        <pubDate>Sat, 07 Dec 2024 03:51:43 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級-路由設定" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;此篇windwos server 2012 r2 part-2 (路由設定)。&lt;br&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/HyzeYKxVkl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆檢查筆記👆&lt;/a&gt;&lt;br&gt; &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/SyNPaJfEkx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆評分表👆&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定路由&#34;&gt;設定路由
+&lt;/h2&gt;&lt;p&gt;選擇介於兩個私人網路的安全連線&amp;ndash;&amp;gt;不要撥號&amp;ndash;&amp;gt;完成✅&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/route.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/route.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;查看路由表&#34;&gt;查看路由表
+&lt;/h2&gt;&lt;p&gt;可以對靜態路由右鍵選擇查看。
+或是透過command輸入route print查詢。&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/check.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/check.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;dhcp設定&#34;&gt;DHCP設定
+&lt;/h2&gt;&lt;p&gt;新增DHCP領域&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;設定 &lt;code&gt;IP範圍(評分表規定)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;預設閘道 &lt;code&gt;192.168.140.100&lt;/code&gt;(Server)&lt;/li&gt;
+&lt;li&gt;DNS設定 &lt;code&gt;192.168.140.100&lt;/code&gt;(Server)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/DHCP.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/DHCP.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;測試&#34;&gt;測試
+&lt;/h2&gt;&lt;p&gt;把win10的固定ip改成自動獲取看看能不能拿的到ip。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>電腦硬體裝修乙級-windows設定</title>
+        <link>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/</link>
+        <pubDate>Sat, 07 Dec 2024 02:45:32 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級-windows設定" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;此篇windwos 10 設定。&lt;br&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/HyzeYKxVkl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆檢查筆記👆&lt;/a&gt;&lt;br&gt; &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/SyNPaJfEkx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆評分表👆&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;確認硬碟&#34;&gt;確認硬碟
+&lt;/h2&gt;&lt;p&gt;容量設定在評分表上會寫。
+灌好系統第一件事就是 &lt;code&gt;確認C槽和D槽容量&lt;/code&gt;是否正確。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cloud.jameshost.org/p/video/CCC.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;新增使用者&#34;&gt;新增使用者
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;master&lt;/code&gt;、&lt;code&gt;user1&lt;/code&gt;、&lt;code&gt;user2&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/newsuer.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/newsuer.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;提高master權限&#34;&gt;提高master權限
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/up.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/up.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;關閉防火牆&#34;&gt;關閉防火牆
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/turnoff.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/turnoff.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;設定網路&#34;&gt;設定網路
+&lt;/h2&gt;&lt;p&gt;IP 設定為 &lt;code&gt;172.16.140.1XX&lt;/code&gt; (工作崗位號碼)&lt;/p&gt;
+&lt;p&gt;遮罩設為 &lt;code&gt;255.255.255.0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;閘道設為 &lt;code&gt;172.16.140.100&lt;/code&gt; (Server IP)&lt;/p&gt;
+&lt;p&gt;DNS 設定為 &lt;code&gt;192.168.140.100&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/ipset.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/ipset.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;結尾&#34;&gt;結尾
+&lt;/h2&gt;&lt;p&gt;Cliant 端設定完成後就可以去設定Server，設定完後記得 &lt;a class=&#34;link&#34; href=&#34;https://blog.jameshost.org/p/%e9%9b%bb%e8%85%a6%e7%a1%ac%e9%ab%94%e8%a3%9d%e4%bf%ae%e4%b9%99%e7%b4%9apart-2/#%e6%b8%ac%e8%a9%a6%e8%a8%ad%e5%ae%9a%e5%85%a7%e5%ae%b9&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;測試&lt;/a&gt;👆 。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>電腦硬體裝修乙級part-2</title>
+        <link>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/</link>
+        <pubDate>Sat, 07 Dec 2024 01:27:57 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級part-2" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言
+&lt;/h1&gt;&lt;h2 id=&#34;此篇windwos-server-2012-r2-part-2-服務架設br檢查筆記httpshackmdiojames87575hyzeykxvklbr-評分表httpshackmdiojames87575synpajfekx&#34;&gt;此篇windwos server 2012 r2 part-2 (服務架設)。&lt;br&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/HyzeYKxVkl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆檢查筆記👆&lt;/a&gt;&lt;br&gt; &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/SyNPaJfEkx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆評分表👆&lt;/a&gt;
+&lt;/h2&gt;&lt;h2 id=&#34;新增角色規則&#34;&gt;新增角色規則
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;分別啟用下列6個角色&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DHCP伺服器&lt;/li&gt;
+&lt;li&gt;DNS伺服器&lt;/li&gt;
+&lt;li&gt;列印和文件服務&lt;/li&gt;
+&lt;li&gt;網頁伺服器IIS&lt;/li&gt;
+&lt;li&gt;網路原則與存取服務&lt;/li&gt;
+&lt;li&gt;遠端存取&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/enable.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/enable.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;啟用ftp服務遠端存取的路由&#34;&gt;啟用FTP服務、遠端存取的路由
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/ftp.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/ftp.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;編輯網站首頁&#34;&gt;編輯網站首頁
+&lt;/h2&gt;&lt;p&gt;在 &lt;code&gt;C:\public&lt;/code&gt;裡面新增文字文件並打上html程式碼 &lt;code&gt;(冒號要是全形文字)&lt;/code&gt;，另存新檔把檔案格式改成htm，編碼要改成 &lt;code&gt;UTF-8&lt;/code&gt;，最後記得要把原本新增的 &lt;code&gt;純文字檔刪除&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;font&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;工作崗位號碼：01&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;檢定日期：2024/12/7&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;應檢人姓名：阿威&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;font&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/newindex.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/newindex.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;設定iis網站服務&#34;&gt;設定IIS網站服務
+&lt;/h2&gt;&lt;p&gt;在Default Web Site右鍵&lt;code&gt;新增虛擬目錄&lt;/code&gt;，名稱為 &lt;code&gt;master&lt;/code&gt;路徑為 &lt;code&gt;C:\public&lt;/code&gt;，
+最後再做 &lt;code&gt;自我測試&lt;/code&gt;。
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/iis.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/iis.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;新增ftp站台&#34;&gt;新增FTP站台
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;站台名稱為 &lt;code&gt;AAA&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;路徑為 &lt;code&gt;C:\public&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;IP設定 &lt;code&gt;192.168.140.100&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;選擇 &lt;code&gt;沒有SSL證書&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;驗證選擇 &lt;code&gt;基本&lt;/code&gt;，給所有使用者 &lt;code&gt;讀取和寫入&lt;/code&gt;權限，最後按下完成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/FTPservice.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/FTPservice.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;設定ftp權限&#34;&gt;設定FTP權限
+&lt;/h2&gt;&lt;p&gt;停用權限繼承，🛑&lt;code&gt;先按關閉後在次對AAA站台按右鍵編輯權限&lt;/code&gt;🛑，如果沒有重開後面會很麻煩。&lt;/p&gt;
+&lt;p&gt;新增權限給下列5位使用者，&lt;code&gt;Adminisrator&lt;/code&gt;和 &lt;code&gt;master&lt;/code&gt;要 &lt;code&gt;所有權限&lt;/code&gt;，其他保持默認。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Administrator &lt;code&gt;所有權限&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Authenticated Users&lt;/li&gt;
+&lt;li&gt;IIS_IUSRS&lt;/li&gt;
+&lt;li&gt;master        &lt;code&gt;所有權限&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;test&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/jichen.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/jichen.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;設定dns&#34;&gt;設定DNS
+&lt;/h2&gt;&lt;p&gt;網域名稱根據 &lt;code&gt;當天考試評分表&lt;/code&gt;決定，新增 &lt;code&gt;起始授權&lt;/code&gt;、&lt;code&gt;名稱伺服器&lt;/code&gt;記得最後記得&lt;code&gt;要加後綴&lt;/code&gt;。
+預設名稱伺服器IP位置指向Server端。&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/DNS.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/DNS.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;設定aaaa紀錄&#34;&gt;設定AAAA紀錄
+&lt;/h2&gt;&lt;p&gt;新增WWW、FTP前綴名稱域名。 &lt;code&gt;(考試當天評分表決定)&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/AAAA.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/AAAA.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;確認ftpdns是否設定成功&#34;&gt;確認FTP、DNS是否設定成功
+&lt;/h2&gt;&lt;p&gt;在&lt;code&gt;Cliant端(win10)&lt;/code&gt;使用剛剛設定好的DNS，訪問FTP，並測試權限。&lt;/p&gt;
+&lt;p&gt;權限請參考&lt;a class=&#34;link&#34; href=&#34;https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/#%E8%A8%AD%E5%AE%9A%E8%B3%87%E6%96%99%E5%A4%BE%E6%AC%8A%E9%99%90&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;這裡&lt;/a&gt;。
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/ftptest.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/ftptest.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;qa&#34;&gt;Q&amp;amp;A
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Q: 在檔案總管輸入網域沒有跳出FTP登入視窗。&lt;br&gt;&lt;br&gt;A: 可以先ping看看網址有沒有回應，如果沒有回應就檢查網路設定。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Q: 訪問IIS網頁出現503錯誤，怎麼辦?&lt;br&gt;&lt;br&gt;A: Public資料夾權限設定錯誤，把資料夾刪除重新設定一次，如果刪除不了就把資料夾改名，然後再創一個新的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;!-- ## 結尾
+
+**啟用下列6個角色**
+- DHCP伺服器
+- DNS伺服器
+- 列印和文件服務
+- 網頁伺服器IIS
+- 網路原則與存取服務
+- 遠端存取
+
+**設定IIS**
+**設定FTP**
+**設定DNS**
+
+- [ ] 5.設定網路 --&gt;</description>
+        </item>
+        <item>
+        <title>電腦硬體裝修乙級part-1</title>
+        <link>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/</link>
+        <pubDate>Fri, 06 Dec 2024 23:24:58 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級part-1" /&gt;&lt;hr&gt;
+&lt;h1 id=&#34;前言&#34;&gt;前言
+&lt;/h1&gt;&lt;p&gt;此篇只有windwos server 2012 r2 基本設定部分，服務架設請參考part-2。&lt;br&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/HyzeYKxVkl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆檢查筆記👆&lt;/a&gt;&lt;br&gt; &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/SyNPaJfEkx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆評分表👆&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;更改密碼原則&#34;&gt;更改密碼原則
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/password.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/password.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;更改電腦名稱為-server&#34;&gt;更改電腦名稱為 &lt;code&gt;Server&lt;/code&gt;
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/name.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/name.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;新增使用者&#34;&gt;新增使用者
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;master&lt;/code&gt;、&lt;code&gt;user1&lt;/code&gt;、&lt;code&gt;user2&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/usercreate.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/usercreate.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;提高master權限&#34;&gt;提高master權限
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/master.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/master.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;建立使用者群組&#34;&gt;建立使用者群組
+&lt;/h2&gt;&lt;p&gt;將&lt;code&gt;master&lt;/code&gt;、&lt;code&gt;user1&lt;/code&gt;、&lt;code&gt;user2&lt;/code&gt;加入到test群組。
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/group.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/group.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;設定網路&#34;&gt;設定網路
+&lt;/h2&gt;&lt;p&gt;IP 設定為 &lt;code&gt;192.168.140.1XX、172.16.140.100&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;遮罩設為 &lt;code&gt;255.255.255.0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;閘道設為 &lt;code&gt;流空&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;DNS 設定為 &lt;code&gt;192.168.140.100&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/network.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/network.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;關閉防火牆&#34;&gt;關閉防火牆🧱
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/firewall.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/firewall.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;建立資料夾&#34;&gt;建立資料夾
+&lt;/h2&gt;&lt;p&gt;在C槽目錄下建立&lt;code&gt;public、user1、user2&lt;/code&gt;資料夾。&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/folder.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/folder.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;設定資料夾權限&#34;&gt;設定資料夾權限
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;權限照下表設定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;使用者&lt;/th&gt;
+&lt;th&gt;master&lt;/th&gt;
+&lt;th&gt;user1&lt;/th&gt;
+&lt;th&gt;user2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;public 資料夾&lt;/td&gt;
+&lt;td&gt;全部權限&lt;/td&gt;
+&lt;td&gt;僅讀取&lt;/td&gt;
+&lt;td&gt;僅讀取&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;user1 資料夾&lt;/td&gt;
+&lt;td&gt;不須設定&lt;/td&gt;
+&lt;td&gt;全部權限&lt;/td&gt;
+&lt;td&gt;無法設定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;user2 資料夾&lt;/td&gt;
+&lt;td&gt;不須設定&lt;/td&gt;
+&lt;td&gt;無法設定&lt;/td&gt;
+&lt;td&gt;全部權限&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/promision.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/promision.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&#34;重新開機&#34;&gt;重新開機
+&lt;/h1&gt;&lt;p&gt;到這邊先重新開機再繼續後面的步驟。&lt;/p&gt;
+&lt;h2 id=&#34;結尾&#34;&gt;結尾
+&lt;/h2&gt;&lt;p&gt;part-1 結束 part-2&lt;a class=&#34;link&#34; href=&#34;https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆點我👆&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

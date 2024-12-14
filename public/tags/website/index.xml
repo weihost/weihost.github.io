@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Website on wei&#39;s Blog</title>
+        <link>https://blog.jameshost.org/tags/website/</link>
+        <description>Recent content in Website on wei&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>WEI&#39;s Blog</copyright>
+        <lastBuildDate>Sat, 17 Aug 2024 00:53:25 +0800</lastBuildDate><atom:link href="https://blog.jameshost.org/tags/website/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>使用linux搭建aapanel</title>
+        <link>https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/</link>
+        <pubDate>Sat, 17 Aug 2024 00:53:25 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/aapanel.png" alt="Featured image of post 使用linux搭建aapanel" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;這幾天想搭建一個typecho的blog，因為現在寶塔面板要登入帳號。
+而寶塔面板跟aaPanel是一樣的，是不需要登入就可使用的，所以有了這篇教學。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;傳送門: &lt;a class=&#34;link&#34; href=&#34;https://www.aapanel.com/new/download.html#install&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.aapanel.com/new/download.html#install&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;腳本快速安裝&#34;&gt;腳本快速安裝
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Ubuntu、centOS、Debian都可使用腳本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;先切換成root&#34;&gt;先切換成root
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo -i&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;下載腳本並執行&#34;&gt;下載腳本並執行
+&lt;/h3&gt;&lt;p&gt;複製執行即可(大約2~3分鐘左右)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;URL=https://www.aapanel.com/script/install_7.0_en.sh &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; if [ -f /usr/bin/curl ];then curl -ksSO &amp;#34;$URL&amp;#34; ;else wget --no-check-certificate -O install_7.0_en.sh &amp;#34;$URL&amp;#34;;fi;bash install_7.0_en.sh aapanel&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;安裝成功&#34;&gt;安裝成功
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;記得上面有&lt;code&gt;用戶名和密碼&lt;/code&gt;先複製起來保存
+&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/success.jpg&#34;
+	width=&#34;1100&#34;
+	height=&#34;395&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/success_hu8732070461784034824.jpg 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/success_hu6652471550589354955.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;278&#34;
+		data-flex-basis=&#34;668px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;登入面板&#34;&gt;登入面板
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/login.jpg&#34;
+	width=&#34;720&#34;
+	height=&#34;676&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/login_hu3059178725198276405.jpg 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/login_hu663692843963809363.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;106&#34;
+		data-flex-basis=&#34;255px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;基本操控&#34;&gt;基本操控
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;停止服務&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service bt stop&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;開啟服務&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service bt start&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;開啟服務&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service bt start&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;解除安裝&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service bt stop &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; chkconfig --del bt &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -f /etc/init.d/bt &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /www/server/panel&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;結語&#34;&gt;結語
+&lt;/h2&gt;&lt;p&gt;因為是通過 &lt;strong&gt;面板安裝服務&lt;/strong&gt; 可能會等比較長的時間，這篇就到這邊結束拉~&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

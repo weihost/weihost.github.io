@@ -1,0 +1,1664 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>windows on wei&#39;s Blog</title>
+        <link>https://blog.jameshost.org/categories/windows/</link>
+        <description>Recent content in windows on wei&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>WEI&#39;s Blog</copyright>
+        <lastBuildDate>Sat, 07 Dec 2024 03:51:43 +0800</lastBuildDate><atom:link href="https://blog.jameshost.org/categories/windows/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>電腦硬體裝修乙級-路由設定</title>
+        <link>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/</link>
+        <pubDate>Sat, 07 Dec 2024 03:51:43 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-%E8%B7%AF%E7%94%B1%E8%A8%AD%E5%AE%9A/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級-路由設定" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;此篇windwos server 2012 r2 part-2 (路由設定)。&lt;br&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/HyzeYKxVkl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆檢查筆記👆&lt;/a&gt;&lt;br&gt; &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/SyNPaJfEkx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆評分表👆&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定路由&#34;&gt;設定路由
+&lt;/h2&gt;&lt;p&gt;選擇介於兩個私人網路的安全連線&amp;ndash;&amp;gt;不要撥號&amp;ndash;&amp;gt;完成✅&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/route.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/route.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;查看路由表&#34;&gt;查看路由表
+&lt;/h2&gt;&lt;p&gt;可以對靜態路由右鍵選擇查看。
+或是透過command輸入route print查詢。&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/check.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/check.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;dhcp設定&#34;&gt;DHCP設定
+&lt;/h2&gt;&lt;p&gt;新增DHCP領域&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;設定 &lt;code&gt;IP範圍(評分表規定)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;預設閘道 &lt;code&gt;192.168.140.100&lt;/code&gt;(Server)&lt;/li&gt;
+&lt;li&gt;DNS設定 &lt;code&gt;192.168.140.100&lt;/code&gt;(Server)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/DHCP.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/DHCP.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;測試&#34;&gt;測試
+&lt;/h2&gt;&lt;p&gt;把win10的固定ip改成自動獲取看看能不能拿的到ip。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>電腦硬體裝修乙級-windows設定</title>
+        <link>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/</link>
+        <pubDate>Sat, 07 Dec 2024 02:45:32 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9A-windows%E8%A8%AD%E5%AE%9A/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級-windows設定" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;此篇windwos 10 設定。&lt;br&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/HyzeYKxVkl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆檢查筆記👆&lt;/a&gt;&lt;br&gt; &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/SyNPaJfEkx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆評分表👆&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;確認硬碟&#34;&gt;確認硬碟
+&lt;/h2&gt;&lt;p&gt;容量設定在評分表上會寫。
+灌好系統第一件事就是 &lt;code&gt;確認C槽和D槽容量&lt;/code&gt;是否正確。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cloud.jameshost.org/p/video/CCC.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;新增使用者&#34;&gt;新增使用者
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;master&lt;/code&gt;、&lt;code&gt;user1&lt;/code&gt;、&lt;code&gt;user2&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/newsuer.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/newsuer.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;提高master權限&#34;&gt;提高master權限
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/up.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/up.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;關閉防火牆&#34;&gt;關閉防火牆
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/turnoff.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/turnoff.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;設定網路&#34;&gt;設定網路
+&lt;/h2&gt;&lt;p&gt;IP 設定為 &lt;code&gt;172.16.140.1XX&lt;/code&gt; (工作崗位號碼)&lt;/p&gt;
+&lt;p&gt;遮罩設為 &lt;code&gt;255.255.255.0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;閘道設為 &lt;code&gt;172.16.140.100&lt;/code&gt; (Server IP)&lt;/p&gt;
+&lt;p&gt;DNS 設定為 &lt;code&gt;192.168.140.100&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/ipset.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/ipset.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;結尾&#34;&gt;結尾
+&lt;/h2&gt;&lt;p&gt;Cliant 端設定完成後就可以去設定Server，設定完後記得 &lt;a class=&#34;link&#34; href=&#34;https://blog.jameshost.org/p/%e9%9b%bb%e8%85%a6%e7%a1%ac%e9%ab%94%e8%a3%9d%e4%bf%ae%e4%b9%99%e7%b4%9apart-2/#%e6%b8%ac%e8%a9%a6%e8%a8%ad%e5%ae%9a%e5%85%a7%e5%ae%b9&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;測試&lt;/a&gt;👆 。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>電腦硬體裝修乙級part-2</title>
+        <link>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/</link>
+        <pubDate>Sat, 07 Dec 2024 01:27:57 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級part-2" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言
+&lt;/h1&gt;&lt;h2 id=&#34;此篇windwos-server-2012-r2-part-2-服務架設br檢查筆記httpshackmdiojames87575hyzeykxvklbr-評分表httpshackmdiojames87575synpajfekx&#34;&gt;此篇windwos server 2012 r2 part-2 (服務架設)。&lt;br&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/HyzeYKxVkl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆檢查筆記👆&lt;/a&gt;&lt;br&gt; &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/SyNPaJfEkx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆評分表👆&lt;/a&gt;
+&lt;/h2&gt;&lt;h2 id=&#34;新增角色規則&#34;&gt;新增角色規則
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;分別啟用下列6個角色&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DHCP伺服器&lt;/li&gt;
+&lt;li&gt;DNS伺服器&lt;/li&gt;
+&lt;li&gt;列印和文件服務&lt;/li&gt;
+&lt;li&gt;網頁伺服器IIS&lt;/li&gt;
+&lt;li&gt;網路原則與存取服務&lt;/li&gt;
+&lt;li&gt;遠端存取&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/enable.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/enable.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;啟用ftp服務遠端存取的路由&#34;&gt;啟用FTP服務、遠端存取的路由
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/ftp.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/ftp.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;編輯網站首頁&#34;&gt;編輯網站首頁
+&lt;/h2&gt;&lt;p&gt;在 &lt;code&gt;C:\public&lt;/code&gt;裡面新增文字文件並打上html程式碼 &lt;code&gt;(冒號要是全形文字)&lt;/code&gt;，另存新檔把檔案格式改成htm，編碼要改成 &lt;code&gt;UTF-8&lt;/code&gt;，最後記得要把原本新增的 &lt;code&gt;純文字檔刪除&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;font&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;工作崗位號碼：01&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;檢定日期：2024/12/7&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;應檢人姓名：阿威&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;font&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/newindex.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/newindex.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;設定iis網站服務&#34;&gt;設定IIS網站服務
+&lt;/h2&gt;&lt;p&gt;在Default Web Site右鍵&lt;code&gt;新增虛擬目錄&lt;/code&gt;，名稱為 &lt;code&gt;master&lt;/code&gt;路徑為 &lt;code&gt;C:\public&lt;/code&gt;，
+最後再做 &lt;code&gt;自我測試&lt;/code&gt;。
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/iis.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/iis.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;新增ftp站台&#34;&gt;新增FTP站台
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;站台名稱為 &lt;code&gt;AAA&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;路徑為 &lt;code&gt;C:\public&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;IP設定 &lt;code&gt;192.168.140.100&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;選擇 &lt;code&gt;沒有SSL證書&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;驗證選擇 &lt;code&gt;基本&lt;/code&gt;，給所有使用者 &lt;code&gt;讀取和寫入&lt;/code&gt;權限，最後按下完成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/FTPservice.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/FTPservice.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;設定ftp權限&#34;&gt;設定FTP權限
+&lt;/h2&gt;&lt;p&gt;停用權限繼承，🛑&lt;code&gt;先按關閉後在次對AAA站台按右鍵編輯權限&lt;/code&gt;🛑，如果沒有重開後面會很麻煩。&lt;/p&gt;
+&lt;p&gt;新增權限給下列5位使用者，&lt;code&gt;Adminisrator&lt;/code&gt;和 &lt;code&gt;master&lt;/code&gt;要 &lt;code&gt;所有權限&lt;/code&gt;，其他保持默認。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Administrator &lt;code&gt;所有權限&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Authenticated Users&lt;/li&gt;
+&lt;li&gt;IIS_IUSRS&lt;/li&gt;
+&lt;li&gt;master        &lt;code&gt;所有權限&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;test&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/jichen.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/jichen.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;設定dns&#34;&gt;設定DNS
+&lt;/h2&gt;&lt;p&gt;網域名稱根據 &lt;code&gt;當天考試評分表&lt;/code&gt;決定，新增 &lt;code&gt;起始授權&lt;/code&gt;、&lt;code&gt;名稱伺服器&lt;/code&gt;記得最後記得&lt;code&gt;要加後綴&lt;/code&gt;。
+預設名稱伺服器IP位置指向Server端。&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/DNS.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/DNS.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;設定aaaa紀錄&#34;&gt;設定AAAA紀錄
+&lt;/h2&gt;&lt;p&gt;新增WWW、FTP前綴名稱域名。 &lt;code&gt;(考試當天評分表決定)&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/AAAA.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/AAAA.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;確認ftpdns是否設定成功&#34;&gt;確認FTP、DNS是否設定成功
+&lt;/h2&gt;&lt;p&gt;在&lt;code&gt;Cliant端(win10)&lt;/code&gt;使用剛剛設定好的DNS，訪問FTP，並測試權限。&lt;/p&gt;
+&lt;p&gt;權限請參考&lt;a class=&#34;link&#34; href=&#34;https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/#%E8%A8%AD%E5%AE%9A%E8%B3%87%E6%96%99%E5%A4%BE%E6%AC%8A%E9%99%90&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;這裡&lt;/a&gt;。
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/ftptest.mp4&#34;
+    
+    
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/ftptest.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;qa&#34;&gt;Q&amp;amp;A
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Q: 在檔案總管輸入網域沒有跳出FTP登入視窗。&lt;br&gt;&lt;br&gt;A: 可以先ping看看網址有沒有回應，如果沒有回應就檢查網路設定。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Q: 訪問IIS網頁出現503錯誤，怎麼辦?&lt;br&gt;&lt;br&gt;A: Public資料夾權限設定錯誤，把資料夾刪除重新設定一次，如果刪除不了就把資料夾改名，然後再創一個新的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;!-- ## 結尾
+
+**啟用下列6個角色**
+- DHCP伺服器
+- DNS伺服器
+- 列印和文件服務
+- 網頁伺服器IIS
+- 網路原則與存取服務
+- 遠端存取
+
+**設定IIS**
+**設定FTP**
+**設定DNS**
+
+- [ ] 5.設定網路 --&gt;</description>
+        </item>
+        <item>
+        <title>電腦硬體裝修乙級part-1</title>
+        <link>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/</link>
+        <pubDate>Fri, 06 Dec 2024 23:24:58 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-1/abc.jpg" alt="Featured image of post 電腦硬體裝修乙級part-1" /&gt;&lt;hr&gt;
+&lt;h1 id=&#34;前言&#34;&gt;前言
+&lt;/h1&gt;&lt;p&gt;此篇只有windwos server 2012 r2 基本設定部分，服務架設請參考part-2。&lt;br&gt;&lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/HyzeYKxVkl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆檢查筆記👆&lt;/a&gt;&lt;br&gt; &lt;a class=&#34;link&#34; href=&#34;https://hackmd.io/@james87575/SyNPaJfEkx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆評分表👆&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;更改密碼原則&#34;&gt;更改密碼原則
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/password.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/password.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;更改電腦名稱為-server&#34;&gt;更改電腦名稱為 &lt;code&gt;Server&lt;/code&gt;
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/name.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/name.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;新增使用者&#34;&gt;新增使用者
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;master&lt;/code&gt;、&lt;code&gt;user1&lt;/code&gt;、&lt;code&gt;user2&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/usercreate.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/usercreate.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;提高master權限&#34;&gt;提高master權限
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/master.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/master.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;建立使用者群組&#34;&gt;建立使用者群組
+&lt;/h2&gt;&lt;p&gt;將&lt;code&gt;master&lt;/code&gt;、&lt;code&gt;user1&lt;/code&gt;、&lt;code&gt;user2&lt;/code&gt;加入到test群組。
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/group.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/group.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;設定網路&#34;&gt;設定網路
+&lt;/h2&gt;&lt;p&gt;IP 設定為 &lt;code&gt;192.168.140.1XX、172.16.140.100&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;遮罩設為 &lt;code&gt;255.255.255.0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;閘道設為 &lt;code&gt;流空&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;DNS 設定為 &lt;code&gt;192.168.140.100&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/network.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/network.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;關閉防火牆&#34;&gt;關閉防火牆🧱
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/firewall.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/firewall.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;建立資料夾&#34;&gt;建立資料夾
+&lt;/h2&gt;&lt;p&gt;在C槽目錄下建立&lt;code&gt;public、user1、user2&lt;/code&gt;資料夾。&lt;/p&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/folder.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/folder.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;設定資料夾權限&#34;&gt;設定資料夾權限
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;權限照下表設定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;使用者&lt;/th&gt;
+&lt;th&gt;master&lt;/th&gt;
+&lt;th&gt;user1&lt;/th&gt;
+&lt;th&gt;user2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;public 資料夾&lt;/td&gt;
+&lt;td&gt;全部權限&lt;/td&gt;
+&lt;td&gt;僅讀取&lt;/td&gt;
+&lt;td&gt;僅讀取&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;user1 資料夾&lt;/td&gt;
+&lt;td&gt;不須設定&lt;/td&gt;
+&lt;td&gt;全部權限&lt;/td&gt;
+&lt;td&gt;無法設定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;user2 資料夾&lt;/td&gt;
+&lt;td&gt;不須設定&lt;/td&gt;
+&lt;td&gt;無法設定&lt;/td&gt;
+&lt;td&gt;全部權限&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;video
+    controls
+    src=&#34;https://cloud.jameshost.org/p/video/promision.mp4&#34;
+    
+    autoplay
+    &gt;
+        &lt;p&gt;
+            Your browser doesn&#39;t support HTML5 video. Here is a
+            &lt;a href=&#34;https://cloud.jameshost.org/p/video/promision.mp4&#34;&gt;link to the video&lt;/a&gt; instead.
+        &lt;/p&gt;
+    &lt;/video&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&#34;重新開機&#34;&gt;重新開機
+&lt;/h1&gt;&lt;p&gt;到這邊先重新開機再繼續後面的步驟。&lt;/p&gt;
+&lt;h2 id=&#34;結尾&#34;&gt;結尾
+&lt;/h2&gt;&lt;p&gt;part-1 結束 part-2&lt;a class=&#34;link&#34; href=&#34;https://blog.jameshost.org/p/%E9%9B%BB%E8%85%A6%E7%A1%AC%E9%AB%94%E8%A3%9D%E4%BF%AE%E4%B9%99%E7%B4%9Apart-2/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆點我👆&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>LINE地震速報</title>
+        <link>https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/</link>
+        <pubDate>Sun, 18 Aug 2024 04:35:39 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/deneo.png" alt="Featured image of post LINE地震速報" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;本篇介紹如何讓LINE通知地震、LINE地震速報，原理是透過 &lt;strong&gt;地牛Wake Up!&lt;/strong&gt; 來觸發執行檔案，並透過GAS傳到 &lt;strong&gt;Google Sheets&lt;/strong&gt; 做紀錄。&lt;/p&gt;
+&lt;p&gt;原作者: &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=UTIfhd1JfbM&amp;amp;t=1428s&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;傳送門&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;需求&#34;&gt;需求
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;能24h開著的windows電腦&lt;/li&gt;
+&lt;li&gt;LINE帳號&lt;/li&gt;
+&lt;li&gt;耐心&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;流程&#34;&gt;流程
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;下載地牛Wake Up!&lt;/li&gt;
+&lt;li&gt;取得氣象署 API&lt;/li&gt;
+&lt;li&gt;取得Line Notify token&lt;/li&gt;
+&lt;li&gt;部屬GAS&lt;/li&gt;
+&lt;li&gt;下載BAT檔案&lt;/li&gt;
+&lt;li&gt;設定地牛Wake Up!&lt;/li&gt;
+&lt;li&gt;完成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你只想要發送通知不紀錄的話，跳到 &lt;code&gt;6.取得Line Notify token&lt;/code&gt; ，
+&lt;br&gt;
+然後再跳到第&lt;code&gt;15.製作執行檔&lt;/code&gt;，並填入&lt;strong&gt;Line Notify token&lt;/strong&gt;就可以囉 !&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;地牛wake-up&#34;&gt;地牛Wake Up!
+&lt;/h2&gt;&lt;p&gt;先安裝&lt;code&gt;地牛Wake Up!&lt;/code&gt; 👆&lt;a class=&#34;link&#34; href=&#34;https://eew.earthquake.tw/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;傳送門&lt;/a&gt; 👆&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/wakeup.png&#34;
+	width=&#34;998&#34;
+	height=&#34;715&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/wakeup_hu13645237550827363806.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/wakeup_hu13826696826765993122.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;139&#34;
+		data-flex-basis=&#34;334px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;中央氣象署開放資料平臺註冊&#34;&gt;中央氣象署開放資料平臺註冊
+&lt;/h2&gt;&lt;p&gt;到中央氣象署開放資料平臺👆&lt;a class=&#34;link&#34; href=&#34;https://pweb.cwa.gov.tw/emember/register&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;傳送門&lt;/a&gt;👆註冊&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/register.png&#34;
+	width=&#34;1898&#34;
+	height=&#34;912&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/register_hu3760346048043450413.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/register_hu1793735786502770613.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;208&#34;
+		data-flex-basis=&#34;499px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;取得授權碼&#34;&gt;取得授權碼
+&lt;/h2&gt;&lt;p&gt;到中央氣象署開放資料平臺👆&lt;a class=&#34;link&#34; href=&#34;https://opendata.cwa.gov.tw/user/authkey&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;傳送門&lt;/a&gt;👆登入並取得&lt;code&gt;授權碼&lt;/code&gt; (&lt;strong&gt;CWA開頭的碼&lt;/strong&gt;)，先&lt;strong&gt;複製保存&lt;/strong&gt;後面才會用到。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/ch.png&#34;
+	width=&#34;1919&#34;
+	height=&#34;921&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/ch_hu2025763427544204530.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/ch_hu6464956520937644442.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;208&#34;
+		data-flex-basis=&#34;500px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;取得line-notify-token&#34;&gt;取得Line Notify token
+&lt;/h2&gt;&lt;p&gt;進入👆&lt;a class=&#34;link&#34; href=&#34;https://notify-bot.line.me/my/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LINE Notify&lt;/a&gt;👆登入後選擇&lt;code&gt;個人頁面&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/me.png&#34;
+	width=&#34;1919&#34;
+	height=&#34;914&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/me_hu13378528964535653264.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/me_hu17864513775222275817.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;209&#34;
+		data-flex-basis=&#34;503px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;按下發行權杖&#34;&gt;按下👆發行權杖👆
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fa.png&#34;
+	width=&#34;1907&#34;
+	height=&#34;917&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fa_hu15084482619511839954.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fa_hu580139428145100223.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;207&#34;
+		data-flex-basis=&#34;499px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;選擇要在哪裡發送訊息&#34;&gt;選擇要在哪裡發送訊息
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/select.png&#34;
+	width=&#34;520&#34;
+	height=&#34;761&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/select_hu3839432292743729081.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/select_hu13083024298556375646.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;68&#34;
+		data-flex-basis=&#34;163px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;複製tocken&#34;&gt;複製tocken
+&lt;/h2&gt;&lt;p&gt;先&lt;code&gt;複製保存&lt;/code&gt;後面才會用到&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/token.png&#34;
+	width=&#34;518&#34;
+	height=&#34;431&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/token_hu12327612290470308043.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/token_hu14423461403480980826.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;120&#34;
+		data-flex-basis=&#34;288px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;gas部署&#34;&gt;GAS部署
+&lt;/h2&gt;&lt;p&gt;先進入👆&lt;a class=&#34;link&#34; href=&#34;https://docs.google.com/spreadsheets/d/1wtwCsSuMBpfxVKOMfKnK8nHms4uVHzgwA4MbSrAWG2Y/edit?gid=0#gid=0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;此連結&lt;/a&gt;👆&lt;/p&gt;
+&lt;p&gt;左上角&lt;code&gt;檔案&lt;/code&gt;&amp;ndash;&amp;gt;&lt;code&gt;建立副本&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fb.png&#34;
+	width=&#34;1916&#34;
+	height=&#34;922&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fb_hu8785924422998447900.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/fb_hu1347008597054927049.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;207&#34;
+		data-flex-basis=&#34;498px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;上方工具列&lt;code&gt;擴充功能&lt;/code&gt;&amp;ndash;&amp;gt;&lt;code&gt;Apps Script&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/appsscript.png&#34;
+	width=&#34;877&#34;
+	height=&#34;444&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/appsscript_hu3593983244802525118.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/appsscript_hu3920981251265760915.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;197&#34;
+		data-flex-basis=&#34;474px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設置&#34;&gt;設置
+&lt;/h2&gt;&lt;p&gt;填入上面取得的&lt;code&gt;氣象署API&lt;/code&gt;和&lt;code&gt;Line Notify token&lt;/code&gt;
+其他請&lt;code&gt;自行設置&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/tian.png&#34;
+	width=&#34;872&#34;
+	height=&#34;372&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/tian_hu3531311723712101403.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/tian_hu6290008853950336173.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;234&#34;
+		data-flex-basis=&#34;562px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;部屬&#34;&gt;部屬
+&lt;/h2&gt;&lt;p&gt;選擇&lt;code&gt;新增部屬&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/bosu.png&#34;
+	width=&#34;1905&#34;
+	height=&#34;912&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/bosu_hu14645098102199776265.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/bosu_hu16295206824973137831.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;208&#34;
+		data-flex-basis=&#34;501px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;存取&#34;&gt;存取
+&lt;/h2&gt;&lt;p&gt;設定為&lt;code&gt;所有人&lt;/code&gt;然後按下&lt;code&gt;部署&lt;/code&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/sa.png&#34;
+	width=&#34;753&#34;
+	height=&#34;594&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/sa_hu12280212984413283377.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/sa_hu2413728566264657279.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;126&#34;
+		data-flex-basis=&#34;304px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;複製網址&#34;&gt;複製網址
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/copy.png&#34;
+	width=&#34;761&#34;
+	height=&#34;599&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/copy_hu14778516611575859624.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/copy_hu3640177234415016703.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;127&#34;
+		data-flex-basis=&#34;304px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;製作執行檔&#34;&gt;製作執行檔
+&lt;/h2&gt;&lt;p&gt;先下載檔案👆&lt;a class=&#34;link&#34; href=&#34;https://github.com/james788875/earthquake/archive/refs/heads/main.zip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;點我下載&lt;/a&gt;👆，解壓縮後對檔案點&lt;code&gt;右鍵&lt;/code&gt;&amp;ndash;&amp;gt;&lt;code&gt;顯示其他選項&lt;/code&gt;&amp;ndash;&amp;gt;&lt;code&gt;編輯&lt;/code&gt;，&lt;/p&gt;
+&lt;p&gt;在紅線處分別填入&lt;code&gt;氣象署API&lt;/code&gt;和&lt;code&gt;Line Notify token&lt;/code&gt;，&lt;/p&gt;
+&lt;p&gt;填入後記得 &lt;kbd&gt;CTRL&lt;/kbd&gt;+&lt;kbd&gt;S&lt;/kbd&gt; &lt;code&gt;保存&lt;/code&gt;並退出。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/aaaa.png&#34;
+	width=&#34;1425&#34;
+	height=&#34;718&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/aaaa_hu8287669618971118716.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/aaaa_hu12812773306363551030.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;198&#34;
+		data-flex-basis=&#34;476px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定地牛&#34;&gt;設定地牛
+&lt;/h2&gt;&lt;p&gt;到&lt;code&gt;地牛Wake Up!&lt;/code&gt;的設定&amp;ndash;&amp;gt;其他&lt;code&gt;連動設定&lt;/code&gt;選取你剛剛保存的&lt;code&gt;earthquake.bat&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/test.png&#34;
+	width=&#34;999&#34;
+	height=&#34;720&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/test_hu14401692626991981490.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/test_hu17664473108482317327.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;138&#34;
+		data-flex-basis=&#34;333px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;測試&#34;&gt;測試
+&lt;/h2&gt;&lt;p&gt;按下&lt;code&gt;測試&lt;/code&gt;，如果你的LINE有成功收到通知，&lt;/p&gt;
+&lt;p&gt;同時打開你的&lt;code&gt;google sheet&lt;/code&gt;也有紀錄，這說明你成功了 !✅&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/testtest.png&#34;
+	width=&#34;1001&#34;
+	height=&#34;718&#34;
+	srcset=&#34;https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/testtest_hu12345016908396989340.png 480w, https://blog.jameshost.org/p/line%E5%9C%B0%E9%9C%87%E9%80%9F%E5%A0%B1/testtest_hu5686615160626153215.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;139&#34;
+		data-flex-basis=&#34;334px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考影片&#34;&gt;參考影片
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe loading=&#34;lazy&#34; 
+            src=&#34;https://www.youtube.com/embed/UTIfhd1JfbM&#34; 
+            allowfullscreen 
+            title=&#34;YouTube Video&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;br&gt;
+&lt;h2 id=&#34;補充&#34;&gt;補充
+&lt;/h2&gt;&lt;p&gt;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&lt;code&gt;更改了之後就無法再改回需要重灌才能解決&lt;/code&gt;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果傳送通知中文會變亂碼，需要更改windwos的設定，
+&lt;br&gt;
+控制台&amp;ndash;&amp;gt;時鐘和地區&amp;ndash;&amp;gt;變更日期、時間或數字格式&amp;ndash;&amp;gt;系統管理&amp;ndash;&amp;gt;🛡️變更系統地區設定&amp;ndash;&amp;gt;
+&lt;br&gt;把Beta Unicode UTF-8打勾✅&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&lt;code&gt;更改了之後就無法再改回需要重灌才能解決&lt;/code&gt;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Windwos啟用&amp;轉換版本</title>
+        <link>https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/</link>
+        <pubDate>Sat, 17 Aug 2024 05:15:42 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/Microsoft-Windows-11-Wallpaper.jpg" alt="Featured image of post Windwos啟用&amp;轉換版本" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;本篇介紹如何使用kms啟用Windows&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;第一種方式&#34;&gt;第一種方式
+&lt;/h2&gt;&lt;p&gt;使用bat檔案啟用
+下載👆&lt;a class=&#34;link&#34; href=&#34;https://github.com/james788875/windwos/archive/refs/heads/main.zip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;腳本檔案&lt;/a&gt;👆&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;滑鼠右鍵以&lt;code&gt;🛡️系統管理員身分🛡️&lt;/code&gt;執行&lt;/p&gt;
+&lt;p&gt;如果跳出&lt;code&gt;Windows以保護您的電腦&lt;/code&gt;按 其他資訊&amp;ndash;&amp;gt;扔要執行&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/script.png&#34;
+	width=&#34;1059&#34;
+	height=&#34;652&#34;
+	srcset=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/script_hu16408868626187484029.png 480w, https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/script_hu9149825123364686243.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;162&#34;
+		data-flex-basis=&#34;389px&#34;
+	
+&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/go.png&#34;
+	width=&#34;525&#34;
+	height=&#34;493&#34;
+	srcset=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/go_hu18324738380627942958.png 480w, https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/go_hu2644367553268957838.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;106&#34;
+		data-flex-basis=&#34;255px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;完成&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/done.png&#34;
+	width=&#34;805&#34;
+	height=&#34;250&#34;
+	srcset=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/done_hu14847171280540120496.png 480w, https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/done_hu6656574074570806110.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;322&#34;
+		data-flex-basis=&#34;772px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&#34;第二種方式&#34;&gt;第二種方式
+&lt;/h2&gt;&lt;p&gt;使用cmd指令來完成
+按下 &lt;code&gt;windows&lt;/code&gt;搜尋&lt;code&gt;cmd&lt;/code&gt;並&lt;code&gt;以系統管理員身分執行&lt;/code&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/search.png&#34;
+	width=&#34;769&#34;
+	height=&#34;720&#34;
+	srcset=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/search_hu3606110300591323196.png 480w, https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/search_hu9576286808415024698.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;106&#34;
+		data-flex-basis=&#34;256px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;照順序輸入&#34;&gt;照順序輸入
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd C:\Windows\System32
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cscript slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cscript slmgr.vbs /skms jameshost.org
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cscript slmgr.vbs /ato&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;補充&#34;&gt;補充
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;請自行替換&lt;code&gt;第二行&lt;/code&gt;指令，其他請參考&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-tw/windows-server/get-started/kms-client-activation-keys?tabs=server2022%2Cwindows10ltsc%2Cversion1803%2Cwindows81&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;微軟官方&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;作業系統版本&lt;/th&gt;
+&lt;th&gt;用戶端產品金鑰&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 專業版&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;W269N-WFGWX-YVC9B-4J6C9-T83GX&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 家用版&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;TX9XD-98N7V-6WMQ6-BX7FG-H8Q99&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 專業版 N&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;MH37W-N47XK-V7XM9-C7227-GCQG9&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 工作站專業版&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 工作站專業版 N&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;9FNHH-K3HBT-3W4TD-6383H-6XYWF&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 專業教育版&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;6TP4R-GNPTD-KYYHQ-7B7DP-J447Y&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 專業教育版 N&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;YVWGF-BXNMC-HTQYQ-CPQ99-66QFC&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 教育版&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;NW6C2-QMPVW-D7KKK-3GKT6-VCFB2&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 教育版 N&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2WH4N-8QGBV-H22JP-CT43Q-MDWWJ&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 企業版&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;NPPR9-FWDCX-D2C8J-H872K-2YT43&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 企業版 N&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 企業版 G&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;YYVX9-NTFWV-6MDM3-9PT4T-4M68B&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Windows 10/11 企業版 G N&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;44RPN-FTY23-9VTTB-MP9BX-T84FV&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;如果想轉換版本&#34;&gt;如果想轉換版本
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;使用bat檔案啟用
+下載👆&lt;a class=&#34;link&#34; href=&#34;https://github.com/james788875/Switch/archive/refs/heads/main.zip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;腳本檔案&lt;/a&gt;👆，滑鼠右鍵以&lt;code&gt;🛡️系統管理員身分🛡️&lt;/code&gt;執行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;1&lt;/code&gt; Windows 10/11專業版&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;2&lt;/code&gt; Windows 10/11家用版&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/switch.png&#34;
+	width=&#34;388&#34;
+	height=&#34;233&#34;
+	srcset=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/switch_hu6315832787956702614.png 480w, https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/switch_hu10546714229730992927.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;166&#34;
+		data-flex-basis=&#34;399px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>如何安裝Office並啟用</title>
+        <link>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/</link>
+        <pubDate>Sat, 17 Aug 2024 03:16:03 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/office-header.jpg" alt="Featured image of post 如何安裝Office並啟用" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;安裝&lt;code&gt;office&lt;/code&gt;的方法有很多種，我選了一個比較簡單的方式&lt;/p&gt;
+&lt;p&gt;本篇是透過&lt;code&gt;Office Tool Plus&lt;/code&gt;來進行安裝&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;開始安裝&#34;&gt;開始安裝
+&lt;/h2&gt;&lt;p&gt;先到官網下載👆 &lt;a class=&#34;link&#34; href=&#34;https://otp.landian.vip/zh-tw/download.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Office Tool Plus&lt;/a&gt;👆&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/download.png&#34;
+	width=&#34;1450&#34;
+	height=&#34;693&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/download_hu3791460749515582671.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/download_hu16082665532930568641.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;209&#34;
+		data-flex-basis=&#34;502px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;開啟檔案&#34;&gt;開啟檔案
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;解壓縮後&lt;/code&gt;並開啟檔案&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/open.png&#34;
+	width=&#34;1057&#34;
+	height=&#34;577&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/open_hu8854889361983626112.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/open_hu7591049635965973954.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;183&#34;
+		data-flex-basis=&#34;439px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;如果跳出&lt;code&gt;Windows以保護您的電腦&lt;/code&gt;按 其他資訊&amp;ndash;&amp;gt;扔要執行&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/go.png&#34;
+	width=&#34;526&#34;
+	height=&#34;487&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/go_hu4282104524806193514.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/go_hu16929028625232831080.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;108&#34;
+		data-flex-basis=&#34;259px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;選擇部署&#34;&gt;選擇部署
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/bs.png&#34;
+	width=&#34;1428&#34;
+	height=&#34;751&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/bs_hu9930820666469655356.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/bs_hu5802726888687495868.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;190&#34;
+		data-flex-basis=&#34;456px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;基本設定&#34;&gt;基本設定
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;架構&lt;code&gt;根據自己系統&lt;/code&gt;選擇
+更新通道選擇&lt;code&gt;2024永久企業版&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/cirle.png&#34;
+	width=&#34;1008&#34;
+	height=&#34;369&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/cirle_hu3433090319242990343.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/cirle_hu9703731893882878742.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;273&#34;
+		data-flex-basis=&#34;655px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;選擇產品&#34;&gt;選擇產品
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;新增產品並選擇&lt;code&gt;Office LTSC 專業增強版2024(大量授權)&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/2024.png&#34;
+	width=&#34;597&#34;
+	height=&#34;660&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/2024_hu12807565737617706468.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/2024_hu5183157986865932099.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;90&#34;
+		data-flex-basis=&#34;217px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;選擇語言&#34;&gt;選擇語言
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;語言選擇&lt;code&gt;繁體中文&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/luan.png&#34;
+	width=&#34;596&#34;
+	height=&#34;341&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/luan_hu7932958298540164180.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/luan_hu16928524076261727523.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;419px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;開始部署&#34;&gt;開始部署
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;確認&lt;code&gt;設定無誤&lt;/code&gt;後，會開始下載&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/start.png&#34;
+	width=&#34;1415&#34;
+	height=&#34;737&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/start_hu18541389056528534.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/start_hu16368086752641285095.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;191&#34;
+		data-flex-basis=&#34;460px&#34;
+	
+&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/yes.png&#34;
+	width=&#34;595&#34;
+	height=&#34;484&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/yes_hu16109904070523838890.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/yes_hu18286157421626744199.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;122&#34;
+		data-flex-basis=&#34;295px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;開始下載&#34;&gt;開始下載
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;下載完成&lt;code&gt;關閉&lt;/code&gt;即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/done.png&#34;
+	width=&#34;656&#34;
+	height=&#34;400&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/done_hu15004858033905335249.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/done_hu18340987527503060705.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;164&#34;
+		data-flex-basis=&#34;393px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;確認&#34;&gt;確認
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;先關閉&lt;code&gt;Office Tool Plus&lt;/code&gt;並打開&lt;code&gt;word&lt;/code&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/important.png&#34;
+	width=&#34;1117&#34;
+	height=&#34;569&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/important_hu8645979533442625448.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/important_hu16690518764367651452.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;196&#34;
+		data-flex-basis=&#34;471px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;選擇帳戶後，這邊就可以&lt;code&gt;把word先關掉&lt;/code&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/check.png&#34;
+	width=&#34;1338&#34;
+	height=&#34;565&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/check_hu16686368967994106442.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/check_hu9001022357503281908.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;236&#34;
+		data-flex-basis=&#34;568px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;重新開啟-office-tool-plus&#34;&gt;重新開啟 &lt;code&gt;Office Tool Plus&lt;/code&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;選擇啟用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/choice.png&#34;
+	width=&#34;1436&#34;
+	height=&#34;746&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/choice_hu13285629077253867243.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/choice_hu10186221839150720951.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;192&#34;
+		data-flex-basis=&#34;461px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;安裝授權&#34;&gt;安裝授權
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;選擇&lt;code&gt;安裝&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/install.png&#34;
+	width=&#34;1429&#34;
+	height=&#34;742&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/install_hu1852156774279129238.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/install_hu8102965771108199995.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;192&#34;
+		data-flex-basis=&#34;462px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;選擇&lt;code&gt;Office LTSC 專業增強版2024(大量授權)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/idk.png&#34;
+	width=&#34;591&#34;
+	height=&#34;653&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/idk_hu1666178078606854099.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/idk_hu5205404312220257389.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;90&#34;
+		data-flex-basis=&#34;217px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;kms主機&#34;&gt;KMS主機
+&lt;/h2&gt;&lt;p&gt;KMS主機輸入，在按下 &lt;code&gt;設定主機&lt;/code&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jameshost.org&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/org.png&#34;
+	width=&#34;1432&#34;
+	height=&#34;747&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/org_hu7808402067591933526.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/org_hu6901871222638456308.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;191&#34;
+		data-flex-basis=&#34;460px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;啟用&#34;&gt;啟用
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;按下&lt;code&gt;啟用&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/active.png&#34;
+	width=&#34;1432&#34;
+	height=&#34;740&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/active_hu14961409212472793434.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/active_hu12743039379753503393.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;193&#34;
+		data-flex-basis=&#34;464px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;啟用成功&#34;&gt;啟用成功
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;到這邊就可以關閉&lt;code&gt;Office Tool Plus&lt;/code&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/ffff.png&#34;
+	width=&#34;597&#34;
+	height=&#34;316&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/ffff_hu12328970646273165872.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/ffff_hu17188331579182254913.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;188&#34;
+		data-flex-basis=&#34;453px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;完成&#34;&gt;完成
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;恭喜這樣就啟用成功拉~&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/word.png&#34;
+	width=&#34;530&#34;
+	height=&#34;526&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/word_hu17701443766619852087.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9Doffice%E4%B8%A6%E5%95%9F%E7%94%A8/word_hu14808193536642396808.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;241px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>如何在windows架設minecraft伺服器</title>
+        <link>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/</link>
+        <pubDate>Thu, 15 Aug 2024 03:32:37 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/minecraft.jpg" alt="Featured image of post 如何在windows架設minecraft伺服器" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;此篇介紹如何使用windows環境架設官方minecraft伺服器。&lt;/p&gt;
+&lt;h2 id=&#34;安裝java&#34;&gt;安裝JAVA
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;下載並安裝&lt;/strong&gt;
+👆&lt;a class=&#34;link&#34; href=&#34;https://www.oracle.com/java/technologies/downloads/#jdk22-windows&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JAVA&lt;/a&gt;👆
+&lt;em&gt;點網址開始下載&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/4257998626.png&#34;
+	width=&#34;2551&#34;
+	height=&#34;1184&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/4257998626_hu13816576733257855245.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/4257998626_hu14201332066120027106.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;215&#34;
+		data-flex-basis=&#34;517px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;下一步&#34;&gt;下一步
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1442633877.png&#34;
+	width=&#34;913&#34;
+	height=&#34;711&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1442633877_hu5360854203760190499.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1442633877_hu7630302661535709282.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;128&#34;
+		data-flex-basis=&#34;308px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;下一步-1&#34;&gt;下一步
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2773565336.png&#34;
+	width=&#34;894&#34;
+	height=&#34;690&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2773565336_hu885257286393999112.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2773565336_hu17194850884832354661.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;129&#34;
+		data-flex-basis=&#34;310px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;按close即可&#34;&gt;按close即可
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1365441950.png&#34;
+	width=&#34;904&#34;
+	height=&#34;720&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1365441950_hu7241572901845028398.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1365441950_hu1988873105880787842.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;125&#34;
+		data-flex-basis=&#34;301px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;到官網下載伺服器檔案&#34;&gt;到官網下載伺服器檔案
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;到👆&lt;a class=&#34;link&#34; href=&#34;https://www.minecraft.net/en-us/download/server&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;minecraft官網&lt;/a&gt;👆下載伺服器檔案&lt;/strong&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1062645312.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1183&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1062645312_hu18067004409870451205.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1062645312_hu14608480081137189901.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;216&#34;
+		data-flex-basis=&#34;519px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;下載的檔案放到單獨的資料夾&#34;&gt;下載的檔案放到單獨的資料夾
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;將下載的 server.jar 放到單獨的資料夾中(名字不能是中文)&lt;/strong&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3878743257.png&#34;
+	width=&#34;1958&#34;
+	height=&#34;943&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3878743257_hu3964490943549362281.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3878743257_hu11668127100440310363.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;207&#34;
+		data-flex-basis=&#34;498px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立啟動檔案&#34;&gt;建立啟動檔案
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;建立啟動檔案&lt;/strong&gt;
+打開 Windows 的記事本，先貼上下面這串指令，將存檔類型改成所有檔案，並將檔案名稱命名為 run.bat，儲存到有 server.jar 的資料夾中，最後點擊存檔
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;java -Xmx1024M -Xms1024M -jar server.jar nogui&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2144257061.png&#34;
+	width=&#34;759&#34;
+	height=&#34;383&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2144257061_hu16932670278088355007.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2144257061_hu8362042101610604343.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;198&#34;
+		data-flex-basis=&#34;475px&#34;
+	
+&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2083872685.png&#34;
+	width=&#34;1156&#34;
+	height=&#34;817&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2083872685_hu5710948573465164840.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2083872685_hu15961753269100056916.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;141&#34;
+		data-flex-basis=&#34;339px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;啟動伺服器&#34;&gt;啟動伺服器
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;雙點擊 run.bat 來啟動伺服器，初次啟動時會先初始化，也會產生一些檔案。伺服器在 eula.txt 檔案出現後會自動關閉，這時我們可以用文字編輯器來打開 eula.txt&lt;/strong&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2894659851.png&#34;
+	width=&#34;1958&#34;
+	height=&#34;941&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2894659851_hu6859049599011520633.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2894659851_hu11434295220708653673.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;208&#34;
+		data-flex-basis=&#34;499px&#34;
+	
+&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1266046122.png&#34;
+	width=&#34;1697&#34;
+	height=&#34;292&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1266046122_hu12290594504697292058.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1266046122_hu5013970861552762556.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;581&#34;
+		data-flex-basis=&#34;1394px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;完成&#34;&gt;完成
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;我們先等待所有的 Preparing spawn area 都跑完後，會出現 Done! For help, type “help” 訊息，這代表伺服器已經準備好，我們可以連線進去玩了 !&lt;/strong&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3314559782.png&#34;
+	width=&#34;1733&#34;
+	height=&#34;887&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3314559782_hu14651321802355163352.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/3314559782_hu553666254462475772.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;195&#34;
+		data-flex-basis=&#34;468px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;開啟minecraft&#34;&gt;開啟minecraft
+&lt;/h2&gt;&lt;p&gt;選擇多人遊戲&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1424839977.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1321&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1424839977_hu497855965388191862.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1424839977_hu6094635286738585309.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;193&#34;
+		data-flex-basis=&#34;465px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;選擇新增伺服器&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1418865756.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1314&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1418865756_hu3550783334575392278.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1418865756_hu9147766223685222325.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;194&#34;
+		data-flex-basis=&#34;467px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;伺服器位址中輸入 127.0.0.1(本地電腦ip)，再點擊完成&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1816429538.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1317&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1816429538_hu12395223513015307602.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1816429538_hu9941452209132746387.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;194&#34;
+		data-flex-basis=&#34;466px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;選取你的伺服器並點擊加入伺服器，即可進入伺服器&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1239062799.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1331&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1239062799_hu15295546824216318492.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1239062799_hu14592610633362946916.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;192&#34;
+		data-flex-basis=&#34;461px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;補充&#34;&gt;補充
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;如果想要開放給不是正版的人遊玩的話就需要做此步驟&lt;/strong&gt;
+到伺服器檔案中找到server.properties的檔案，右鍵點擊開啟檔案(使用自己喜歡的文字編輯器)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2756626940.png&#34;
+	width=&#34;1960&#34;
+	height=&#34;954&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2756626940_hu7293169780370832764.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/2756626940_hu7945554124930169089.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;205&#34;
+		data-flex-basis=&#34;493px&#34;
+	
+&gt;
+找到online-mode這行，把它改成false，並重新啟動伺服器就可開心地遊玩拉~&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1950297165.png&#34;
+	width=&#34;1494&#34;
+	height=&#34;1128&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1950297165_hu5752191092885883233.png 480w, https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8windows%E6%9E%B6%E8%A8%ADminecraft%E4%BC%BA%E6%9C%8D%E5%99%A8/1950297165_hu6516421168442479840.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;317px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

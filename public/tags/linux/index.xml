@@ -1,0 +1,2012 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Linux on wei&#39;s Blog</title>
+        <link>https://blog.jameshost.org/tags/linux/</link>
+        <description>Recent content in Linux on wei&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>WEI&#39;s Blog</copyright>
+        <lastBuildDate>Wed, 04 Sep 2024 21:44:41 +0800</lastBuildDate><atom:link href="https://blog.jameshost.org/tags/linux/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>使用RR安裝黑群輝、黑群輝洗白</title>
+        <link>https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/</link>
+        <pubDate>Wed, 04 Sep 2024 21:44:41 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/Synology_Logo.png" alt="Featured image of post 使用RR安裝黑群輝、黑群輝洗白" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;本篇只教安裝，你可以先安裝好再去研究怎麼使用😂。
+&lt;br&gt;
+這篇是使用PVE安裝，如果要用實體機安裝，請到RR的Github下載&lt;code&gt;RR的img&lt;/code&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/RROrg/rr/releases/tag/24.8.6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆傳送門👆&lt;/a&gt;使用rufus燒入開機，並跳到&lt;a class=&#34;link&#34; href=&#34;https://blog.jameshost.org/p/dsm/#%e5%ae%89%e8%a3%9d%e9%bb%91%e7%be%a4%e8%bc%9d&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;步驟3&lt;/a&gt;。直接看安裝即可。
+&lt;br&gt;
+這篇後面有給&lt;code&gt;DS920+的序號&lt;/code&gt;我不知道有沒有時效性，如果你們用真的不行的話，那就可能沒辦法用了，但機器只要洗白一次就可以了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Q&amp;amp;A&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1、什麼是&lt;code&gt;白群輝&lt;/code&gt;？    群晖的硬件+群晖的系统
+&lt;br&gt;
+2、什麼是&lt;code&gt;黑群晖&lt;/code&gt;？    DIY硬件+群輝的系统
+&lt;br&gt;
+3、什麼是&lt;code&gt;洗白&lt;/code&gt;？  黑群輝透過改成和正版一樣的SN碼和MAC地址，偽裝成白群輝。
+&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;4、不洗白會&lt;code&gt;影響那些功能&lt;/code&gt;？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;QuickConnect&lt;/code&gt;不能註冊和登入(這是一個群輝非常強大的內往穿透的功能)。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DS Photo/Moments&lt;/code&gt;套件預覽圖是黑的。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DS Video&lt;/code&gt;觀看只能選擇原碼，不能切換碼率，無法離線轉碼。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Virtual Machine Manager&lt;/code&gt;虛擬機不能用。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Active Backup for Business&lt;/code&gt;數據保護和備份不能用。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Advanced Media Extensions&lt;/code&gt;高校影音編碼不能用。&lt;/li&gt;
+&lt;li&gt;主要是影響需要登入群輝帳號和需要授權的服務。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;pve配置&#34;&gt;pve配置
+&lt;/h2&gt;&lt;h3 id=&#34;vm&#34;&gt;VM
+&lt;/h3&gt;&lt;p&gt;建立VM選擇&lt;code&gt;不要只用任何媒體&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/system.png&#34;
+	width=&#34;886&#34;
+	height=&#34;667&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/system_hu15445197241932210843.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/system_hu15613186206149680281.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;318px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;系統&#34;&gt;系統
+&lt;/h3&gt;&lt;p&gt;系統可用&lt;code&gt;預設&lt;/code&gt;就好&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/defalt.png&#34;
+	width=&#34;896&#34;
+	height=&#34;667&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/defalt_hu16055441808756017990.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/defalt_hu10334419766981329960.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;134&#34;
+		data-flex-basis=&#34;322px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;硬碟&#34;&gt;硬碟
+&lt;/h3&gt;&lt;p&gt;磁碟選擇&lt;code&gt;SATA&lt;/code&gt;並依照自己需求調整空間&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sata.png&#34;
+	width=&#34;893&#34;
+	height=&#34;662&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sata_hu12540707046296119546.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sata_hu10042640553486383955.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;134&#34;
+		data-flex-basis=&#34;323px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;cpu&#34;&gt;CPU
+&lt;/h3&gt;&lt;p&gt;CPU類別選擇&lt;code&gt;host&lt;/code&gt;，記憶體建議2G以上。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/host.png&#34;
+	width=&#34;895&#34;
+	height=&#34;663&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/host_hu3049426576670799363.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/host_hu17400636477115181769.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;134&#34;
+		data-flex-basis=&#34;323px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;網路&#34;&gt;網路
+&lt;/h3&gt;&lt;p&gt;網路防火牆&lt;code&gt;取消勾選&lt;/code&gt;，型號選擇&lt;code&gt;E1000&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/network.png&#34;
+	width=&#34;905&#34;
+	height=&#34;661&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/network_hu6123543136832001455.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/network_hu9367270792659005895.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;136&#34;
+		data-flex-basis=&#34;328px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;下載img&#34;&gt;下載img
+&lt;/h3&gt;&lt;p&gt;到RR的Github下載&lt;code&gt;RR的img&lt;/code&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/RROrg/rr/releases/tag/24.8.6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆傳送門👆&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/img.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1020&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/img_hu5871435213228510043.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/img_hu1399951452068726610.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;188&#34;
+		data-flex-basis=&#34;451px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;上傳到pve&#34;&gt;上傳到pve
+&lt;/h3&gt;&lt;p&gt;使用winscp上傳img到pve的&lt;code&gt;root文件夾&lt;/code&gt;中&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/winscp.png&#34;
+	width=&#34;1067&#34;
+	height=&#34;672&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/winscp_hu8811431056444470790.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/winscp_hu1421121807954108335.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;158&#34;
+		data-flex-basis=&#34;381px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;導入機器&#34;&gt;導入機器
+&lt;/h3&gt;&lt;p&gt;使用指令把img&lt;code&gt;導入到機器&lt;/code&gt; (下方&lt;code&gt;機器ID&lt;/code&gt;改成自己的)，要等出現&lt;code&gt;Successfully&lt;/code&gt;才可以關閉ssh使窗喔 !
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;qm importdisk &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;機器ID&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; rr.img local-lvm&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/import.png&#34;
+	width=&#34;1050&#34;
+	height=&#34;537&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/import_hu11857565771097682548.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/import_hu5254629796386840825.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;195&#34;
+		data-flex-basis=&#34;469px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;新增磁碟&#34;&gt;新增磁碟
+&lt;/h3&gt;&lt;p&gt;導入後機器會出現一個&lt;code&gt;未使用的磁碟&lt;/code&gt;左鍵點兩下編輯，使用SATA並新增磁碟。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/inv.png&#34;
+	width=&#34;791&#34;
+	height=&#34;315&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/inv_hu14394559818419225258.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/inv_hu1436910592917821876.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;251&#34;
+		data-flex-basis=&#34;602px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;直通硬碟&#34;&gt;直通硬碟
+&lt;/h3&gt;&lt;p&gt;先列出機器上所有的磁碟，這時候會出現很多東西，不要慌張，&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;只要找最上面ata開頭的&lt;/code&gt;是你伺服器上接的SATA磁碟。
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ls /dev/disk/by-id&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/disk.png&#34;
+	width=&#34;575&#34;
+	height=&#34;276&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/disk_hu1819434713863943617.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/disk_hu14109489216174103222.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;208&#34;
+		data-flex-basis=&#34;500px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;直通指令&#34;&gt;直通指令
+&lt;/h3&gt;&lt;p&gt;找到自己要直通的硬碟後&lt;code&gt;輸入直通指令&lt;/code&gt;(下方磁碟ID改成自己的)，如果有&lt;code&gt;兩顆以上&lt;/code&gt;作法是一樣的指令中的&lt;code&gt;-sata1要改成-sata2...以此類推&lt;/code&gt;，根據你黑群輝的機型會有&lt;code&gt;不一樣&lt;/code&gt;的最多硬碟數量。
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;qm set 112 -sata1 /dev/disk/by-id/&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;磁碟ID&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;出現update代表&lt;code&gt;成功&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/yes.png&#34;
+	width=&#34;993&#34;
+	height=&#34;100&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/yes_hu1281313711813739327.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/yes_hu3554787498716912919.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;993&#34;
+		data-flex-basis=&#34;2383px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;開機順序&#34;&gt;開機順序
+&lt;/h3&gt;&lt;p&gt;在機器選項&amp;ndash;&amp;gt;開機順序把rr的磁碟&lt;code&gt;勾選&lt;/code&gt;並&lt;code&gt;拉到第一項&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/boot.png&#34;
+	width=&#34;992&#34;
+	height=&#34;560&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/boot_hu5851673530161712837.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/boot_hu17585734137788661156.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;425px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;安裝黑群輝&#34;&gt;安裝黑群輝
+&lt;/h2&gt;&lt;p&gt;開機選擇&lt;code&gt;Cofigure loader&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/config.png&#34;
+	width=&#34;720&#34;
+	height=&#34;542&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/config_hu9282105203556320914.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/config_hu17033743179460117265.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;318px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;進入網頁&#34;&gt;進入網頁
+&lt;/h3&gt;&lt;p&gt;使用瀏覽器&lt;code&gt;進入網址&lt;/code&gt;並開始安裝&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/ip.png&#34;
+	width=&#34;723&#34;
+	height=&#34;536&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/ip_hu10095250983063124150.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/ip_hu7641752417505339034.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;134&#34;
+		data-flex-basis=&#34;323px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;選擇型號&#34;&gt;選擇型號
+&lt;/h3&gt;&lt;p&gt;選單選擇&lt;code&gt;Choose a model&lt;/code&gt;，型號選擇&lt;code&gt;DS920+&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/920.png&#34;
+	width=&#34;411&#34;
+	height=&#34;618&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/920_hu1269198735887097015.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/920_hu12230850363365697018.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;66&#34;
+		data-flex-basis=&#34;159px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;選擇dsm版本&#34;&gt;選擇DSM版本
+&lt;/h3&gt;&lt;p&gt;版本選擇&lt;code&gt;7.2&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/version.png&#34;
+	width=&#34;297&#34;
+	height=&#34;272&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/version_hu2890202843655027525.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/version_hu12570682849032556302.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;選擇7.2&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;109&#34;
+		data-flex-basis=&#34;262px&#34;
+	
+&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/ok.png&#34;
+	width=&#34;827&#34;
+	height=&#34;260&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/ok_hu7927387070651590689.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/ok_hu6149377238636222236.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;確認即可&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;318&#34;
+		data-flex-basis=&#34;763px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;編譯開機檔案&#34;&gt;編譯開機檔案
+&lt;/h3&gt;&lt;p&gt;選擇&lt;code&gt;Boot the loader&lt;/code&gt;，並等待編譯。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/build.png&#34;
+	width=&#34;293&#34;
+	height=&#34;547&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/build_hu728651918227574529.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/build_hu11721450205802203049.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;53&#34;
+		data-flex-basis=&#34;128px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;開機設定&#34;&gt;開機設定
+&lt;/h3&gt;&lt;p&gt;編譯完後會自動跳轉到&lt;code&gt;Boot the loader&lt;/code&gt;，直接開機。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/boots.png&#34;
+	width=&#34;293&#34;
+	height=&#34;547&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/boots_hu728651918227574529.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/boots_hu11721450205802203049.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;53&#34;
+		data-flex-basis=&#34;128px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;設定&#34;&gt;設定
+&lt;/h3&gt;&lt;p&gt;進入畫面中顯示的地址&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/go.png&#34;
+	width=&#34;671&#34;
+	height=&#34;293&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/go_hu1742857286579348041.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/go_hu6270530639687356865.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;229&#34;
+		data-flex-basis=&#34;549px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;安裝dsm&#34;&gt;安裝DSM
+&lt;/h3&gt;&lt;p&gt;選自動獲取版本即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/yayaya.png&#34;
+	width=&#34;1367&#34;
+	height=&#34;811&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/yayaya_hu9472153786678576011.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/yayaya_hu5829047075395280682.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;168&#34;
+		data-flex-basis=&#34;404px&#34;
+	
+&gt; &lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/next.png&#34;
+	width=&#34;1310&#34;
+	height=&#34;757&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/next_hu16761481189271385361.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/next_hu13077913039929573680.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;415px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;清除磁碟&#34;&gt;清除磁碟
+&lt;/h3&gt;&lt;p&gt;確認磁碟可以被清空，並輸入產品型號。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/delete.png&#34;
+	width=&#34;645&#34;
+	height=&#34;316&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/delete_hu11612278688711404109.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/delete_hu284191015113786541.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;204&#34;
+		data-flex-basis=&#34;489px&#34;
+	
+&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sdasd.png&#34;
+	width=&#34;636&#34;
+	height=&#34;322&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sdasd_hu14362715734655396396.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sdasd_hu15928606591034115767.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;197&#34;
+		data-flex-basis=&#34;474px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;等待安裝&#34;&gt;等待安裝
+&lt;/h3&gt;&lt;p&gt;安裝完後會&lt;code&gt;自動重新開機&lt;/code&gt;，開機跑完後大約還要再等待&lt;code&gt;5分鐘&lt;/code&gt;網頁介面才會再跑出來(請耐心等待)。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/wait.png&#34;
+	width=&#34;1912&#34;
+	height=&#34;901&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/wait_hu18437427959479122606.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/wait_hu6109413691869181780.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;212&#34;
+		data-flex-basis=&#34;509px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;初始化&#34;&gt;初始化
+&lt;/h3&gt;&lt;p&gt;開機後一樣進入http://&lt;ip&gt;:5000，並進行初始化&lt;/p&gt;
+&lt;p&gt;這邊根據&lt;code&gt;自己需求&lt;/code&gt;設定。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/user.png&#34;
+	width=&#34;1303&#34;
+	height=&#34;743&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/user_hu1405209999365000816.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/user_hu18341899289444577535.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;175&#34;
+		data-flex-basis=&#34;420px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;更新&#34;&gt;更新
+&lt;/h3&gt;&lt;p&gt;這邊可以選自動更新&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/auto.png&#34;
+	width=&#34;1298&#34;
+	height=&#34;746&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/auto_hu12928478129392375041.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/auto_hu2048932310990650426.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;417px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;不要登入&#34;&gt;不要登入
+&lt;/h3&gt;&lt;p&gt;這邊&lt;mark&gt;選擇略過&lt;/mark&gt;，因為我們還沒將機器洗白仕登入不了的&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/raraa.png&#34;
+	width=&#34;1290&#34;
+	height=&#34;740&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/raraa_hu9001150314859183765.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/raraa_hu16873736821247969545.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;418px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;建立處存空間&#34;&gt;建立處存空間
+&lt;/h3&gt;&lt;p&gt;這邊就根據自己需求設定&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/drive.png&#34;
+	width=&#34;767&#34;
+	height=&#34;580&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/drive_hu10482766179225008696.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/drive_hu611108666901187259.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;317px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;洗白&#34;&gt;洗白
+&lt;/h2&gt;&lt;p&gt;PVE安裝的話有額外步驟在文章最底部會說明。&lt;/p&gt;
+&lt;h3 id=&#34;重新開機&#34;&gt;重新開機
+&lt;/h3&gt;&lt;p&gt;開機選擇&lt;code&gt;Cofigure loader&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/config.png&#34;
+	width=&#34;720&#34;
+	height=&#34;542&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/config_hu9282105203556320914.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/config_hu17033743179460117265.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;318px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;進入網頁-1&#34;&gt;進入網頁
+&lt;/h3&gt;&lt;p&gt;使用瀏覽器&lt;code&gt;進入網址&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/ip.png&#34;
+	width=&#34;723&#34;
+	height=&#34;536&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/ip_hu10095250983063124150.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/ip_hu7641752417505339034.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;134&#34;
+		data-flex-basis=&#34;323px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;選擇cmdline-menu&#34;&gt;選擇&lt;code&gt;Cmdline menu&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/cmdline.png&#34;
+	width=&#34;288&#34;
+	height=&#34;547&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/cmdline_hu12237236958474487560.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/cmdline_hu773323419475727411.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;52&#34;
+		data-flex-basis=&#34;126px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;選擇define-macsn&#34;&gt;選擇&lt;code&gt;Define MAC/SN&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sn.png&#34;
+	width=&#34;347&#34;
+	height=&#34;292&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sn_hu11903296449979460076.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sn_hu15868598738196525376.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;118&#34;
+		data-flex-basis=&#34;285px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;填入自己購買的sn和mac&#34;&gt;填入自己購買的sn和mac
+&lt;/h3&gt;&lt;p&gt;這邊提供DS920+全洗白的SN和MAC&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SN：2040SBRD42CP2
+MAC1：001132CABFFF
+MAC2：001132CAC000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sadadasdasd.png&#34;
+	width=&#34;592&#34;
+	height=&#34;252&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sadadasdasd_hu16370539994600308029.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sadadasdasd_hu958704179606989109.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;234&#34;
+		data-flex-basis=&#34;563px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;確認&lt;/code&gt;→&lt;code&gt;退出&lt;/code&gt;→&lt;code&gt;重新啟動&lt;/code&gt;即可自動保存SN和MAC。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;到這邊洗白就完成拉 !&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;測試&#34;&gt;測試
+&lt;/h2&gt;&lt;p&gt;進入群輝系统登入群輝帳號&lt;code&gt;驗證是否可用&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;選擇&lt;code&gt;控制台&lt;/code&gt;→&lt;code&gt;Synology帳戶&lt;/code&gt;，登入帳戶。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/logins.png&#34;
+	width=&#34;1442&#34;
+	height=&#34;813&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/logins_hu13584593849316482237.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/logins_hu14945447759016243128.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;425px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;測試quickconnect&#34;&gt;測試quickconnect
+&lt;/h3&gt;&lt;p&gt;選擇&lt;code&gt;控制台&lt;/code&gt;→&lt;code&gt;外部存取&lt;/code&gt;→啟用&lt;code&gt;QuickConnect&lt;/code&gt;，登入帳戶。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sleep.png&#34;
+	width=&#34;1427&#34;
+	height=&#34;805&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sleep_hu9958557193611172214.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/sleep_hu3655335827593259822.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;425px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;測試advanced-media-extensions&#34;&gt;測試&lt;code&gt;Advanced Media Extensions&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;到套件中心安裝&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/ad.png&#34;
+	width=&#34;862&#34;
+	height=&#34;633&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/ad_hu16665405840550951138.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/ad_hu868458280889553861.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;136&#34;
+		data-flex-basis=&#34;326px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;補充&#34;&gt;補充
+&lt;/h2&gt;&lt;p&gt;pve需要手動調整MAC地址(DS920+&lt;code&gt;需要兩張網卡&lt;/code&gt;請自己新增)
+進入機器硬體對&lt;code&gt;網卡點兩下左鍵&lt;/code&gt;設定MAC地址。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;00:11:32:CA:BF:FF
+00:11:32:CA:C0:00
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/seeeett.png&#34;
+	width=&#34;1357&#34;
+	height=&#34;478&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/seeeett_hu8061681874004430032.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/seeeett_hu15600305789473664785.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;283&#34;
+		data-flex-basis=&#34;681px&#34;
+	
+&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/mac.png&#34;
+	width=&#34;763&#34;
+	height=&#34;225&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/mac_hu421404614597290465.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8rr%E5%AE%89%E8%A3%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E9%BB%91%E7%BE%A4%E8%BC%9D%E6%B4%97%E7%99%BD/mac_hu17927806410048628322.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;339&#34;
+		data-flex-basis=&#34;813px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;結語&#34;&gt;結語
+&lt;/h2&gt;&lt;p&gt;這東西裝在虛擬機很簡單，但如果裝在實體機器會有支援性的問題，太老的平台又不能用，所以我選擇裝在PVE裡面。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>部屬新PVE環境並換源移除訂閱視窗</title>
+        <link>https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/</link>
+        <pubDate>Mon, 26 Aug 2024 14:12:57 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/pve.jpg" alt="Featured image of post 部屬新PVE環境並換源移除訂閱視窗" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;最近想把我的機器重新弄一次順便紀錄一下我做了些什麼，這篇介紹如何安裝並初始化你的pve，包括刪除訂閱警告視窗、換pve源。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;準備工作&#34;&gt;準備工作
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;2G 以上的隨身碟&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下載寫入工具 &lt;a class=&#34;link&#34; href=&#34;https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆rufus👆&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下載&lt;a class=&#34;link&#34; href=&#34;https://www.proxmox.com/en/downloads&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;👆Proxmox VE ISO👆&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;安裝pve&#34;&gt;安裝PVE
+&lt;/h2&gt;&lt;p&gt;選擇你的ISO和USB直接按下執行&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/go.png&#34;
+	width=&#34;410&#34;
+	height=&#34;530&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/go_hu14384899102190897825.png 480w, https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/go_hu11739014261757037267.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;77&#34;
+		data-flex-basis=&#34;185px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;設定第一啟動項&#34;&gt;設定第一啟動項
+&lt;/h3&gt;&lt;p&gt;插入隨身碟到你的機器，打开 BIOS 界面，根據主機板的類型，設定第一啟動為隨身碟&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;請在BIOS中開啟&lt;code&gt;VT-d&lt;/code&gt;和&lt;code&gt;VT-x&lt;/code&gt;和&lt;code&gt;SR-IOV&lt;/code&gt;每家主機板廠商開啟方式不一樣，這部份自己去google找關鍵字。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;MSI主機板請參考這邊 &lt;a class=&#34;link&#34; href=&#34;https://tw.msi.com/faq/faq-5390&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;圖片來源&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/msi.png&#34;
+	width=&#34;923&#34;
+	height=&#34;694&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/msi_hu11307731514856394095.png 480w, https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/msi_hu13985251554150043646.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;319px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;安裝系統&#34;&gt;安裝系統
+&lt;/h3&gt;&lt;p&gt;安裝部分就自行設定。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/install.png&#34;
+	width=&#34;1226&#34;
+	height=&#34;915&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/install_hu1025244229406442113.png 480w, https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/install_hu17971003119352807625.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;321px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;設定-pve&#34;&gt;設定 pve
+&lt;/h3&gt;&lt;p&gt;瀏覽器你的機器 IP+端口：&lt;code&gt;https://ip:8006&lt;/code&gt; （注意是 HTTPS ），進入 PVE 管理界面。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/yayaya.png&#34;
+	width=&#34;1912&#34;
+	height=&#34;928&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/yayaya_hu6065147593541446367.png 480w, https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/yayaya_hu5232815056899072213.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;206&#34;
+		data-flex-basis=&#34;494px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;換源&#34;&gt;換源
+&lt;/h2&gt;&lt;p&gt;到shell視窗&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/next.png&#34;
+	width=&#34;1921&#34;
+	height=&#34;914&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/next_hu5538675587632238881.png 480w, https://blog.jameshost.org/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/next_hu1691295723702141878.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;210&#34;
+		data-flex-basis=&#34;504px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;方法一&#34;&gt;方法一
+&lt;/h3&gt;&lt;p&gt;使用腳本&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;複製直行即可
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://cloud.jameshost.org/d/script/yuan.sh?sign=hUWplOxT3d9w6UrV5ZYBccCDONsJ7pIcRvOftUm0eF8=:0 -O yuan.sh &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; chmod +x yuan.sh &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; ./yuan.sh&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;然後在執行，就完成拉~
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apt update &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt dist-upgrade&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;方法二&#34;&gt;方法二
+&lt;/h3&gt;&lt;p&gt;手動換源&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;先刪除&lt;code&gt;sources.list.d&lt;/code&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rm -rf /etc/apt/sources.list.d/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;然後換源 (可以全部一起複製)
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;echo &amp;#34;deb https://mirrors.ustc.edu.cn/debian/ bookworm main contrib non-free non-free-firmware&amp;#34; &amp;gt; /etc/apt/sources.list
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;echo &amp;#34;deb https://mirrors.ustc.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;echo &amp;#34;deb https://mirrors.ustc.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;echo &amp;#34;deb https://mirrors.ustc.edu.cn/debian-security bookworm-security main&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;echo &amp;#34;deb https://mirrors.ustc.edu.cn/proxmox/debian bookworm pve-no-subscription&amp;#34; &amp;gt;&amp;gt; /etc/apt/sources.list&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;最後在執行，就完成拉~
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apt update &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt dist-upgrade&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 id=&#34;刪除訂閱視窗&#34;&gt;刪除訂閱視窗
+&lt;/h2&gt;&lt;p&gt;執行完成後瀏覽器 &lt;kbd&gt;CURL&lt;/kbd&gt;+&lt;kbd&gt;F5&lt;/kbd&gt; 清緩存。
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sed -Ezi.bak &amp;#34;s/(Ext.Msg.show\(\{\s+title: gettext\(&amp;#39;No valid sub)/void\(\{ \/\/\1/g&amp;#34; /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; systemctl restart pveproxy.service&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 id=&#34;直通pcie設備&#34;&gt;直通PCIE設備
+&lt;/h2&gt;&lt;p&gt;直通部分比較複雜這邊附上影片可參考
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe loading=&#34;lazy&#34; 
+            src=&#34;https://www.youtube.com/embed/kXYndWCew9o&#34; 
+            allowfullscreen 
+            title=&#34;YouTube Video&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
+        <title>如何在Ubuntu上修復「apt-key」棄用警告</title>
+        <link>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/</link>
+        <pubDate>Tue, 20 Aug 2024 06:01:50 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/title.png" alt="Featured image of post 如何在Ubuntu上修復「apt-key」棄用警告" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;最近，我在更新我的linux系統時遇到了一些問題，再更新系統時會警告我下面這串，雖然這 &lt;strong&gt;不會影響到我執行更新&lt;/strong&gt; ，但我看著這行警告心會癢癢，我們應該如何解決 GPG 金鑰的問題？&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;W: https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果您在Ubuntu上運行&lt;code&gt;apt update&lt;/code&gt;時看到&lt;code&gt;apt-key&lt;/code&gt;已棄用的警告，那麼您來對地方了。&lt;/p&gt;
+&lt;p&gt;參考文章 : &lt;a class=&#34;link&#34; href=&#34;https://askubuntu.com/questions/1398344/apt-key-deprecation-warning-when-updating-system-key-is-stored-in-legacy-trust&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;傳送門&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;方法一&#34;&gt;方法一
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;執行這行指令看有現在有哪些key。
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-key list&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;根據你的警告內容查找相關的key，如下方這串&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pub   rsa4096 2017-02-22 [SCEA]
+9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid  [ unknown] Docker Release (CE deb) &amp;lt;docker@docker.com&amp;gt;
+sub   rsa4096 2017-02-22 [S]
+
+/etc/apt/trusted.gpg.d/ubuntu-keyring-2012-cdimage.gpg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;複製第二行的最後 8 個字，並使用下面的命令將其轉換為檔案。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;記得&lt;code&gt;刪除8個字中間的空格&lt;/code&gt;，然後幫你的檔案命名。
+&lt;br&gt;
+在我的示例中，我需要運行：
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-key export 0EBFCD88 | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;下次運行更新指令時，就&lt;strong&gt;不會再顯示已棄用的錯誤&lt;/strong&gt;（如果影響其他存儲庫，就需要對每個存儲庫重複上述步驟）。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;方法二&#34;&gt;方法二
+&lt;/h2&gt;&lt;p&gt;在 Ubuntu 上修復 apt 棄用錯誤的 &lt;strong&gt;推薦&lt;/strong&gt; 方法是上面的方法。但是有一個 &lt;strong&gt;更快速&lt;/strong&gt; 的解決方法。&lt;/p&gt;
+&lt;p&gt;你的情況可能會不同，這有可能不是解決此問題最好的方法，因為根據系統中的舊密鑰，&lt;code&gt;它可能會危及系統的安全性&lt;/code&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;執行下方指令
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cd /etc/apt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo cp trusted.gpg trusted.gpg.d&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在次運行&lt;code&gt;apt update&lt;/code&gt;就不會再看到那行錯誤。&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        <item>
+        <title>在linux架設KMS server</title>
+        <link>https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/</link>
+        <pubDate>Sun, 18 Aug 2024 03:51:01 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/nonono.jpg" alt="Featured image of post 在linux架設KMS server" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;使用 KMS (Key Management Service) 來啟用 Windows 可以是&lt;strong&gt;合法&lt;/strong&gt;的，也可能是&lt;strong&gt;盜版&lt;/strong&gt;，取決於具體的情況。&lt;/p&gt;
+&lt;h3 id=&#34;合法的情況&#34;&gt;✅合法的情況：
+&lt;/h3&gt;&lt;p&gt;企業授權：KMS 是 Microsoft 提供的一種啟用方式，主要針對&lt;code&gt;大型企業&lt;/code&gt;、&lt;code&gt;教育機構&lt;/code&gt;等，允許它們使用一個集中化的 KMS 伺服器來管理 Windows 和 Office 等產品的批量授權。這些企業和機構會&lt;code&gt;購買合法的批量授權&lt;/code&gt;，並在內部使用 KMS 伺服器來啟用產品。&lt;/p&gt;
+&lt;h3 id=&#34;非法的情況&#34;&gt;❌非法的情況：
+&lt;/h3&gt;&lt;p&gt;破解工具：有些人可能會下載和使用非法的 KMS 激活工具（如 KMSAuto、KMSPico 等），這些工具使用&lt;code&gt;未經授權的 KMS 伺服器來欺騙 Windows&lt;/code&gt;，以便免費啟用操作系統或軟體。這種方式被視為盜版，是非法的。
+如果你使用的是來自合法來源的 KMS 伺服器並擁有適當的授權，那麼使用 KMS 是合法的。如果你使用的是未經授權的 KMS 伺服器或工具，&lt;code&gt;那麼這就是盜版&lt;/code&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;h1 id=&#34;如何架設kms系統&#34;&gt;如何架設KMS系統?
+&lt;/h1&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;升級系統&#34;&gt;升級系統
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt upgrade&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;切換root使用者&#34;&gt;切換root使用者
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo -i&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;使用腳本安裝&#34;&gt;使用腳本安裝
+&lt;/h2&gt;&lt;p&gt;按任&lt;code&gt;意按鍵&lt;/code&gt;繼續安裝，&lt;kbd&gt;CTRL&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt; 取消
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget --no-check-certificate https://github.com/teddysun/across/raw/master/kms.sh &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; chmod +x kms.sh &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; ./kms.sh&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/press.png&#34;
+	width=&#34;776&#34;
+	height=&#34;489&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/press_hu8689549937412363791.png 480w, https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/press_hu6069442558766421009.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;158&#34;
+		data-flex-basis=&#34;380px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;安裝-net-tools&#34;&gt;安裝 &lt;code&gt;net-tools&lt;/code&gt;
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apt install net-tools&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;完成&#34;&gt;完成
+&lt;/h2&gt;&lt;p&gt;安装完成后，輸入以下命令查看端口 1688 的監聽狀況
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;netstat -nxtlp | grep 1688&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/done.png&#34;
+	width=&#34;773&#34;
+	height=&#34;484&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/done_hu18347290570446165823.png 480w, https://blog.jameshost.org/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/done_hu6944855864900887313.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;159&#34;
+		data-flex-basis=&#34;383px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;結語&#34;&gt;結語
+&lt;/h2&gt;&lt;p&gt;測試請參考&lt;a class=&#34;link&#34; href=&#34;https://blog.jameshost.org/p/windwos%E5%95%9F%E7%94%A8%E8%BD%89%E6%8F%9B%E7%89%88%E6%9C%AC/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;這篇文&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;再次聲明自行架設KMS是🛑&lt;code&gt;盜版&lt;/code&gt;🛑!&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>使用Windows命令行ssh連結Linux</title>
+        <link>https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/</link>
+        <pubDate>Sun, 18 Aug 2024 03:17:13 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/cmd.png" alt="Featured image of post 使用Windows命令行ssh連結Linux" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;SSH 簡單來說它就是一個遠端連線的工具，安全是 SSH 的賣點。SSH 它讓我們在與遠端電腦（遠端伺服器）連線時，能夠先將訊息加密過後再傳送，並且確保只有「被認可的人」才能夠解密訊息。&lt;/p&gt;
+&lt;p&gt;參考:&lt;a class=&#34;link&#34; href=&#34;https://medium.com/starbugs/security-%E4%BD%A0%E8%A9%B2%E7%9F%A5%E9%81%93%E6%89%80%E6%9C%89%E9%97%9C%E6%96%BC-ssh-%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B-76b3518cb747&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;傳送門&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;打開cmd&#34;&gt;打開cmd
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;按下鍵盤 &lt;kbd&gt;Win&lt;/kbd&gt; + &lt;kbd&gt;R&lt;/kbd&gt; 並輸入&lt;code&gt;cmd&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/run.png&#34;
+	width=&#34;395&#34;
+	height=&#34;198&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/run_hu6614055867675641490.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/run_hu12512501019624170513.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;199&#34;
+		data-flex-basis=&#34;478px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;指令&#34;&gt;指令
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;指令格式為 &lt;code&gt;ssh&lt;/code&gt; + &lt;code&gt;空格&lt;/code&gt; + &lt;code&gt;用戶名&lt;/code&gt; + &lt;code&gt;@ip&lt;/code&gt; 然後按 &lt;kbd&gt;ENTER&lt;/kbd&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/ssh.png&#34;
+	width=&#34;720&#34;
+	height=&#34;393&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/ssh_hu6226209951585462329.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/ssh_hu13092538586292798290.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;183&#34;
+		data-flex-basis=&#34;439px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;輸入yes&#34;&gt;輸入yes
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;輸入yes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/yes.png&#34;
+	width=&#34;817&#34;
+	height=&#34;469&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/yes_hu15834361315047287395.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/yes_hu12295497129636324922.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;418px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;密碼&#34;&gt;密碼
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;輸入使用者密碼，過程中&lt;code&gt;看不到任何文字&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/password.png&#34;
+	width=&#34;817&#34;
+	height=&#34;467&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/password_hu15594305695991225984.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/password_hu16067357088690261221.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;419px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;成功&#34;&gt;成功
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;如果密碼輸入正確，連結成功✅&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/done.png&#34;
+	width=&#34;817&#34;
+	height=&#34;464&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/done_hu1724062421833906073.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/done_hu820094489970792223.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;176&#34;
+		data-flex-basis=&#34;422px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>使用linux搭建aapanel</title>
+        <link>https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/</link>
+        <pubDate>Sat, 17 Aug 2024 00:53:25 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/aapanel.png" alt="Featured image of post 使用linux搭建aapanel" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;這幾天想搭建一個typecho的blog，因為現在寶塔面板要登入帳號。
+而寶塔面板跟aaPanel是一樣的，是不需要登入就可使用的，所以有了這篇教學。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;傳送門: &lt;a class=&#34;link&#34; href=&#34;https://www.aapanel.com/new/download.html#install&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.aapanel.com/new/download.html#install&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;腳本快速安裝&#34;&gt;腳本快速安裝
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Ubuntu、centOS、Debian都可使用腳本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;先切換成root&#34;&gt;先切換成root
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo -i&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;下載腳本並執行&#34;&gt;下載腳本並執行
+&lt;/h3&gt;&lt;p&gt;複製執行即可(大約2~3分鐘左右)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;URL=https://www.aapanel.com/script/install_7.0_en.sh &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; if [ -f /usr/bin/curl ];then curl -ksSO &amp;#34;$URL&amp;#34; ;else wget --no-check-certificate -O install_7.0_en.sh &amp;#34;$URL&amp;#34;;fi;bash install_7.0_en.sh aapanel&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;安裝成功&#34;&gt;安裝成功
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;記得上面有&lt;code&gt;用戶名和密碼&lt;/code&gt;先複製起來保存
+&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/success.jpg&#34;
+	width=&#34;1100&#34;
+	height=&#34;395&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/success_hu8732070461784034824.jpg 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/success_hu6652471550589354955.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;278&#34;
+		data-flex-basis=&#34;668px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;登入面板&#34;&gt;登入面板
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/login.jpg&#34;
+	width=&#34;720&#34;
+	height=&#34;676&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/login_hu3059178725198276405.jpg 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/login_hu663692843963809363.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;106&#34;
+		data-flex-basis=&#34;255px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;基本操控&#34;&gt;基本操控
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;停止服務&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service bt stop&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;開啟服務&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service bt start&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;開啟服務&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service bt start&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;解除安裝&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service bt stop &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; chkconfig --del bt &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -f /etc/init.d/bt &lt;span class=&#34;err&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /www/server/panel&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;結語&#34;&gt;結語
+&lt;/h2&gt;&lt;p&gt;因為是通過 &lt;strong&gt;面板安裝服務&lt;/strong&gt; 可能會等比較長的時間，這篇就到這邊結束拉~&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>使用pve安裝TP-Link Omada SDN Controller</title>
+        <link>https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/</link>
+        <pubDate>Thu, 15 Aug 2024 15:42:24 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/omada.png" alt="Featured image of post 使用pve安裝TP-Link Omada SDN Controller" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;Tp-link omada SDN目前只有兩種型號(OC200、OC300)，也可以透過官方提供的docker文件來架設
+本篇使用pve建立容器並執行。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;優點&#34;&gt;優點
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;省錢&lt;/li&gt;
+&lt;li&gt;省電&lt;/li&gt;
+&lt;li&gt;功能齊全&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;缺點&#34;&gt;缺點
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;依照你的機器決定穩不穩定&lt;/li&gt;
+&lt;li&gt;較耗電&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;開始安裝&#34;&gt;開始安裝
+&lt;/h2&gt;&lt;p&gt;選擇你的容器&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2977505022.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1193&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2977505022_hu5440763275586709556.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2977505022_hu17551477727960551557.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;214&#34;
+		data-flex-basis=&#34;515px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;選擇ct範本&#34;&gt;選擇CT範本
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/1463456439.png&#34;
+	width=&#34;2556&#34;
+	height=&#34;1181&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/1463456439_hu513618243341270339.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/1463456439_hu15030418225034177426.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;216&#34;
+		data-flex-basis=&#34;519px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;下載ubuntu-20&#34;&gt;下載ubuntu 20
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2771580123.png&#34;
+	width=&#34;1578&#34;
+	height=&#34;1037&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2771580123_hu15305905264149102906.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2771580123_hu11665675067344034409.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;152&#34;
+		data-flex-basis=&#34;365px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;建立ct&#34;&gt;建立CT
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/1249306897.png&#34;
+	width=&#34;2553&#34;
+	height=&#34;1186&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/1249306897_hu16971957161642577934.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/1249306897_hu7733680377324828525.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;215&#34;
+		data-flex-basis=&#34;516px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;填入主機名稱用戶密碼&#34;&gt;填入主機名稱、用戶密碼
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/3626822659.png&#34;
+	width=&#34;1270&#34;
+	height=&#34;948&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/3626822659_hu15861741554508451726.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/3626822659_hu3843417039734315481.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;321px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;選擇剛剛下載好的範本&#34;&gt;選擇剛剛下載好的範本
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/1403199924.png&#34;
+	width=&#34;1240&#34;
+	height=&#34;950&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/1403199924_hu13321642182655636585.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/1403199924_hu3773618830351784304.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;130&#34;
+		data-flex-basis=&#34;313px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定核心數和記憶體建議2核2g&#34;&gt;設定核心數和記憶體(建議2核2G)
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/3108756623.png&#34;
+	width=&#34;1256&#34;
+	height=&#34;952&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/3108756623_hu13875748217037205774.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/3108756623_hu17129658092128380230.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;131&#34;
+		data-flex-basis=&#34;316px&#34;
+	
+&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2245777137.png&#34;
+	width=&#34;1284&#34;
+	height=&#34;953&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2245777137_hu4525026645971111187.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2245777137_hu4392592162621521598.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;134&#34;
+		data-flex-basis=&#34;323px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定網路&#34;&gt;設定網路
+&lt;/h2&gt;&lt;p&gt;把防火牆的選項取消勾選，根據自己路由器配置主機ip位置&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2701942538.png&#34;
+	width=&#34;1265&#34;
+	height=&#34;955&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2701942538_hu15787787868141228880.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2701942538_hu6381116348837600458.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;317px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;確認&#34;&gt;確認
+&lt;/h2&gt;&lt;p&gt;確認好機器配置沒有錯&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/222653563.png&#34;
+	width=&#34;1261&#34;
+	height=&#34;962&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/222653563_hu10059978534631739388.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/222653563_hu8568766481560420473.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;131&#34;
+		data-flex-basis=&#34;314px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;開機&#34;&gt;開機
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2869932260.png&#34;
+	width=&#34;2548&#34;
+	height=&#34;1186&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2869932260_hu13308894893547645667.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/2869932260_hu2300927713643184303.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;214&#34;
+		data-flex-basis=&#34;515px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;登入主機&#34;&gt;登入主機
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;帳號:root
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;密碼:&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;剛剛設定的&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/3153885331.png&#34;
+	width=&#34;2066&#34;
+	height=&#34;901&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/3153885331_hu6593566052647637825.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/3153885331_hu11803698492525072426.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;229&#34;
+		data-flex-basis=&#34;550px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;更新套件庫&#34;&gt;更新套件庫
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get upgrade&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;安裝必要套件&#34;&gt;安裝必要套件
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install mongodb jsvc openjdk-8-jdk gdebi-core -y&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;設定java預設執行版本&#34;&gt;設定java預設執行版本
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo update-alternatives --config java&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;下載tp-link執行腳本&#34;&gt;下載Tp-link執行腳本
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://static.tp-link.com/upload/software/2023/202303/20230321/Omada_SDN_Controller_v5.9.31_Linux_x64.deb&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;安裝tp-link執行腳本&#34;&gt;安裝Tp-link執行腳本
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    gdebi Omada_SDN_Controller_v5.9.31_Linux_x64.deb&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/374940178.png&#34;
+	width=&#34;1398&#34;
+	height=&#34;1104&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/374940178_hu2301710554859507996.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/374940178_hu11153946091364628929.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;126&#34;
+		data-flex-basis=&#34;303px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;進入設定網頁&#34;&gt;進入設定網頁
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;安裝完成後進入&lt;/strong&gt;
+&lt;code&gt;http://&amp;lt;你的ip&amp;gt;:8088&lt;/code&gt;
+進入後網頁如果顯示不安全選擇進階&amp;ndash;&amp;gt;繼續前往網站&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/630431433.png&#34;
+	width=&#34;852&#34;
+	height=&#34;623&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/630431433_hu6592313660611540666.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/630431433_hu11608517769688464979.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;136&#34;
+		data-flex-basis=&#34;328px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;開始設定&#34;&gt;開始設定
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;輸入基本資訊就大功告成拉~&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/648252104.png&#34;
+	width=&#34;1030&#34;
+	height=&#34;701&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/648252104_hu9722847265031371825.png 480w, https://blog.jameshost.org/p/%E4%BD%BF%E7%94%A8pve%E5%AE%89%E8%A3%9Dtp-link-omada-sdn-controller/648252104_hu13748588689530086427.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;146&#34;
+		data-flex-basis=&#34;352px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;懶人包指令&#34;&gt;懶人包指令
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install mongodb jsvc openjdk-8-jdk gdebi-core -y
+sudo update-alternatives --config java
+wget https://static.tp-link.com/upload/software/2023/202303/20230321/Omada_SDN_Controller_v5.9.31_Linux_x64.deb
+gdebi Omada_SDN_Controller_v5.9.31_Linux_x64.deb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;參考影片&#34;&gt;參考影片
+&lt;/h2&gt;&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe loading=&#34;lazy&#34; 
+            src=&#34;https://www.youtube.com/embed/e86G-B-nT6U&#34; 
+            allowfullscreen 
+            title=&#34;YouTube Video&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;br&gt;
+</description>
+        </item>
+        <item>
+        <title>建立 iRedMail 郵件伺服器(SMTP)</title>
+        <link>https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/</link>
+        <pubDate>Thu, 15 Aug 2024 00:21:01 +0800</pubDate>
+        
+        <guid>https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/</guid>
+        <description>&lt;img src="https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/mail.jpg" alt="Featured image of post 建立 iRedMail 郵件伺服器(SMTP)" /&gt;&lt;h2 id=&#34;更新系统&#34;&gt;更新系统
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apt update -y&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;設置主機名&#34;&gt;設置主機名
+&lt;/h2&gt;&lt;p&gt;我們規劃郵局的網域名稱為 &lt;code&gt;mail.&amp;lt;你的網域&amp;gt;&lt;/code&gt; ，所以，我們需要設定 linux 的主機名稱。
+首先，需要編輯 &lt;code&gt;/etc/hosts&lt;/code&gt; 文件，找到含有你的主機IP位址的那一行；如果沒有，則會新增一行。內容如下：
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;192.168.0.30 mail.&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;你的網域&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; mail&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;其中, 192.168.0.30 可換為你的伺服器 IP 位址，後面依序填入長主機名和短主機名，切記不可填反。
+然後，我們找到 VPS 的 &lt;code&gt;/etc/hostname&lt;/code&gt; 文件，編輯裡面的內容為 mail （網域的前綴）
+這樣，就設定好了主機名稱。然後再&lt;code&gt;重啟主機&lt;/code&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;檢查一下是否設定正確&#34;&gt;檢查一下是否設定正確：
+&lt;/h2&gt;&lt;p&gt;執行：&lt;code&gt;hostname&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;執行：&lt;code&gt;hostname -f&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;此時，我們分別看到&lt;code&gt;mail&lt;/code&gt; 和 &lt;code&gt;mail.&amp;lt;你的網域&amp;gt;&lt;/code&gt;
+&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1045613294.png&#34;
+	width=&#34;574&#34;
+	height=&#34;230&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1045613294_hu6475546660403546974.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1045613294_hu2588220411804911533.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;249&#34;
+		data-flex-basis=&#34;598px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;這樣，我們就全部設定好了主機名稱（hostname）, 可以進行接下來的其他操作了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;下載並安裝-iredmail&#34;&gt;下載並安裝 iRedMail
+&lt;/h2&gt;&lt;p&gt;系統將會自動開始安裝。安裝過程中會出現以下這些情況，您需要依序根據您自己的資訊來設定。
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    apt-get install git -y
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    wget https://github.com/iredmail/iRedMail.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    cd iRedMail
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    bash iRedMail.sh&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+然後按下 &lt;kbd&gt;ENTER&lt;/kbd&gt;，然後等待安裝。&lt;/p&gt;
+&lt;h3 id=&#34;第一步&#34;&gt;第一步
+&lt;/h3&gt;&lt;p&gt;歡迎介面，兩個選項，yes或no ，直接選&lt;code&gt;yes&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/722561471.png&#34;
+	width=&#34;1683&#34;
+	height=&#34;837&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/722561471_hu13774896334991227075.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/722561471_hu4208898966562732089.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;201&#34;
+		data-flex-basis=&#34;482px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;第二部&#34;&gt;第二部
+&lt;/h3&gt;&lt;p&gt;設定安裝目錄，這裡可以看到安裝目錄為&lt;code&gt;/var/vmail&lt;/code&gt; 直接 &lt;kbd&gt;ENTER&lt;/kbd&gt;，下一步。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3672566704.png&#34;
+	width=&#34;1681&#34;
+	height=&#34;842&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3672566704_hu368148415395625716.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3672566704_hu16712779189937486798.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;199&#34;
+		data-flex-basis=&#34;479px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;第三步&#34;&gt;第三步
+&lt;/h3&gt;&lt;p&gt;選擇web伺服器，此時可以看到nginx前面有個星號，這代表已經被選中，如果沒有星號，切換到&lt;code&gt;nginx&lt;/code&gt;選項，按一下空格，星號出現， &lt;kbd&gt;ENTER&lt;/kbd&gt; 下一步。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3278080190.png&#34;
+	width=&#34;1711&#34;
+	height=&#34;837&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3278080190_hu3999179967179282731.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3278080190_hu6550236802286259907.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;204&#34;
+		data-flex-basis=&#34;490px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;第四步&#34;&gt;第四步
+&lt;/h3&gt;&lt;p&gt;選擇資料庫，上下選擇到&lt;code&gt;MariaDB&lt;/code&gt; ，空格星號選中，&lt;kbd&gt;ENTER&lt;/kbd&gt;下一步。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1464860941.png&#34;
+	width=&#34;1712&#34;
+	height=&#34;837&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1464860941_hu5265490582342597936.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1464860941_hu16055947564468168276.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;204&#34;
+		data-flex-basis=&#34;490px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;第五步&#34;&gt;第五步
+&lt;/h3&gt;&lt;p&gt;設定資料庫密碼，自己設定。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1809752071.png&#34;
+	width=&#34;1713&#34;
+	height=&#34;845&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1809752071_hu17239331385571314645.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1809752071_hu15727923467073860928.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;202&#34;
+		data-flex-basis=&#34;486px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;第六步&#34;&gt;第六步
+&lt;/h3&gt;&lt;p&gt;設定網域，不帶&lt;strong&gt;網域前綴mail&lt;/strong&gt;，我這邊是&lt;code&gt;jameshost.xyz&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1156212310.png&#34;
+	width=&#34;1706&#34;
+	height=&#34;839&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1156212310_hu14399946367898641773.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1156212310_hu201294439262937844.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;203&#34;
+		data-flex-basis=&#34;488px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;第七步&#34;&gt;第七步
+&lt;/h3&gt;&lt;p&gt;設定管理員密碼&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1424253593.png&#34;
+	width=&#34;1708&#34;
+	height=&#34;825&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1424253593_hu18287527774748310310.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1424253593_hu13012057853559350570.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;207&#34;
+		data-flex-basis=&#34;496px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;第八步&#34;&gt;第八步
+&lt;/h3&gt;&lt;p&gt;選擇需要安裝的組件，預設即可，那個Sogo可裝可不裝，都可以，不影響郵件服務，&lt;kbd&gt;ENTER&lt;/kbd&gt;下一步。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3266559137.png&#34;
+	width=&#34;1706&#34;
+	height=&#34;831&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3266559137_hu4454122423145931871.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3266559137_hu18250394935735008025.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;205&#34;
+		data-flex-basis=&#34;492px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;第九步&#34;&gt;第九步
+&lt;/h3&gt;&lt;p&gt;確定設定無誤(&lt;code&gt;Y確認N取消&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1673203824.png&#34;
+	width=&#34;1689&#34;
+	height=&#34;670&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1673203824_hu11189583360929173285.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/1673203824_hu6123958284292409148.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;252&#34;
+		data-flex-basis=&#34;605px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;安裝大約需要10分鐘左右。全部安裝好之後，系統會提示是否設定防火牆規則，我們輸入y確認即可。
+&lt;strong&gt;重啟伺服器，讓郵件伺服器生效！&lt;/strong&gt; 至此，郵件伺服器搭建完畢，以下開始設定郵件伺服器。&lt;/p&gt;
+&lt;h2 id=&#34;設定郵件伺服器&#34;&gt;設定郵件伺服器
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;可以透過存取（當然，我們目前還沒有解析域名，後面在一起解析）
+https://你的網域/mail ——郵件登入位址
+https://你的網域/netdata ——伺服器狀態監控
+https://你的網域/iredadmin ——郵件伺服器後台管理
+管理員帳號：postmaster@你的網域 例如 postmaster@jameshost.xyz
+管理者密碼：安裝時候設定的密碼
+以上訊息，可以在 /root/iRedMail-1.6.3/iRedMail.tips 檔案中查看
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;配置-dns-及解析&#34;&gt;配置 DNS 及解析
+&lt;/h2&gt;&lt;p&gt;您需要設定一條TXT記錄，將根網域名稱（例如我這裡的jameshost.org）解析值設定如下。&lt;/p&gt;
+&lt;p&gt;內容為
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;v=spf1 mx ~all&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/txt.png&#34;
+	width=&#34;1003&#34;
+	height=&#34;566&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/txt_hu17584787971436083699.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/txt_hu1870148352972719811.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;425px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;設定-mx-紀錄&#34;&gt;設定 MX 紀錄
+&lt;/h3&gt;&lt;p&gt;建立一個名為根域名解析到郵件伺服器的ip&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/mx.png&#34;
+	width=&#34;1127&#34;
+	height=&#34;394&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/mx_hu584381324311344885.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/mx_hu6032974827362956113.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;286&#34;
+		data-flex-basis=&#34;686px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;設定-dmarc-紀錄&#34;&gt;設定 DMARC 紀錄
+&lt;/h3&gt;&lt;p&gt;DMARC記錄的設定比較複雜，這裡簡單設定一下，對於普通的網域郵件已經足夠使用了。您需要新增一則TXT記錄，將_dmarc.jameshost.org &lt;code&gt;不要遺漏dmarc前面的那個底線&lt;/code&gt;解析值設定為如下：
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;v=DMARC1; p=none; pct=100; rua=mailto:dmarc@&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;你的網域&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/_dmarc.png&#34;
+	width=&#34;1008&#34;
+	height=&#34;403&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/_dmarc_hu2029873089059683433.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/_dmarc_hu14062252444040805267.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;250&#34;
+		data-flex-basis=&#34;600px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;設定-dkim記錄&#34;&gt;設定 DKIM記錄
+&lt;/h3&gt;&lt;p&gt;在配置DKIM記錄之前，我們先要產生DKIM金鑰。在SSH中執行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;amavisd-new showkeys&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;會看到類似下面的密鑰：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3852784953.png&#34;
+	width=&#34;1118&#34;
+	height=&#34;337&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3852784953_hu6380349440102415456.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/3852784953_hu11141961956215510489.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;331&#34;
+		data-flex-basis=&#34;796px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;然後，以網域jameshost.xyz為例，請去您的&lt;code&gt;cloudflare DNS&lt;/code&gt;那裡，新增一條&lt;code&gt;TXT記錄&lt;/code&gt;，&lt;/p&gt;
+&lt;p&gt;將&lt;code&gt;dkim._domainkey.jameshost.xyz&lt;/code&gt;解析到&lt;code&gt;v=DKIM1; p=MIIBIj…………………… ………………h6o3Lv7OoNd&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;請注意，這裡的解析值不包含&lt;code&gt;小括號以及所有引號&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/dddddd.png&#34;
+	width=&#34;1134&#34;
+	height=&#34;456&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/dddddd_hu4045293668044052057.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/dddddd_hu9996767011859099937.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;248&#34;
+		data-flex-basis=&#34;596px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;申請證書&#34;&gt;申請證書
+&lt;/h2&gt;&lt;p&gt;安装證書工具certbot
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apt-get install certbot -y&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;然后，申請免費的Let’s Encrypt證書：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;certbot certonly --webroot -d mail.&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;你的網域&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; -w /var/www/html/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;申請期間會叫你輸入&lt;code&gt;電子郵件地址&lt;/code&gt;
+然後根據提示&lt;code&gt;輸入Y&lt;/code&gt;，然後他會問你要不要接收廣告郵件&lt;code&gt;輸入N&lt;/code&gt;不同意。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;公鑰路徑: /etc/letsencrypt/live/mail.&amp;lt;你的網域&amp;gt;/fullchain.pem
+
+私鑰: /etc/letsencrypt/live/mail.&amp;lt;你的網域&amp;gt;/privkey.pem
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;配置證書&#34;&gt;配置證書
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;申請完畢後，我們先設定Nginx.&lt;/strong&gt;
+編輯檔案&lt;code&gt;/etc/nginx/templates/ssl.tmpl&lt;/code&gt;, 找到下面兩行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssl_certificate /etc/ssl/certs/iRedMail.crt;
+ssl_certificate_key /etc/ssl/private/iRedMail.key;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;將地址更換為&lt;strong&gt;您的證書地址&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssl_certificate /etc/letsencrypt/live/mail.&amp;lt;你的網域&amp;gt;/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/live/mail.&amp;lt;你的網域&amp;gt;/privkey.pem;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;保存好後重新载入Nginx配置文件：
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service nginx reload&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;收發郵件時，同樣需要用到TLS安全認證，因此我們還需要配置Postfix和Dovecot. 首先，編輯&lt;code&gt;/etc/postfix/main.cf&lt;/code&gt;文件，找到下面這三行（第95 ~ 97行）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;smtpd_tls_key_file = /etc/ssl/private/iRedMail.key
+smtpd_tls_cert_file = /etc/ssl/certs/iRedMail.crt
+smtpd_tls_CAfile = /etc/ssl/certs/iRedMail.crt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;將其替換為您的憑證地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;smtpd_tls_key_file = /etc/letsencrypt/live/mail.&amp;lt;你的網域&amp;gt;/privkey.pem
+smtpd_tls_cert_file = /etc/letsencrypt/live/mail.&amp;lt;你的網域&amp;gt;/cert.pem
+smtpd_tls_CAfile = /etc/letsencrypt/live/mail.&amp;lt;你的網域&amp;gt;/chain.pem
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;儲存好之後重新載入Postfix設定檔。
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service postfix reload&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;最後，給Dovecot配置憑證。編輯檔案&lt;code&gt;/etc/dovecot/dovecot.conf&lt;/code&gt;, 找到下面這兩行（第45和46行）:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssl_cert = &amp;lt;/etc/ssl/certs/iRedMail.crt
+ssl_key = &amp;lt;/etc/ssl/private/iRedMail.key
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;將其替換為您的憑證地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssl_cert = &amp;lt;/etc/letsencrypt/live/mail.&amp;lt;你的網域&amp;gt;/fullchain.pem
+ssl_key = &amp;lt;/etc/letsencrypt/live/mail.&amp;lt;你的網域&amp;gt;/privkey.pem
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;儲存好之後重新載入Dovecot設定檔。
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service dovecot reload&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;這樣，我們為Nginx, Postfix, Dovecot分別配置好了SSL/TLS安全性憑證。&lt;/strong&gt;
+我們先給設定檔提升權限：
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chmod +w /opt/iredapd/settings.py&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;然後編輯該檔案&lt;code&gt;/opt/iredapd/settings.py&lt;/code&gt;，找出下面這行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;plugins = [&amp;quot;reject_null_sender&amp;quot;, &amp;quot;wblist_rdns&amp;quot;, &amp;quot;reject_sender_login_mismatch&amp;quot;, &amp;quot;greylisting&amp;quot;, &amp;quot;throttle&amp;quot;, &amp;quot;amavisd_wblist&amp;quot;, &amp;quot;sql_alias_access_policy&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;將其中的&lt;code&gt;”greylisting”&lt;/code&gt;這項刪去即可。然後，重啟iredapd, 並且恢復檔案權限。
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service iredapd restart
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chmod -w /opt/iredapd/settings.py&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;開始設定&#34;&gt;開始設定
+&lt;/h2&gt;&lt;p&gt;進入&lt;code&gt;https://&amp;lt;你的網域&amp;gt;/iredadmin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;帳號密碼就是一開始安裝時設定的&lt;code&gt;postermaster@&amp;lt;你的網域&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/2586333774.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1306&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/2586333774_hu11839191709790589826.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/2586333774_hu7789655683589092068.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;196&#34;
+		data-flex-basis=&#34;470px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;新增帳號&#34;&gt;新增帳號
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/468469464.png&#34;
+	width=&#34;2560&#34;
+	height=&#34;1160&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/468469464_hu14982570847219001850.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/468469464_hu13625877323052235897.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;220&#34;
+		data-flex-basis=&#34;529px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;測試郵件收發&#34;&gt;測試郵件收發
+&lt;/h3&gt;&lt;p&gt;進入 &lt;code&gt;https://你的網域/mail&lt;/code&gt; 登入郵件並填寫郵件測試，
+如果是自家主機，測試前別忘了先&lt;code&gt;端口轉發&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SMTP: 25/587, POP3: 110/995, IMAP: 143/993
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/569641455.png&#34;
+	width=&#34;2554&#34;
+	height=&#34;1195&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/569641455_hu2383123237267926373.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/569641455_hu1396710169029735011.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;213&#34;
+		data-flex-basis=&#34;512px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;成功&#34;&gt;成功
+&lt;/h3&gt;&lt;p&gt;收到確認有收到郵件就大功告成拉，
+發送郵件可能會再垃圾郵件中按下&lt;code&gt;回報為非垃圾郵件&lt;/code&gt;就可以了，
+順便回信測試，如果回信沒有收到有可能是&lt;strong&gt;端口轉發沒有成功&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/2753942639.png&#34;
+	width=&#34;2545&#34;
+	height=&#34;1182&#34;
+	srcset=&#34;https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/2753942639_hu12140682719144840446.png 480w, https://blog.jameshost.org/p/%E5%BB%BA%E7%AB%8B-iredmail-%E9%83%B5%E4%BB%B6%E4%BC%BA%E6%9C%8D%E5%99%A8smtp/2753942639_hu11195215472276252115.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;215&#34;
+		data-flex-basis=&#34;516px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;補充&#34;&gt;補充
+&lt;/h2&gt;&lt;p&gt;如果您需要使用客戶端來收發信，則smtp, pop, imap位址均為mail.jameshost.xyz, 連接埠是常用的連接埠請自行轉發(SMTP: 25/587, POP3: 110/995, IMAP: 143/993).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有問題歡迎來私訊我的&lt;a class=&#34;link&#34; href=&#34;https://www.instagram.com/su__tw87/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;instagram&lt;/a&gt;來討論 !&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

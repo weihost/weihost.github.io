@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="前言\r這篇是使用PVE安裝，如果要用實體機安裝，請到RR的Github下載RR的img👆傳送門👆使用rufus燒入開機，並跳到步驟3。直接看安裝即可。\n這篇給的序號我不知道有沒有時效性，如果你們用真的不行的話，那就可能沒辦法用了，但機器只要洗白一次就可以了。\nQ&amp;A\n1、什麼是白群輝？ 群晖的硬件+群晖的系统 2、什麼是黑群晖？ DIY硬件+群輝的系统 3、什麼是洗白？ 黑群輝透過改成和正版一樣的SN碼和MAC地址，偽裝成白群輝。 4、不洗白會影響那些功能？\nQuickConnect不能註冊和登入(這是一個群輝非常強大的內往穿透的功能)。 DS Photo/Moments套件預覽圖是黑的。 DS Video觀看只能選擇原碼，不能切換碼率，無法離線轉碼。 Virtual Machine Manager虛擬機不能用。 Active Backup for Business數據保護和備份不能用。 Advanced Media Extensions高校影音編碼不能用。 主要是影響需要登入群輝帳號和需要授權的服務。 pve配置\rVM\r建立VM選擇不要只用任何媒體\n">
+<title>Dsm</title>
+
+<link rel='canonical' href='http://localhost:1313/p/dsm/'>
+
+<link rel="stylesheet" href="/scss/style.min.f526b334c2e55a6d3619018694feabecff4f11f6a7fd79f3e59b91e00b82fd81.css"><script defer src="https://cloud.umami.is/script.js" data-website-id="503f2c42-47bf-4084-8316-d0fa71c5a881"></script><meta property='og:title' content="Dsm">
+<meta property='og:description' content="前言\r這篇是使用PVE安裝，如果要用實體機安裝，請到RR的Github下載RR的img👆傳送門👆使用rufus燒入開機，並跳到步驟3。直接看安裝即可。\n這篇給的序號我不知道有沒有時效性，如果你們用真的不行的話，那就可能沒辦法用了，但機器只要洗白一次就可以了。\nQ&amp;A\n1、什麼是白群輝？ 群晖的硬件+群晖的系统 2、什麼是黑群晖？ DIY硬件+群輝的系统 3、什麼是洗白？ 黑群輝透過改成和正版一樣的SN碼和MAC地址，偽裝成白群輝。 4、不洗白會影響那些功能？\nQuickConnect不能註冊和登入(這是一個群輝非常強大的內往穿透的功能)。 DS Photo/Moments套件預覽圖是黑的。 DS Video觀看只能選擇原碼，不能切換碼率，無法離線轉碼。 Virtual Machine Manager虛擬機不能用。 Active Backup for Business數據保護和備份不能用。 Advanced Media Extensions高校影音編碼不能用。 主要是影響需要登入群輝帳號和需要授權的服務。 pve配置\rVM\r建立VM選擇不要只用任何媒體\n">
+<meta property='og:url' content='http://localhost:1313/p/dsm/'>
+<meta property='og:site_name' content='wei&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='linux' /><meta property='article:published_time' content='2024-09-04T21:44:41&#43;08:00'/><meta property='article:modified_time' content='2024-09-04T21:44:41&#43;08:00'/>
+<meta name="twitter:title" content="Dsm">
+<meta name="twitter:description" content="前言\r這篇是使用PVE安裝，如果要用實體機安裝，請到RR的Github下載RR的img👆傳送門👆使用rufus燒入開機，並跳到步驟3。直接看安裝即可。\n這篇給的序號我不知道有沒有時效性，如果你們用真的不行的話，那就可能沒辦法用了，但機器只要洗白一次就可以了。\nQ&amp;A\n1、什麼是白群輝？ 群晖的硬件+群晖的系统 2、什麼是黑群晖？ DIY硬件+群輝的系统 3、什麼是洗白？ 黑群輝透過改成和正版一樣的SN碼和MAC地址，偽裝成白群輝。 4、不洗白會影響那些功能？\nQuickConnect不能註冊和登入(這是一個群輝非常強大的內往穿透的功能)。 DS Photo/Moments套件預覽圖是黑的。 DS Video觀看只能選擇原碼，不能切換碼率，無法離線轉碼。 Virtual Machine Manager虛擬機不能用。 Active Backup for Business數據保護和備份不能用。 Advanced Media Extensions高校影音編碼不能用。 主要是影響需要登入群輝帳號和需要授權的服務。 pve配置\rVM\r建立VM選擇不要只用任何媒體\n">
+    <link rel="shortcut icon" href="/img/logo.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#pve配置">pve配置</a>
+      <ol>
+        <li><a href="#vm">VM</a></li>
+        <li><a href="#系統">系統</a></li>
+        <li><a href="#硬碟">硬碟</a></li>
+        <li><a href="#cpu">CPU</a></li>
+        <li><a href="#網路">網路</a></li>
+        <li><a href="#下載img">下載img</a></li>
+        <li><a href="#上傳到pve">上傳到pve</a></li>
+        <li><a href="#導入機器">導入機器</a></li>
+        <li><a href="#新增磁碟">新增磁碟</a></li>
+        <li><a href="#直通硬碟">直通硬碟</a></li>
+        <li><a href="#直通指令">直通指令</a></li>
+        <li><a href="#開機順序">開機順序</a></li>
+      </ol>
+    </li>
+    <li><a href="#安裝黑群輝">安裝黑群輝</a>
+      <ol>
+        <li><a href="#進入網頁">進入網頁</a></li>
+        <li><a href="#選擇型號">選擇型號</a></li>
+        <li><a href="#選擇dsm版本">選擇DSM版本</a></li>
+        <li><a href="#編譯開機檔案">編譯開機檔案</a></li>
+        <li><a href="#開機設定">開機設定</a></li>
+        <li><a href="#設定">設定</a></li>
+        <li><a href="#安裝dsm">安裝DSM</a></li>
+        <li><a href="#清除磁碟">清除磁碟</a></li>
+        <li><a href="#等待安裝">等待安裝</a></li>
+        <li><a href="#初始化">初始化</a></li>
+        <li><a href="#更新">更新</a></li>
+        <li><a href="#不要登入">不要登入</a></li>
+        <li><a href="#建立處存空間">建立處存空間</a></li>
+      </ol>
+    </li>
+    <li><a href="#洗白">洗白</a>
+      <ol>
+        <li><a href="#重新開機">重新開機</a></li>
+        <li><a href="#進入網頁-1">進入網頁</a></li>
+        <li><a href="#選擇cmdline-menu">選擇<code>Cmdline menu</code></a></li>
+        <li><a href="#選擇define-macsn">選擇<code>Define MAC/SN</code></a></li>
+        <li><a href="#填入自己購買的sn和mac">填入自己購買的sn和mac</a></li>
+      </ol>
+    </li>
+    <li><a href="#測試">測試</a>
+      <ol>
+        <li><a href="#測試quickconnect">測試quickconnect</a></li>
+        <li><a href="#測試advanced-media-extensions">測試<code>Advanced Media Extensions</code></a></li>
+      </ol>
+    </li>
+    <li><a href="#補充">補充</a></li>
+    <li><a href="#結語">結語</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux/" style="background-color: #2a9d8f; color: #fff;">
+                linux
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/dsm/">Dsm</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 04, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="前言">前言
+</h2><p>這篇是使用PVE安裝，如果要用實體機安裝，請到RR的Github下載<code>RR的img</code><a class="link" href="https://github.com/RROrg/rr/releases/tag/24.8.6"  target="_blank" rel="noopener"
+    >👆傳送門👆</a>使用rufus燒入開機，並跳到<a class="link" href="https://blog.jameshost.org/p/dsm/#%e5%ae%89%e8%a3%9d%e9%bb%91%e7%be%a4%e8%bc%9d"  target="_blank" rel="noopener"
+    >步驟3</a>。直接看安裝即可。</p>
+<p>這篇給的序號我不知道有沒有時效性，如果你們用真的不行的話，那就可能沒辦法用了，但機器只要洗白一次就可以了。</p>
+<blockquote>
+<p>Q&amp;A</p>
+</blockquote>
+<p>1、什麼是<code>白群輝</code>？    群晖的硬件+群晖的系统
+<br>
+2、什麼是<code>黑群晖</code>？    DIY硬件+群輝的系统
+<br>
+3、什麼是<code>洗白</code>？  黑群輝透過改成和正版一樣的SN碼和MAC地址，偽裝成白群輝。
+<br></p>
+<blockquote>
+<p>4、不洗白會<code>影響那些功能</code>？</p>
+<ul>
+<li><code>QuickConnect</code>不能註冊和登入(這是一個群輝非常強大的內往穿透的功能)。</li>
+<li><code>DS Photo/Moments</code>套件預覽圖是黑的。</li>
+<li><code>DS Video</code>觀看只能選擇原碼，不能切換碼率，無法離線轉碼。</li>
+<li><code>Virtual Machine Manager</code>虛擬機不能用。</li>
+<li><code>Active Backup for Business</code>數據保護和備份不能用。</li>
+<li><code>Advanced Media Extensions</code>高校影音編碼不能用。</li>
+<li>主要是影響需要登入群輝帳號和需要授權的服務。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="pve配置">pve配置
+</h2><h3 id="vm">VM
+</h3><p>建立VM選擇<code>不要只用任何媒體</code></p>
+<p><img src="/p/dsm/system.png"
+	width="886"
+	height="667"
+	srcset="/p/dsm/system_hu15445197241932210843.png 480w, /p/dsm/system_hu15613186206149680281.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="318px"
+	
+></p>
+<hr>
+<h3 id="系統">系統
+</h3><p>系統可用<code>預設</code>就好</p>
+<p><img src="/p/dsm/defalt.png"
+	width="896"
+	height="667"
+	srcset="/p/dsm/defalt_hu16055441808756017990.png 480w, /p/dsm/defalt_hu10334419766981329960.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="134"
+		data-flex-basis="322px"
+	
+></p>
+<hr>
+<h3 id="硬碟">硬碟
+</h3><p>磁碟選擇<code>SATA</code>並依照自己需求調整空間</p>
+<p><img src="/p/dsm/sata.png"
+	width="893"
+	height="662"
+	srcset="/p/dsm/sata_hu12540707046296119546.png 480w, /p/dsm/sata_hu10042640553486383955.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="134"
+		data-flex-basis="323px"
+	
+></p>
+<hr>
+<h3 id="cpu">CPU
+</h3><p>CPU類別選擇<code>host</code>，記憶體建議2G以上。</p>
+<p><img src="/p/dsm/host.png"
+	width="895"
+	height="663"
+	srcset="/p/dsm/host_hu3049426576670799363.png 480w, /p/dsm/host_hu17400636477115181769.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="134"
+		data-flex-basis="323px"
+	
+></p>
+<hr>
+<h3 id="網路">網路
+</h3><p>網路防火牆<code>取消勾選</code>，型號選擇<code>E1000</code></p>
+<p><img src="/p/dsm/network.png"
+	width="905"
+	height="661"
+	srcset="/p/dsm/network_hu6123543136832001455.png 480w, /p/dsm/network_hu9367270792659005895.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="136"
+		data-flex-basis="328px"
+	
+></p>
+<hr>
+<h3 id="下載img">下載img
+</h3><p>到RR的Github下載<code>RR的img</code><a class="link" href="https://github.com/RROrg/rr/releases/tag/24.8.6"  target="_blank" rel="noopener"
+    >👆傳送門👆</a></p>
+<p><img src="/p/dsm/img.png"
+	width="1920"
+	height="1020"
+	srcset="/p/dsm/img_hu5871435213228510043.png 480w, /p/dsm/img_hu1399951452068726610.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<hr>
+<h3 id="上傳到pve">上傳到pve
+</h3><p>使用winscp上傳img到pve的<code>root文件夾</code>中</p>
+<p><img src="/p/dsm/winscp.png"
+	width="1067"
+	height="672"
+	srcset="/p/dsm/winscp_hu8811431056444470790.png 480w, /p/dsm/winscp_hu1421121807954108335.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="381px"
+	
+></p>
+<hr>
+<h3 id="導入機器">導入機器
+</h3><p>使用指令把img<code>導入到機器</code> (下方<code>機器ID</code>改成自己的)，要等出現<code>Successfully</code>才可以關閉ssh使窗喔 !
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">qm importdisk <span class="p">&lt;</span><span class="nt">機器ID</span><span class="p">&gt;</span> rr.img local-lvm</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p><img src="/p/dsm/import.png"
+	width="1050"
+	height="537"
+	srcset="/p/dsm/import_hu11857565771097682548.png 480w, /p/dsm/import_hu5254629796386840825.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="195"
+		data-flex-basis="469px"
+	
+></p>
+<hr>
+<h3 id="新增磁碟">新增磁碟
+</h3><p>導入後機器會出現一個<code>未使用的磁碟</code>左鍵點兩下編輯，使用SATA並新增磁碟。</p>
+<p><img src="/p/dsm/inv.png"
+	width="791"
+	height="315"
+	srcset="/p/dsm/inv_hu14394559818419225258.png 480w, /p/dsm/inv_hu1436910592917821876.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="251"
+		data-flex-basis="602px"
+	
+></p>
+<hr>
+<h3 id="直通硬碟">直通硬碟
+</h3><p>先列出機器上所有的磁碟，這時候會出現很多東西，不要慌張，</p>
+<p><code>只要找最上面ata開頭的</code>是你伺服器上接的SATA磁碟。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">ls /dev/disk/by-id</span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p><img src="/p/dsm/disk.png"
+	width="575"
+	height="276"
+	srcset="/p/dsm/disk_hu1819434713863943617.png 480w, /p/dsm/disk_hu14109489216174103222.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="208"
+		data-flex-basis="500px"
+	
+></p>
+<h3 id="直通指令">直通指令
+</h3><p>找到自己要直通的硬碟後<code>輸入直通指令</code>(下方磁碟ID改成自己的)，如果有<code>兩顆以上</code>作法是一樣的指令中的<code>-sata1要改成-sata2...以此類推</code>，根據你黑群輝的機型會有<code>不一樣</code>的最多硬碟數量。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">qm set 112 -sata1 /dev/disk/by-id/<span class="p">&lt;</span><span class="nt">磁碟ID</span><span class="p">&gt;</span></span></span></code></pre></td></tr></table>
+</div>
+</div></p>
+<p>出現update代表<code>成功</code>。</p>
+<p><img src="/p/dsm/yes.png"
+	width="993"
+	height="100"
+	srcset="/p/dsm/yes_hu1281313711813739327.png 480w, /p/dsm/yes_hu3554787498716912919.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="993"
+		data-flex-basis="2383px"
+	
+></p>
+<hr>
+<h3 id="開機順序">開機順序
+</h3><p>在機器選項&ndash;&gt;開機順序把rr的磁碟<code>勾選</code>並<code>拉到第一項</code>。</p>
+<p><img src="/p/dsm/boot.png"
+	width="992"
+	height="560"
+	srcset="/p/dsm/boot_hu5851673530161712837.png 480w, /p/dsm/boot_hu17585734137788661156.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="425px"
+	
+></p>
+<hr>
+<h2 id="安裝黑群輝">安裝黑群輝
+</h2><p>開機選擇<code>Cofigure loader</code></p>
+<p><img src="/p/dsm/config.png"
+	width="720"
+	height="542"
+	srcset="/p/dsm/config_hu9282105203556320914.png 480w, /p/dsm/config_hu17033743179460117265.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="318px"
+	
+></p>
+<hr>
+<h3 id="進入網頁">進入網頁
+</h3><p>使用瀏覽器<code>進入網址</code>並開始安裝</p>
+<p><img src="/p/dsm/ip.png"
+	width="723"
+	height="536"
+	srcset="/p/dsm/ip_hu10095250983063124150.png 480w, /p/dsm/ip_hu7641752417505339034.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="134"
+		data-flex-basis="323px"
+	
+></p>
+<h3 id="選擇型號">選擇型號
+</h3><p>選單選擇<code>Choose a model</code>，型號選擇<code>DS920+</code>。</p>
+<p><img src="/p/dsm/920.png"
+	width="411"
+	height="618"
+	srcset="/p/dsm/920_hu1269198735887097015.png 480w, /p/dsm/920_hu12230850363365697018.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="66"
+		data-flex-basis="159px"
+	
+></p>
+<hr>
+<h3 id="選擇dsm版本">選擇DSM版本
+</h3><p>版本選擇<code>7.2</code>。</p>
+<p><img src="/p/dsm/version.png"
+	width="297"
+	height="272"
+	srcset="/p/dsm/version_hu2890202843655027525.png 480w, /p/dsm/version_hu12570682849032556302.png 1024w"
+	loading="lazy"
+	
+		alt="選擇7.2"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="109"
+		data-flex-basis="262px"
+	
+><img src="/p/dsm/ok.png"
+	width="827"
+	height="260"
+	srcset="/p/dsm/ok_hu7927387070651590689.png 480w, /p/dsm/ok_hu6149377238636222236.png 1024w"
+	loading="lazy"
+	
+		alt="確認即可"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="318"
+		data-flex-basis="763px"
+	
+></p>
+<hr>
+<h3 id="編譯開機檔案">編譯開機檔案
+</h3><p>選擇<code>Boot the loader</code>，並等待編譯。</p>
+<p><img src="/p/dsm/build.png"
+	width="293"
+	height="547"
+	srcset="/p/dsm/build_hu728651918227574529.png 480w, /p/dsm/build_hu11721450205802203049.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="53"
+		data-flex-basis="128px"
+	
+></p>
+<hr>
+<h3 id="開機設定">開機設定
+</h3><p>編譯完後會自動跳轉到<code>Boot the loader</code>，直接開機。</p>
+<p><img src="/p/dsm/boots.png"
+	width="293"
+	height="547"
+	srcset="/p/dsm/boots_hu728651918227574529.png 480w, /p/dsm/boots_hu11721450205802203049.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="53"
+		data-flex-basis="128px"
+	
+></p>
+<hr>
+<h3 id="設定">設定
+</h3><p>進入畫面中顯示的地址</p>
+<p><img src="/p/dsm/go.png"
+	width="671"
+	height="293"
+	srcset="/p/dsm/go_hu1742857286579348041.png 480w, /p/dsm/go_hu6270530639687356865.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="229"
+		data-flex-basis="549px"
+	
+></p>
+<hr>
+<h3 id="安裝dsm">安裝DSM
+</h3><p>選自動獲取版本即可</p>
+<p><img src="/p/dsm/yayaya.png"
+	width="1367"
+	height="811"
+	srcset="/p/dsm/yayaya_hu9472153786678576011.png 480w, /p/dsm/yayaya_hu5829047075395280682.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="168"
+		data-flex-basis="404px"
+	
+> <img src="/p/dsm/next.png"
+	width="1310"
+	height="757"
+	srcset="/p/dsm/next_hu16761481189271385361.png 480w, /p/dsm/next_hu13077913039929573680.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="173"
+		data-flex-basis="415px"
+	
+></p>
+<hr>
+<h3 id="清除磁碟">清除磁碟
+</h3><p>確認磁碟可以被清空，並輸入產品型號。</p>
+<p><img src="/p/dsm/delete.png"
+	width="645"
+	height="316"
+	srcset="/p/dsm/delete_hu11612278688711404109.png 480w, /p/dsm/delete_hu284191015113786541.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="204"
+		data-flex-basis="489px"
+	
+><img src="/p/dsm/sdasd.png"
+	width="636"
+	height="322"
+	srcset="/p/dsm/sdasd_hu14362715734655396396.png 480w, /p/dsm/sdasd_hu15928606591034115767.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="474px"
+	
+></p>
+<hr>
+<h3 id="等待安裝">等待安裝
+</h3><p>安裝完後會<code>自動重新開機</code>，開機跑完後大約還要再等待<code>5分鐘</code>網頁介面才會再跑出來(請耐心等待)。</p>
+<p><img src="/p/dsm/wait.png"
+	width="1912"
+	height="901"
+	srcset="/p/dsm/wait_hu18437427959479122606.png 480w, /p/dsm/wait_hu6109413691869181780.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="212"
+		data-flex-basis="509px"
+	
+></p>
+<hr>
+<h3 id="初始化">初始化
+</h3><p>開機後一樣進入http://<ip>:5000，並進行初始化</p>
+<p>這邊根據<code>自己需求</code>設定。</p>
+<p><img src="/p/dsm/user.png"
+	width="1303"
+	height="743"
+	srcset="/p/dsm/user_hu1405209999365000816.png 480w, /p/dsm/user_hu18341899289444577535.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="175"
+		data-flex-basis="420px"
+	
+></p>
+<hr>
+<h3 id="更新">更新
+</h3><p>這邊可以選自動更新</p>
+<p><img src="/p/dsm/auto.png"
+	width="1298"
+	height="746"
+	srcset="/p/dsm/auto_hu12928478129392375041.png 480w, /p/dsm/auto_hu2048932310990650426.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="173"
+		data-flex-basis="417px"
+	
+></p>
+<hr>
+<h3 id="不要登入">不要登入
+</h3><p>這邊<mark>選擇略過</mark>，因為我們還沒將機器洗白仕登入不了的</p>
+<p><img src="/p/dsm/raraa.png"
+	width="1290"
+	height="740"
+	srcset="/p/dsm/raraa_hu9001150314859183765.png 480w, /p/dsm/raraa_hu16873736821247969545.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="418px"
+	
+></p>
+<h3 id="建立處存空間">建立處存空間
+</h3><p>這邊就根據自己需求設定</p>
+<p><img src="/p/dsm/drive.png"
+	width="767"
+	height="580"
+	srcset="/p/dsm/drive_hu10482766179225008696.png 480w, /p/dsm/drive_hu611108666901187259.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="317px"
+	
+></p>
+<hr>
+<h2 id="洗白">洗白
+</h2><p>PVE安裝的話有額外步驟在文章最底部會說明。</p>
+<h3 id="重新開機">重新開機
+</h3><p>開機選擇<code>Cofigure loader</code></p>
+<p><img src="/p/dsm/config.png"
+	width="720"
+	height="542"
+	srcset="/p/dsm/config_hu9282105203556320914.png 480w, /p/dsm/config_hu17033743179460117265.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="318px"
+	
+></p>
+<hr>
+<h3 id="進入網頁-1">進入網頁
+</h3><p>使用瀏覽器<code>進入網址</code>。</p>
+<p><img src="/p/dsm/ip.png"
+	width="723"
+	height="536"
+	srcset="/p/dsm/ip_hu10095250983063124150.png 480w, /p/dsm/ip_hu7641752417505339034.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="134"
+		data-flex-basis="323px"
+	
+></p>
+<h3 id="選擇cmdline-menu">選擇<code>Cmdline menu</code>
+</h3><p><img src="/p/dsm/cmdline.png"
+	width="288"
+	height="547"
+	srcset="/p/dsm/cmdline_hu12237236958474487560.png 480w, /p/dsm/cmdline_hu773323419475727411.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<h3 id="選擇define-macsn">選擇<code>Define MAC/SN</code>
+</h3><p><img src="/p/dsm/sn.png"
+	width="347"
+	height="292"
+	srcset="/p/dsm/sn_hu11903296449979460076.png 480w, /p/dsm/sn_hu15868598738196525376.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="118"
+		data-flex-basis="285px"
+	
+></p>
+<h3 id="填入自己購買的sn和mac">填入自己購買的sn和mac
+</h3><p>這邊提供DS920+全洗白的SN和MAC</p>
+<pre><code>SN：2040SBRD42CP2
+MAC1：001132CABFFF
+MAC2：001132CAC000
+</code></pre>
+<p><img src="/p/dsm/sadadasdasd.png"
+	width="592"
+	height="252"
+	srcset="/p/dsm/sadadasdasd_hu16370539994600308029.png 480w, /p/dsm/sadadasdasd_hu958704179606989109.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="234"
+		data-flex-basis="563px"
+	
+></p>
+<p><code>確認</code>→<code>退出</code>→<code>重新啟動</code>即可自動保存SN和MAC。</p>
+<blockquote>
+<p>到這邊洗白就完成拉 !</p>
+</blockquote>
+<hr>
+<h2 id="測試">測試
+</h2><p>進入群輝系统登入群輝帳號<code>驗證是否可用</code>。</p>
+<p>選擇<code>控制台</code>→<code>Synology帳戶</code>，登入帳戶。</p>
+<p><img src="/p/dsm/logins.png"
+	width="1442"
+	height="813"
+	srcset="/p/dsm/logins_hu13584593849316482237.png 480w, /p/dsm/logins_hu14945447759016243128.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="425px"
+	
+></p>
+<hr>
+<h3 id="測試quickconnect">測試quickconnect
+</h3><p>選擇<code>控制台</code>→<code>外部存取</code>→啟用<code>QuickConnect</code>，登入帳戶。</p>
+<p><img src="/p/dsm/sleep.png"
+	width="1427"
+	height="805"
+	srcset="/p/dsm/sleep_hu9958557193611172214.png 480w, /p/dsm/sleep_hu3655335827593259822.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="425px"
+	
+></p>
+<hr>
+<h3 id="測試advanced-media-extensions">測試<code>Advanced Media Extensions</code>
+</h3><p>到套件中心安裝</p>
+<p><img src="/p/dsm/ad.png"
+	width="862"
+	height="633"
+	srcset="/p/dsm/ad_hu16665405840550951138.png 480w, /p/dsm/ad_hu868458280889553861.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="136"
+		data-flex-basis="326px"
+	
+></p>
+<hr>
+<h2 id="補充">補充
+</h2><p>pve需要手動調整MAC地址(DS920+<code>需要兩張網卡</code>請自己新增)
+進入機器硬體對<code>網卡點兩下左鍵</code>設定MAC地址。</p>
+<pre><code>00:11:32:CA:BF:FF
+00:11:32:CA:C0:00
+</code></pre>
+<p><img src="/p/dsm/seeeett.png"
+	width="1357"
+	height="478"
+	srcset="/p/dsm/seeeett_hu8061681874004430032.png 480w, /p/dsm/seeeett_hu15600305789473664785.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="283"
+		data-flex-basis="681px"
+	
+>
+<img src="/p/dsm/mac.png"
+	width="763"
+	height="225"
+	srcset="/p/dsm/mac_hu421404614597290465.png 480w, /p/dsm/mac_hu17927806410048628322.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="339"
+		data-flex-basis="813px"
+	
+></p>
+<h2 id="結語">結語
+</h2><p>這東西裝在虛擬機很簡單，但如果裝在實體機器會有支援性的問題，太老的平台又不能用，所以我選擇裝在PVE裡面。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/linux/">Linux</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相關文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%83%A8%E5%B1%AC%E6%96%B0pve%E7%92%B0%E5%A2%83%E4%B8%A6%E6%8F%9B%E6%BA%90%E7%A7%BB%E9%99%A4%E8%A8%82%E9%96%B1%E8%A6%96%E7%AA%97/pve.cc7088ecc3c07992f70f8eaf23cb4d8c.cc7088ecc3c07992f70f8eaf23cb4d8c_hu5918568157826690202.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 部屬新PVE環境並換源移除訂閱視窗"
+                        
+                        data-hash="md5-zHCI7MPAeZL3D46vI8tNjA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">部屬新PVE環境並換源移除訂閱視窗</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E4%B8%8A%E4%BF%AE%E5%BE%A9apt-key%E6%A3%84%E7%94%A8%E8%AD%A6%E5%91%8A/title.69450729c398e30225ffd7cd29daa341.69450729c398e30225ffd7cd29daa341_hu8273010954836707195.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 如何在Ubuntu上修復「apt-key」棄用警告"
+                        
+                        data-hash="md5-aUUHKcOY4wIl/9fNKdqjQQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">如何在Ubuntu上修復「apt-key」棄用警告</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%9C%A8linux%E6%9E%B6%E8%A8%ADkms-server/nonono.ca9adb6ad25f6574be6d4eb949f5e912.ca9adb6ad25f6574be6d4eb949f5e912_hu4722685417779049512.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 在linux架設KMS server"
+                        
+                        data-hash="md5-yprbatJfZXS&#43;bU65SfXpEg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">在linux架設KMS server</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E4%BD%BF%E7%94%A8windows%E5%91%BD%E4%BB%A4%E8%A1%8Cssh%E9%80%A3%E7%B5%90linux/cmd.361d1eefb95b498607517dace37203d3.361d1eefb95b498607517dace37203d3_hu8046604924607401254.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 使用Windows命令行ssh連結Linux"
+                        
+                        data-hash="md5-Nh0e77lbSYYHUX2s43ID0w==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用Windows命令行ssh連結Linux</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E4%BD%BF%E7%94%A8linux%E6%90%AD%E5%BB%BAaapanel/aapanel.ea03b1299ba174d888ca743a80b22b78.ea03b1299ba174d888ca743a80b22b78_hu6692722012269164018.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 使用linux搭建aapanel"
+                        
+                        data-hash="md5-6gOxKZuhdNiIynQ6gLIreA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用linux搭建aapanel</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 WEI&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+         <br />
+        
+    </section>
+    <section class="running-time">
+        本網站已經穩定運行
+        <span id="runningdays" class="running-days"></span>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    let s1 = '2024-8-15'; 
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小時" + minutes + "分鐘";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
+
+    </body>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Ukenn2112/UkennWeb@3.0/index/web.js"></script>
+</html>
+
